@@ -12,17 +12,13 @@
 |password|string|null: false|
 |password_confirmation|string|null: false|
 |birthday|integer|null: false|
-|post_number|integer|null: false|
-|prefectures|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string|null: false|
 |comment|text|null: false|
 |payment|string||
 
 ### Associatioin
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
+- has_many :streetaddresses
 
 ## productsテーブル
 
@@ -30,7 +26,6 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 |comment|string|null: false|
-|image|text|null: false, unique: true|
 |price|integer|null: false|
 |size|string||
 |status|string|null: false|
@@ -50,6 +45,7 @@
 - has_many :likes, dependent: :destroy
 - belongs_to :category
 - belongs_to :brand
+- has_many :images
 
 ## commentsテーブル
 
@@ -67,12 +63,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|major|string|null: false|
-|medium|string|null: false|
-|small|string|null: false|
+|url|text|null: false|
+|product_id|integer|null: false,foreign_key: true|
 
 ### Associatioin
 - has_many :products
+- has_ancestry
 
 ## bransテーブル
 
@@ -83,3 +79,36 @@
 ### Associatioin
 - has_many :products
 
+## streetaddressテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|post_number|integer|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string|null: false|
+
+### Associatioin
+- belongs_to :user
+
+## imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|url|text|null: false|
+|product_id|integer|null:false,foreign_key:true|
+
+### Associatioin
+- belongs_to :product
+
+## likeテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false,foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+
+### Associatioin
+- belongs_to :user
+- belongs_to :product
