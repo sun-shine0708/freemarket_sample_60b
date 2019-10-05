@@ -63,8 +63,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|url|text|null: false|
-|product_id|integer|null: false,foreign_key: true|
+|genre|string|null: false, unique: true|
+|ancestry|integerstring||
 
 ### Associatioin
 - has_many :products
