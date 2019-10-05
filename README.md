@@ -21,8 +21,8 @@
 |payment|string||
 
 ### Associatioin
-- has_many :comments
-- has_many :likes
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
 
 ## productsテーブル
 
@@ -46,8 +46,8 @@
 
 ### Associatioin
 - belongs_to :user
-- has_many :comments
-- has_many :likes
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
 - belongs_to :category
 - belongs_to :brand
 
