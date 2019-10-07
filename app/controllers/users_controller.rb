@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def show
 
   end
@@ -8,8 +8,9 @@ class UsersController < ApplicationController
 
   end
 
-  def new
+  def preview
 
   end
+
 end
 
