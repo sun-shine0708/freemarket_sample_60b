@@ -1,0 +1,230 @@
+
+.mypage{
+  padding-top: 40px;
+  background-color: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__container{
+    width: 1020px;
+    margin: 0 auto 0; 
+    display: flex;
+  }
+}
+
+.mypage-side_bar{
+  width: 280px;
+  background-color: #FFF;
+  margin-right: 40px;
+}
+
+.mypage-nav{
+  border-bottom: 1px solid #f5f5f5;
+  height: 48px;
+  padding: 16px;
+  &__link{
+    text-decoration: none;
+    &__content{
+      color: #333;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__head{
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 40px;
+    background-color: #f5f5f5;
+  }
+}
+
+.active-nav{
+  color: #333;
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.mypage-content{
+  width: 700px;
+  padding: 0 0 40px;
+  &__user{
+    height: 200px;
+    padding: 20px;
+    background-image:url("https://cdn.pixabay.com/photo/2017/11/01/18/17/christmas-2908901__480.jpg"); 
+    background-size: 100%;
+    position: relative;
+  }
+}
+
+.user_link{
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  &__icon{
+    margin: auto;
+    background-image: url("https://static.mercdn.net/images/member_photo_noimage_thumb.png");
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: 100%;
+  }
+  &__name{
+    margin-top: 8px; 
+  }
+  &__detail{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+}
+
+.mypage-tabs{
+  height: 74px;
+  display: flex;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  &__notification{
+    width: 50%;
+    background-color: #FFF;
+    border-top: 2px solid #ea352d;
+    color: #333;
+    line-height: 72px;
+    text-decoration: none;
+  }
+  &__todo{
+    width: 50%;
+    background-color: #eee;
+    color: #333;
+    line-height: 74px;
+    text-decoration: none;
+  }
+}
+
+.tab-contents{
+  background-color: #FFF;
+  &__notification{
+    height: 80px;
+    width: 100%;
+    padding: 16px;
+    position: relative;
+    display: inline-block;
+  }
+}
+
+.list{
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.mercari-icon{
+  height: 48px;
+  widows: 48px;
+  position: absolute;
+}
+
+.right-icon{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translate(0, -50%);
+  color: #333;
+  font-size: 14px;
+}
+
+.notification-body{
+  margin: 0 40px 0 68px;
+  &__title{
+    color: #333;
+  }
+  &__time{
+    color: #888;
+    font-size: 14px;
+  }
+}
+
+.list-display{
+  height: 88px;
+  padding: 16px;
+  &__btn{
+    height: 56px;
+    background-color: #eee;
+    text-align: center;
+    color: #333;
+    line-height: 56px;
+    font-size: 14px;
+  }
+}
+
+.mypage-product-container{
+  margin-top: 40px;
+  background-color: #FFF;
+  color: #333;
+  &__head{
+    height: 72px;
+    padding: 0 16px; 
+    line-height: 72px;
+    font-size: 16px;
+    font-weight: bold;  
+  }
+  &__tabs{
+    height: 74px;
+    display: flex;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    &__trading{
+      width: 50%;
+      background-color: #FFF;
+      border-top: 2px solid #ea352d;
+      color: #333;
+      line-height: 72px;
+      text-decoration: none;
+    }
+    &__traded{
+      width: 50%;
+      background-color: #eee;
+      color: #333;
+      line-height: 74px;
+      text-decoration: none;
+    }
+  }
+  &__content{
+    padding: 160px 0 60px;
+    text-align: center;
+    color: #ccc;
+    background-image: url("https://i.gyazo.com/9aab8379877596f859a1fcecb467d553.png");
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 18%;
+    font-weight: bold;
+  }
+}
+
+.nav-right-icon{
+  color: #ccc;
+}
+
+.active-icon{
+  color: #333;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.num{
+  margin-left: 8px; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.products-num{
+  margin-left: 16px;
+}
