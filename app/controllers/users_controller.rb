@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def show
 
   end
@@ -7,5 +7,10 @@ class UsersController < ApplicationController
   def edit
 
   end
+
+  def preview
+
+  end
+
 end
 
