@@ -4,19 +4,118 @@
   height: 100px;
   margin: 0 auto;
   padding: 8px 0 0;
-  background-color: #dcdcdc;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   box-sizing: border-box;
+
+  .content {
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    &__image {
+      margin-right: 45px;
+      width: 134px;
+    }
+    &__form{
+      width: 100%;
+      height: 40px;
+      padding: 0 42px 0 10px;
+      background-color: #f5f5f5;
+      font-size: 16px;
+      line-height: 40px;
+      outline: none;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      border-color: rgb(204, 204, 204);
+      display: flex;
+      position: relative;
+    }
+    .search-box {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+    }
+  }
+
+  .nav{
+    margin: 0 auto;
+    padding: 8px 0 0;
+    width: 1020px;
+    display: flex;
+    justify-content: space-between;
+    .nav-left {
+      display: flex;
+      &__cate{
+        height: 44px;
+        padding: 0 11px 0 0;
+        font-size: 14px;
+        line-height: 36px;
+        .list-btn {
+          color: rgb(234, 53, 45);
+          margin-right: 4px;
+        }
+      }
+      &__bland{
+        height: 44px;
+        padding: 0 0 0 11px;
+        font-size: 14px;
+        line-height: 36px;
+      .tag-btn {
+        color: rgb(234, 53, 45);
+        margin-right: 4px;
+      }
+      }
+    }
+    .nav-right{
+      display: flex;
+      &__like {
+        height: 44px;
+        padding: 0 14px 0 0;
+        font-size: 14px;
+        line-height: 36px;
+        .heart-btn {
+          margin-right: 10px;
+        }
+      }
+      &__info {
+        height: 44px;
+        padding: 0 14px;
+        font-size: 14px;
+        line-height: 36px;
+        .bell-btn {
+          margin-right: 10px;
+        }
+      }
+      &__todo {
+        height: 44px;
+        padding: 0 14px;
+        font-size: 14px;
+        line-height: 36px;
+        .check-btn {
+          margin-right: 10px;
+        }
+      }
+      &__mypage {
+        height: 44px;
+        padding: 0 0 0 14px;
+        font-size: 14px;
+        line-height: 36px;
+        .user-circle-btn {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }
-// 西田 ナビ
-.nav {
-  width: 100%;
-  height: 50px;
-  margin: 0 auto;
-  background-color: #dcdcdc;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
+
+
 // コンテンツ
 .contents {
   width: 100%;
@@ -28,16 +127,81 @@
 }
 .img {
   width: 100%;
-  height: 100px;
+  height: 390px;
   max-width: 680px;
   padding-top: 28px;
 }
 // 西田 人気カテゴリーナビ
 .popular-category-nav {
-  height: 150px;
-  background-color: #dcdcdc;
+  height: 171px;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   box-sizing: border-box;
+  padding: 56px 0px 30px;
+  .upper {
+    margin: 0 0 16px;
+    text-align: center;
+    font-size: 28px;
+  }
+  .lower {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: -10px 0px 0px -10px;
+    height: 40px;
+    .ladys {
+      display: inline-block;
+      margin: 10px 0px 0px 10px;
+      .ladys-box {
+        background-color: rgb(239, 239, 239);
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 15px;
+        padding: 4px 16px;
+      }
+    }
+    .mens {
+      display: inline-block;
+      margin: 10px 0px 0px 10px;
+      .mens-box {
+        background-color: rgb(239, 239, 239);
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 15px;
+        padding: 4px 16px;
+      }
+    }
+    .products {
+      display: inline-block;
+      margin: 10px 0px 0px 10px;
+      .products-box {
+        background-color: rgb(239, 239, 239);
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 15px;
+        padding: 4px 16px;
+      }
+    }
+    .hobby {
+      display: inline-block;
+      margin: 10px 0px 0px 10px;
+      .hobby-box {
+        background-color: rgb(239, 239, 239);
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 15px;
+        padding: 4px 16px;
+      }
+    }
+  }
 }
 // 中口 カテゴリー
 .categorys {
