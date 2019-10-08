@@ -211,15 +211,176 @@
   box-sizing: border-box;
 }
 // バナー
-.banner {
+.app-banner {
+  font-family: Arial,'游ゴシック体','YuGothic','メイリオ','Meiryo',sans-serif;
   width: 100%;
-  height: 100px;
+  height: 260px;
+  background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg");
+  background-position: center center;
+  background-size: 100%;
+  &__ad{
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+    &__download{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  } 
+}
+
+.letter-app{
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.letter-download{
+  font-family: '游ゴシック体','YuGothic','メイリオ','Meiryo',sans-serif;
+  font-size: 35px;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+
+.store-btns{
+  height: 68px;
+  &__mercari-icon{
+    height: 68px;
+    width: 68px;
+    margin-right: 20px;
+  }
+  &__appstore{
+    margin: 14px 8px 14px 0;
+  }
+  &__google{
+    margin: 14px 0;
+  }
+}
+.app-image{
+  display: inline-block;
+  height: 260px;
+  width: 300px;
 }
 // 上田 フッター ＆出品ボタン
 .footer {
   width: 100%;
-  height: 500px;
-  background-color: #dcdcdc;
-  border: 1px solid black;
-  box-sizing: border-box;
+  padding: 0 20px 10px;
+  background-color: rgb(34, 34, 34);
+  font-family: Arial,'游ゴシック体','YuGothic','メイリオ','Meiryo',sans-serif;
+}
+
+.footer-contents{
+  width: 1020px;
+  color: #fff;
+  display: flex;
+  margin: 0 auto;
+  &__title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__item{
+    margin-top: 18px;
+    padding-right: 40px;
+    width: auto;
+  }
+  &__lists{
+    &__list{
+      font-size: 12px;
+      margin-top: 16px;
+      height: 16px;
+    }
+    &__icon{
+      margin-top: 30px;
+      display: inline-block;
+    }
+  }
+}
+
+.privacy-service-item{
+  width: 43%;
+}
+
+.privacy-service{
+  display: flex;
+  &__privacy{
+    width: 50%;
+    padding: 0 10px 0 0;
+  }
+  &__service{
+    padding: 0 0 0 10px;
+  }
+}
+
+.footer-list-detail{
+  color: #dcdcdc;
+  text-decoration: none;
+}
+
+.footer-list-detail:hover{
+  text-decoration: underline;
+}
+
+.footer-icon{
+  &--twitter{
+    color: #fff;
+    font-size: 32px;
+    margin-right: 20px;
+  }
+  &--facebook{
+    color: #fff;
+    font-size: 32px;
+  }
+}
+
+.footer-copyright{
+  width: 1020px;
+  margin: 30px auto 20px;
+  display: flex;
+  &__mercari-icon{
+    height: 33px;
+    width: 124px;
+  }
+  &__developer{
+    width: 75%;
+    color: #FFF;
+    font-size: 12px;
+    text-align: center;
+    line-height: 33px;
+    padding-left: 15px;
+  }
+}
+
+.display-btn{
+  font-family: Arial,'游ゴシック体','YuGothic','メイリオ','Meiryo',sans-serif;
+  bottom: 32px;
+  right: 32px;
+  font-size: 22px;
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  text-align: center;
+  z-index: 2;
+  &--link{
+    text-decoration: none;
+  }
+  &__detail{
+    height: 100%;
+    width: 100%;
+    color: #FFF;
+    background-color: rgb(234, 53, 45);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &--text{
+      font-size: 22px;
+    }
+    &--icon{
+      font-size: 54px;
+    }
+  }
 }
