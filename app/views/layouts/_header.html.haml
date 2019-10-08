@@ -4,7 +4,8 @@
   .content__form
     %input.input-default{type: "search", placeholder: "何かお探しですか？", value: ""}
     .search-box
-      = fa_icon 'search',class: 'search-btn'
+      =link_to "", class: "icon-search" do
+        = fa_icon 'search',class: 'search-btn'
 .nav
   .nav-left
     .nav-left__cate
@@ -15,14 +16,18 @@
       ブランドから探す
   .nav-right
     .nav-right__like
-      = fa_icon 'heart-o', class: 'heart-btn'
-      いいね ! 一覧
+      =link_to "", class: "pc-header-menu-link" do
+        = fa_icon 'heart-o', class: 'heart-btn'
+        いいね ! 一覧
     .nav-right__info
-      = fa_icon 'bell-o', class: 'bell-btn'
-      お知らせ
+      =link_to "", class: "pc-header-menu-link" do
+        = fa_icon 'bell-o', class: 'bell-btn'
+        お知らせ
     .nav-right__todo
-      = fa_icon 'check', class: 'check-btn'
-      やることリスト
+      =link_to "", class: "pc-header-menu-link" do
+        = fa_icon 'check', class: 'check-btn'
+        やることリスト
     .nav-right__mypage
-      = fa_icon 'user-circle', class: 'user-circle-btn'
-      マイページ
+      =link_to "", class: "pc-header-menu-link" do
+        = fa_icon 'user-circle', class: 'user-circle-btn'
+        マイページ
