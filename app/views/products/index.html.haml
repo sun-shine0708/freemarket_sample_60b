@@ -22,6 +22,25 @@
           おもちゃ・ホビー・グッズ
   .categorys
     中口（カテゴリー）
-  .banner
-  .footer
-    上田（フッター・出品ボタン）
+  .app-banner
+    .app-banner__ad
+      .app-banner__ad__download
+        .letter-app
+          スマホでかんたんフリマアプリ
+        .letter-download
+          今すぐ無料ダウンロード！
+        .store-btns
+          %img.store-btns__mercari-icon{src: "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}
+          = link_to "", class: "" do
+            %img.store-btns__appstore{src: "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}
+          = link_to "", class: "" do
+            %img.store-btns__google{src: "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}
+      .app-banner__ad__image
+        %img.app-image{src: "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"
+

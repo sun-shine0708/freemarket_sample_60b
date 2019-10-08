@@ -4,19 +4,22 @@
     = render 'side-bar'
     .mypage-content
       .mypage-content__user
-        = link_to "", class: "user_link" do
-          .user_link__icon
-          .user_link__name.bold
-            name
-          .user_link__detail
-            .user-rate
-              評価
-              %span.num
-                1 
-            .products-num
-              出品数
-              %span.num
-                0
+        .mypage-content__user--profile
+          = link_to "", class: "user_link user_link--name" do
+            .user_link__icon
+            .user_link__name.bold
+              name
+        .mypage-content__user--rating
+          = link_to "", class: "user_link" do
+            .user_link__detail
+              .user-rate
+                評価
+                %span.num
+                  1 
+              .products-num
+                出品数
+                %span.num
+                  0
       .mypage-content__tab
         .mypage-tabs
           = link_to "", class: "mypage-tabs__notification" do
@@ -39,3 +42,5 @@
             過去の取引
         .mypage-product-container__content
           取引中の商品はありません
+  .display-btn
+    = render "layouts/display_btn"
