@@ -1,0 +1,66 @@
+.signup-header
+  %h1.logo
+    %img{:alt => "", :src => "img/mercari_logo.png"}/
+  .signup-bar
+    %ol.signup-lists
+      %li.signup-list
+        会員情報
+        .list-round-left.active-round
+      %li.signup-list
+        電話番号認証
+        .list-round-complete.active-round
+      %li.signup-list
+        お届け先住所入力
+        .list-round-complete.active-round
+      %li.signup-list.active-title
+        支払い方法
+        .list-round-active.active-round
+      %li.signup-list
+        完了
+        .list-round-right
+.signup-main
+  .main-contents
+    .main-contents-title 支払い方法
+    .form-group
+      %label{:for => ""} カード番号
+      %span.form-require 必須
+      %input.input-box{:name => "", :placeholder => "半角数字のみ", :type => "text"}/
+    .form-group
+      %div
+        %label{:for => "birthday"} 有効期限
+        %span.form-require 必須
+      .select-wrapper
+        .select-box
+          .unit-box
+            %i.fas.fa-sort-down
+            %select.select-unit{:name => "year"}
+              %option{:value => ""} --
+              %option{:value => "2019"} 2019
+              %option{:value => "2018"} 2018
+              %option{:value => "2017"} 2017
+              %option{:value => "2016"} 2016
+              %option{:value => "2015"} 2015
+        %span.unit 月
+        .select-box
+          .unit-box
+            %i.fas.fa-sort-down
+            %select.select-unit{:name => "year"}
+              %option{:value => ""} --
+              %option{:value => "2019"} 2019
+              %option{:value => "2018"} 2018
+              %option{:value => "2017"} 2017
+              %option{:value => "2016"} 2016
+              %option{:value => "2015"} 2015
+        %span.unit 年
+    .form-group
+      %label{:for => "nickname"} セキュリティコード
+      %span.form-require 必須
+      %input.input-box{:name => "", :placeholder => "カード背面4桁もしくは3桁の番号", :type => "text"}/
+    .form-group
+      %button.next-button{:type => "submit"} 次へ進む
+.signup-footer
+  %p.footer-links
+    %a.footer-link{:href => "#"} プライバシーポリシー
+    %a.footer-link{:href => "#"} メルカリ利用規約
+    %a.footer-link{:href => "#"} 特定商取引に関する表記
+  %img.footer-img{:src => "img/logo-gray.svg"}/

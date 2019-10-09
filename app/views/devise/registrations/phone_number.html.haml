@@ -1,0 +1,38 @@
+.signup-header
+  %h1.logo
+    %img{:alt => "", :src => "img/mercari_logo.png"}/
+  .signup-bar
+    %ol.signup-lists
+      %li.signup-list
+        会員情報
+        .list-round-left.active-round
+      %li.signup-list.active-title
+        電話番号認証
+        .list-round-active.active-round
+      %li.signup-list
+        お届け先住所入力
+        .list-round
+      %li.signup-list
+        支払い方法
+        .list-round
+      %li.signup-list
+        完了
+        .list-round-right
+.signup-main
+  .main-contents
+    .main-contents-title 電話番号の確認
+    .form-group
+      %label{:for => ""} 携帯電話の番号
+      %input.input-box{:name => "", :placeholder => "携帯電話の番号を入力", :type => "text"}/
+      %p
+        本人確認の為、携帯電話のSNS(ショートメッセージサービス)を利用して認証を行います。
+    .form-group
+      %button.next-button{:type => "submit"} SMSを送信する
+      %p
+        電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+.signup-footer
+  %p.footer-links
+    %a.footer-link{:href => "#"} プライバシーポリシー
+    %a.footer-link{:href => "#"} メルカリ利用規約
+    %a.footer-link{:href => "#"} 特定商取引に関する表記
+  %img.footer-img{:src => "img/logo-gray.svg"}/

@@ -1,0 +1,62 @@
+.login
+  .login-header
+    .login-header__logo
+      %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+  
+  .login-main
+    .login-contents-no-acount
+      アカウントをお持ちでない方はこちら
+      .login-contents-no-acount__signup-btn
+        新規会員登録
+    .login-sns
+      .login-sns__facebook
+        = fa_icon 'facebook-square', class: 'fab.fa-facebook-square icon'
+        Facebookでログイン
+      .login-sns__google
+        = fa_icon 'google', class: 'fab.fa-google icon'
+        Googleでログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-text-form
+        .login-text-form__email
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "login-input"
+        .login-text-form__password
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "login-input"
+        .login-text-form__action
+          = f.submit "ログイン", class: "login-btn"
+        .contents-links
+          パスワードをお忘れの方
+          
+  .login-footer
+    .footer-links
+      .footer-links__link
+        プライバシーポリシー
+      .footer-links__link
+        メルカリ利用規約
+      .footer-links__link
+        特定商取引に関する表記
+    .login-footer__img
+      %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}
+
+
+
+
+
+
+
+-# %h2 ログイン
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

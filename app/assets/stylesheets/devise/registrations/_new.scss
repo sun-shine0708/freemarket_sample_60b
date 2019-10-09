@@ -1,0 +1,95 @@
+.signup {
+  width: 100%;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+.add-h {
+  height: 100vw;
+}
+.signup-header {
+  height: 128px;
+  display: inline-block;
+  &__logo {
+    width: 200px;
+    padding-top: 40px;
+  }
+}
+
+.signup-main {
+  background-color: #f5f5f5;
+}
+.add-p {
+  padding-bottom: 160px;
+}
+.signup-contents {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 32px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  &__form {
+    padding: 40px 40px 64px;
+
+  }
+}
+.sginup-btn {
+  max-width: 343px;
+  margin: 0 auto;
+  color: #fff;
+  cursor: pointer;
+  &__email {
+    height: 50px;
+    line-height: 50px;
+    border-radius: 4px;
+    background-color: #ea352d;
+    position: relative;
+    border: 1px solid transparent;
+  }
+  &__facebook {
+    height: 50px;
+    line-height: 50px;
+    border-radius: 4px;
+    margin-top: 16px;
+    background-color: #385185;
+    position: relative;
+    border: 1px solid transparent;
+  }
+  &__google {
+    height: 50px;
+    line-height: 50px;
+    border-radius: 4px;
+    margin-top: 16px;
+    background-color: #fff;
+    border: 1px solid #979797;
+    color: #333;
+    position: relative;
+  }
+}
+.icon {
+  font-size: 20px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+}
+.signup-footer {
+  width: 100%;
+  padding-bottom: 50px;
+  &__img {
+    width: 100px;
+    margin: 40px auto 0;
+  }
+}
+.footer-links {
+  padding-top: 50px;
+  &__link {
+    display: inline;
+    margin: 0 20px;
+    font-size: 12px;
+    color: #333;
+  }
+}
