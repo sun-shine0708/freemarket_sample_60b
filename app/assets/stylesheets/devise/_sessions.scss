@@ -1,0 +1,129 @@
+.login {
+  width: 100%;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.login-header {
+  height: 128px;
+  display: inline-block;
+  &__logo {
+    width: 200px;
+    padding-top: 40px;
+  }
+}
+
+.login-main {
+  background-color: white;
+  width: 456px;
+  margin: 0 auto;
+}
+
+.login-contents-no-acount {
+  padding: 40px 64px;
+  color: #333;
+  &__signup-btn {
+    cursor: pointer;
+    display: inline;
+    display: block;
+    margin: 8px 0 0;
+    border: 1px solid #0099e8;
+    background: #0099e8;
+    color: #fff;
+    line-height: 40px
+  }
+}
+
+.login-sns {
+  padding: 32px 64px;
+  margin: 0 auto;
+  color: #fff;
+  border-top: 1px solid #eee;
+  &__facebook {
+    height: 50px;
+    line-height: 50px;
+    margin-top: 16px;
+    background-color: #385185;
+    position: relative;
+    cursor: pointer;
+  }
+  &__google {
+    height: 50px;
+    line-height: 50px;
+    margin-top: 16px;
+    background-color: #fff;
+    border: 1px solid #979797;
+    color: #333;
+    position: relative;
+    cursor: pointer;
+  }
+}
+.icon {
+  font-size: 20px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+}
+
+.login-text-form {
+  padding: 24px 64px 32px;
+  &__email {
+
+  }
+  &__password {
+    margin: 24px 0 0;
+  }
+  &__action {
+    margin: 24px 0 0;
+  }
+}
+.login-input {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+}
+.login-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+.contents-links {
+  margin: 40px 0 0;
+  color: #0099e8;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+
+
+.login-footer {
+  width: 100%;
+  padding-bottom: 50px;
+  &__img {
+    width: 100px;
+    margin: 40px auto 0;
+  }
+}
+.footer-links {
+  padding-top: 50px;
+  &__link {
+    display: inline;
+    margin: 0 20px;
+    font-size: 12px;
+    color: #333;
+  }
+}

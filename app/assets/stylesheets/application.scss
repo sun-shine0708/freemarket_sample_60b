@@ -2,6 +2,14 @@
 @import "font-awesome";
 @import "products";
 @import "show";
+@import "devise/registrations/address";
+@import "devise/registrations/card";
+@import "devise/registrations/complete";
+@import "devise/registrations/entory";
+@import "devise/registrations/new";
+@import "devise/registrations/phone";
+@import "devise/sessions";
+@import "userspreview";
 
 * {
     box-sizing: border-box;

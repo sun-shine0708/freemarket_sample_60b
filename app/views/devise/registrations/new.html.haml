@@ -1,0 +1,85 @@
+.signup.add-h
+  .signup-header
+    .signup-header__logo
+      %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+  .signup-main.add-p
+    .signup-contents
+      .signup-contents__title
+        新規会員登録
+      .signup-contents__form
+        .sginup-btn
+          .sginup-btn__email
+            = fa_icon 'envelope', class: 'fas.fa-envelope icon'
+            メールアドレスで登録する
+          .sginup-btn__facebook
+            = fa_icon 'facebook-square', class: 'fab.fa-facebook-square icon'
+            Facebookで登録する
+          .sginup-btn__google
+            = fa_icon 'google', class: 'fab.fa-google icon'
+            Googleで登録する
+  .signup-footer
+    .footer-links
+      .footer-links__link
+        プライバシーポリシー
+      .footer-links__link
+        メルカリ利用規約
+      .footer-links__link
+        特定商取引に関する表記
+    .signup-footer__img
+      %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}
+
+
+
+
+
+
+
+
+
+
+
+-# %h2 登録画面
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .label
+-#     = f.label :name
+-#     %br/
+-#     = f.text_field :name
+-#   .label
+-#     = f.label :name_kana
+-#     %br/
+-#     = f.text_field :name_kana
+-#   .label
+-#     = f.label :nickname
+-#     %br/
+-#     = f.text_field :nickname
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .label
+-#     = f.label :birthday
+-#     %br/
+-#     = f.text_field :birthday
+-#   .label
+-#     = f.label :comment
+-#     %br/
+-#     = f.text_field :comment
+-#   .label
+-#     = f.label :payment
+-#     %br/
+-#     = f.text_field :payment
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
