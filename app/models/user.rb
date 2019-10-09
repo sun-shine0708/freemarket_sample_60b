@@ -8,6 +8,5 @@ class User < ApplicationRecord
   validates :name_kana,     presence: true
   validates :nickname,      presence: true, length: { maximum: 20 }, uniqueness: true
   validates :birthday,      presence: true
-  validates :comment,       presence: true
   validates :password,      length: { minimum: 7 }
 end
