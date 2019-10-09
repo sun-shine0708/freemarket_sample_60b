@@ -19,9 +19,11 @@
 .mypage-nav{
   border-bottom: 1px solid #f5f5f5;
   height: 48px;
-  padding: 16px;
   &__link{
     text-decoration: none;
+    display: inline-block;
+    padding: 16px;
+    width: 280px;
     &__content{
       color: #333;
       font-size: 14px;
@@ -51,7 +53,9 @@
     padding: 20px;
     background-image:url("https://cdn.pixabay.com/photo/2017/11/01/18/17/christmas-2908901__480.jpg"); 
     background-size: 100%;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -61,10 +65,6 @@
   font-size: 14px;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   text-decoration: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: #333;
   &__icon{
     margin: auto;
@@ -76,12 +76,16 @@
     background-size: 100%;
   }
   &__name{
-    margin-top: 8px; 
+    margin-top: 8px;
   }
   &__detail{
     display: flex;
     justify-content: center;
     margin-top: 8px;
+  }
+  &--name:hover{
+    text-decoration: underline;
+
   }
 }
 

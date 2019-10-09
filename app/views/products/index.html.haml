@@ -1,32 +1,5 @@
 .header 
-  .content
-    .content__image
-      %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
-    .content__form
-      何かお探しですか？
-      .search-box
-        = fa_icon 'search',class: 'search-btn'
-  .nav
-    .nav-left
-      .nav-left__cate
-        = fa_icon 'list-ul', class: 'list-btn'
-        カテゴリーから探す
-      .nav-left__bland
-        = fa_icon 'tag', class: 'tag-btn'
-        ブランドから探す
-    .nav-right
-      .nav-right__like
-        = fa_icon 'heart-o', class: 'heart-btn'
-        いいね ! 一覧
-      .nav-right__info
-        = fa_icon 'bell-o', class: 'bell-btn'
-        お知らせ
-      .nav-right__todo
-        = fa_icon 'check', class: 'check-btn'
-        やることリスト
-      .nav-right__mypage
-        = fa_icon 'user-circle', class: 'user-circle-btn'
-        マイページ
+  = render 'layouts/header'
 
 .contents
   .img-slider
@@ -37,18 +10,41 @@
     .lower
       .ladys
         .ladys-box
-          レディース
+          = link_to "", class: "category-menu-link" do
+            レディース
       .mens
         .mens-box
-          メンズ
+          = link_to "", class: "category-menu-link" do
+            メンズ
       .products
         .products-box
-          家電・スマホ・カメラ
+          = link_to "", class: "category-menu-link" do
+            家電・スマホ・カメラ
       .hobby
         .hobby-box
-          おもちゃ・ホビー・グッズ
+          = link_to "", class: "category-menu-link" do
+            おもちゃ・ホビー・グッズ
   .categorys
     中口（カテゴリー）
-  .banner
-  .footer
-    上田（フッター・出品ボタン）
+  .app-banner
+    .app-banner__ad
+      .app-banner__ad__download
+        .letter-app
+          スマホでかんたんフリマアプリ
+        .letter-download
+          今すぐ無料ダウンロード！
+        .store-btns
+          %img.store-btns__mercari-icon{src: "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}
+          = link_to "", class: "" do
+            %img.store-btns__appstore{src: "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}
+          = link_to "", class: "" do
+            %img.store-btns__google{src: "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}
+      .app-banner__ad__image
+        %img.app-image{src: "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"
+

@@ -1,193 +1,25 @@
 .header 西田（ヘッダー）
 .mypage
   .mypage__container
-    .mypage-side_bar
-      .maypage-nav-list
-        .mypage-nav.active-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                マイページ
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon active-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                お知らせ
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                やることリスト
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link " do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                いいね！一覧
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                出品する
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                出品した商品 - 出品中
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                出品した商品 - 取引中
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                出品した商品 - 売却済み
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                購入した商品 - 取引中
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                購入した商品 - 過去の取引
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                ニュース一覧
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                評価一覧
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                ガイド
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                お問い合わせ
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-      
-      .mypage-nav__head
-        メルペイ
-
-      .maypage-nav-list
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                売上・振込申請
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                ポイント
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-
-      .mypage-nav__head
-        設定
-      .maypage-nav-list
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                プロフィール
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                発送元・お届け先住所変更
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                支払い方法
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                メール/パスワード
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                本人情報
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                電話番号の確認
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
-        .mypage-nav
-          = link_to "", class: "mypage-nav__link" do
-            .mypage-nav__link__content
-              .mypage-nav__link__content__title
-                ログアウト
-              .mypage-nav__link__content__icon
-                = fa_icon 'chevron-right', class: "nav-right-icon"
+    = render 'side-bar'
     .mypage-content
       .mypage-content__user
-        = link_to "", class: "user_link" do
-          .user_link__icon
-          .user_link__name.bold
-            name
-          .user_link__detail
-            .user-rate
-              評価
-              %span.num
-                1 
-            .products-num
-              出品数
-              %span.num
-                0
+        .mypage-content__user--profile
+          = link_to "", class: "user_link user_link--name" do
+            .user_link__icon
+            .user_link__name.bold
+              name
+        .mypage-content__user--rating
+          = link_to "", class: "user_link" do
+            .user_link__detail
+              .user-rate
+                評価
+                %span.num
+                  1 
+              .products-num
+                出品数
+                %span.num
+                  0
       .mypage-content__tab
         .mypage-tabs
           = link_to "", class: "mypage-tabs__notification" do
@@ -195,56 +27,7 @@
           = link_to "", class: "mypage-tabs__todo" do
             やることリスト
         .tab-contents
-          .list
-            =link_to "", class: "tab-contents__notification link" do
-              %img.mercari-icon{src: "https://static.mercdn.net/images/mercari_profile.png"}
-              .notification-body
-                .notification-body__title
-                  《速報》今なら販売手数料が実質無料！出品が超お得♪
-                .notification-body__time
-                  = fa_icon 'cog', class: "clock-icon"
-                  %span 5時間前
-              = fa_icon 'chevron-right', class: "right-icon"
-          .list
-            =link_to "", class: "tab-contents__notification link" do
-              %img.mercari-icon{src: "https://static.mercdn.net/images/mercari_profile.png"}
-              .notification-body
-                .notification-body__title
-                  《速報》今なら販売手数料が実質無料！出品が超お得♪
-                .notification-body__time
-                  = fa_icon 'cog', class: "clock-icon"
-                  %span 5時間前
-              = fa_icon 'chevron-right', class: "right-icon"
-          .list
-            =link_to "", class: "tab-contents__notification link" do
-              %img.mercari-icon{src: "https://static.mercdn.net/images/mercari_profile.png"}
-              .notification-body
-                .notification-body__title
-                  《速報》今なら販売手数料が実質無料！出品が超お得♪
-                .notification-body__time
-                  = fa_icon 'cog', class: "clock-icon"
-                  %span ５時間前
-              = fa_icon 'chevron-right', class: "right-icon"
-          .list
-            =link_to "", class: "tab-contents__notification link" do
-              %img.mercari-icon{src: "https://static.mercdn.net/images/mercari_profile.png"}
-              .notification-body
-                .notification-body__title
-                  《速報》今なら販売手数料が実質無料！出品が超お得♪
-                .notification-body__time
-                  = fa_icon 'cog', class: "clock-icon"
-                  %span ５時間前
-              = fa_icon 'chevron-right', class: "right-icon"
-          .list
-            =link_to "", class: "tab-contents__notification link" do
-              %img.mercari-icon{src: "https://static.mercdn.net/images/mercari_profile.png"}
-              .notification-body
-                .notification-body__title
-                  《速報》今なら販売手数料が実質無料！出品が超お得♪
-                .notification-body__time
-                  = fa_icon 'cog', class: "clock-icon"
-                  %span ５時間前
-              = fa_icon 'chevron-right', class: "right-icon"
+          = render 'notification-list'
           .list-display
             =link_to "", class: "link" do
               .list-display__btn
@@ -259,3 +42,5 @@
             過去の取引
         .mypage-product-container__content
           取引中の商品はありません
+  .display-btn
+    = render "layouts/display_btn"
