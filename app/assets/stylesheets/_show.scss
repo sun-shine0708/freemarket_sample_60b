@@ -118,12 +118,15 @@
     background-color: #eee;
     color: #333;
     line-height: 74px;
-    text-decoration: none;
   }
   &__tab:hover{
     opacity: 0.7;
     filter: alpha(opacity=70);
   }
+}
+
+input[name="tab_item"] {
+  display: none;
 }
 
 .mypage-tabs input:checked + .mypage-tabs__tab {
@@ -213,7 +216,6 @@
       background-color: #eee;
       color: #333;
       line-height: 74px;
-      text-decoration: none;
     }
     &__tab:hover{
       opacity: 0.7;
@@ -230,6 +232,17 @@
     background-size: 18%;
     font-weight: bold;
   }
+}
+
+input[name="trade_item"] {
+  display: none;
+}
+
+.mypage-product-container__tabs input:checked + .mypage-product-container__tabs__tab {
+  background-color: #FFF;
+  border-top: 2px solid #ea352d;
+  color: #333;
+  line-height: 72px;
 }
 
 .active-tab{
