@@ -1,0 +1,2 @@
+class Streetaddress < ApplicationRecord
+end

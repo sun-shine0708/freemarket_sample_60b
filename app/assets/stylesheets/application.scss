@@ -3,10 +3,13 @@
 @import "products";
 @import "show";
 @import "devise/registrations/new";
-@import "devise/registrations/phone_number";
-@import "devise/sessions";
+@import "devise/registrations/signup";
+@import "devise/registrations/signup_header";
+@import "devise/registrations/signup_footer";
+@import "devise/sessions/sessions";
 @import "userspreview";
 @import "devise/new";
+
 
 * {
     box-sizing: border-box;
