@@ -3,8 +3,12 @@
 @import "products";
 @import "show";
 @import "devise/registrations/new";
-@import "devise/sessions";
+@import "devise/registrations/signup";
+@import "devise/registrations/signup_header";
+@import "devise/registrations/signup_footer";
+@import "devise/sessions/sessions";
 @import "userspreview";
+
 
 * {
     box-sizing: border-box;
