@@ -1,8 +1,10 @@
 .wrapper
   .header
+    = render "layouts/header"
 
   .container
     .container__side-bar
+      = render 'side-bar'
 
     .content
       .heading
@@ -108,6 +110,8 @@
             本人情報の登録について
             = fa_icon 'arrow-right'
 
-  .bannar
+  .app-banner
+    = render "layouts/banner"
 
   .footer
+    = render "layouts/footer"

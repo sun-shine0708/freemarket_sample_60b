@@ -5,27 +5,33 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|name_kana|string|null: false|
+|fist_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |nickname|string|null: false, unique: true|
 |mail|string|null: false, unique: true|
 |password|string|null: false|
-|password_confirmation|string|null: false|
-|birthday|integer|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 |comment|text|null: false|
-|payment|string||
+|phone_number|string|null: false, unique: true|
 
 ### Associatioin
+- has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
+- has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :streetaddresses
+- has_one  :streetaddresses
+- has_one  :creditcards
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|comment|string|null: false|
+|comment|text|null: false|
 |price|integer|null: false|
 |size|string||
 |status|string|null: false|
@@ -37,10 +43,11 @@
 |buyer_id|integer|class_name: "User"|
 |seller_id|integer|class_name: "User"|
 |category_id|integer|null: false,foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|brand_id|integer|foreign_key: true|
 
 ### Associatioin
-- belongs_to :user
+- belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - belongs_to :category
@@ -83,11 +90,17 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|post_number|integer|null: false|
+|fist_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|post_number|string|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building_name|string|null: false|
+|building_name|string||
+|phone_number|string||
+|user_id|integer|null: false,foreign_key: true|
 
 ### Associatioin
 - belongs_to :user
@@ -112,3 +125,13 @@
 ### Associatioin
 - belongs_to :user
 - belongs_to :product
+
+## creditcardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false,foreign_key: true|
+|card_id|integer|null: false|
+|customer_id|integer|null: false|
+
+### Associatioin
+- belongs_to :user
