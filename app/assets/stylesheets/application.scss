@@ -3,8 +3,10 @@
 @import "products";
 @import "show";
 @import "devise/registrations/new";
+@import "devise/registrations/phone_number";
 @import "devise/sessions";
 @import "userspreview";
+@import "devise/new";
 
 * {
     box-sizing: border-box;
