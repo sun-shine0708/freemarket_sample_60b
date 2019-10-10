@@ -7,9 +7,10 @@
 @import "devise/registrations/complete";
 @import "devise/registrations/entory";
 @import "devise/registrations/new";
-@import "devise/registrations/phone";
+@import "devise/registrations/phone_number";
 @import "devise/sessions";
 @import "userspreview";
+@import "devise/new";
 
 * {
     box-sizing: border-box;
