@@ -250,7 +250,7 @@
       flex-direction: column;
       justify-content: center;
     }
-  } 
+  }
 }
 
 .letter-app{
@@ -270,8 +270,6 @@
 .store-btns{
   height: 68px;
   &__mercari-icon{
-    height: 68px;
-    width: 68px;
     margin-right: 20px;
   }
   &__appstore{
@@ -283,8 +281,6 @@
 }
 .app-image{
   display: inline-block;
-  height: 260px;
-  width: 300px;
 }
 // 上田 フッター ＆出品ボタン
 .footer {
