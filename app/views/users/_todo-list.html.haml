@@ -1,0 +1,11 @@
+#my-todo-content
+  .list
+    =link_to "", class: "tab-contents__notification link" do
+      = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: mercari-icon, size: "48x48"
+      .notification-body
+        .notification-body__title
+          《速報》今なら販売手数料が実質無料！出品が超お得♪
+        .notification-body__time
+          = fa_icon 'history', class: "clock-icon"
+          %span 5時間前
+      = fa_icon 'chevron-right', class: "right-icon"

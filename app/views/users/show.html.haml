@@ -1,4 +1,5 @@
-.header 西田（ヘッダー）
+.header
+  = render "layouts/header"
 .mypage
   .mypage__container
     = render 'side-bar'
@@ -22,9 +23,11 @@
                   0
       .mypage-content__tab
         .mypage-tabs
-          = link_to "", class: "mypage-tabs__notification" do
+          %input#my-notification-tab{checked: "checked", name: "tab_item", type: "radio"}
+          %label.mypage-tabs__tab{for: "my-notification-tab"}
             お知らせ
-          = link_to "", class: "mypage-tabs__todo" do
+          %input#my-todo-tab{name: "tab_item", type: "radio"}
+          %label.mypage-tabs__tab{for: "my-todo-tab"}
             やることリスト
         .tab-contents
           = render 'notification-list'
@@ -32,15 +35,35 @@
             =link_to "", class: "link" do
               .list-display__btn
                 一覧を見る
+        -# .mypage-tabs
+        -#   = link_to "＃", onclick: "return false;", id: "my-notification-tab", class: "mypage-tabs__tab active-tab" do
+        -#     お知らせ
+        -#   = link_to "＃", onclick: "return false;", id: "my-todo-tab", class: "mypage-tabs__tab" do
+        -#     やることリスト
+        -# .tab-contents
+        -#   = render 'notification-list'
+        -#   .list-display
+        -#     =link_to "", class: "link" do
+        -#       .list-display__btn
+        -#         一覧を見る
+
       .mypage-product-container
         .mypage-product-container__head
           購入した商品
         .mypage-product-container__tabs
-          .mypage-product-container__tabs__trading
+          %input#my-trading-tab{checked: "checked", name: "trade_item", type: "radio"}
+          %label.mypage-product-container__tabs__tab{for: "my-trading-tab"}
             取引中
-          .mypage-product-container__tabs__traded
+          %input#my-traded-tab{name: "trade_item", type: "radio"}
+          %label.mypage-product-container__tabs__tab{for: "my-traded-tab"}
             過去の取引
+          -# = link_to "＃", onclick: "return false;", id: "my-trading-tab", class: "mypage-tabs__tab active-tab" do
+          -#   取引中
+          -# = link_to "＃", onclick: "return false;", id: "my-traded-tab", class: "mypage-tabs__tab" do
+          -#   過去の取引
         .mypage-product-container__content
           取引中の商品はありません
-  .display-btn
-    = render "layouts/display_btn"
+.footer
+  = render "layouts/footer"
+.display-btn
+  = render "layouts/display_btn"
