@@ -43,7 +43,9 @@
       .form-group
         %label.form-label 都道府県
         %span.form-require 必須
-        = f.select :prefectures, [["北海道","北海道"],["青森県","青森県"],["秋田県","秋田県"],["岩手県","岩手県"]]
+        .select-box2
+          = f.select :prefectures, [["北海道","北海道"],["青森県","青森県"],["秋田県","秋田県"],["岩手県","岩手県"]]
+          = fa_icon 'sort-down',class: 'fa-sort-down2'
       .form-group
         %label.form-label 市区町村
         %span.form-require 必須
