@@ -7,9 +7,9 @@
         プロフィール
       .mypage-content__user.box
         .profile-set
-          .profile-icon
+          = image_tag "member_photo_noimage_thumb.png", class: "profile-icon", size: "60x60"
           .profile-input-name
-            %input.input-text{type: "name", placeholder: "例）AYA☆セール中", name: "nickname", value: "", class: "input-defalt"}/
+            %input.input-text{type: "name", placeholder: "例）AYA☆セール中", name: "nickname", value: "", class: "input-defalt"}
       .mypage-content__profile
         .mypage-textarea
           %textarea.input-textarea{type: "introduction", placeholder: "例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発想方法などにご質問がありましたらお気軽にどうぞ♪", cols: "40", value: ""}

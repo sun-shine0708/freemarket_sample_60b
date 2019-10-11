@@ -18,7 +18,7 @@
 
 .mypage-content__user.box {
   padding: 72px 16px 24px;
-  background-image:url("https://cdn.pixabay.com/photo/2017/11/01/18/17/christmas-2908901__480.jpg"); 
+  background-image:url("user-bg.jpg"); 
   background-size: 100%;
   display: flex;
   height: 156px;
@@ -31,9 +31,6 @@
 }
 
 .profile-icon {
-  background-image: url("https://static.mercdn.net/images/member_photo_noimage_thumb.png");
-  height: 60px;
-  width: 60px;
   border-radius: 50%;
   background-position: center center;
   background-size: 100%;
