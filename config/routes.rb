@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'logout'
+      get 'sms_confirmation'
     end
   end
   resources :signups do
