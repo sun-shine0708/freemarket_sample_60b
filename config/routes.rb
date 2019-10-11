@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     member do
       get 'preview'
     end
+    collection do
+      get 'logout'
+    end
   end
   resources :signups do
     collection do
