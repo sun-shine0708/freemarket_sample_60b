@@ -1,0 +1,35 @@
+.signup-header
+  .logo
+    %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+  .signup-bar
+    %ol.signup-lists
+      %li.signup-list.active-title
+        会員情報
+        .list-round-left.list-active-left
+      %li.signup-list.active-title
+        電話番号認証
+        .list-round.list-active
+      %li.signup-list
+        お届け先住所入力
+        .list-round
+      %li.signup-list
+        支払い方法
+        .list-round
+      %li.signup-list
+        完了
+        .list-round-right
+.signup-main
+  .main-contents
+    .main-contents-title 電話番号の確認
+    = form_for @user, url: signups_path do |f|
+      .form-group
+        %label.form-label 携帯電話の番号
+        = f.telephone_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'input-box'
+        %p
+          本人確認の為、携帯電話のSNS(ショートメッセージサービス)を利用して認証を行います。
+      .form-group
+        = f.submit "SMSを送信する", class: 'next-button'
+        %p.phone-txt
+          電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+= render 'signup_footer'
+
