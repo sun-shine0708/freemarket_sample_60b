@@ -1,6 +1,8 @@
 .pruducts-new_content
   .products-new_head
-    %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+    %h1.products-new_head_mercari
+      =link_to root_path class: "products-new_head-link" do
+        = image_tag "logo-products_new.svg", size: "185x49"
   .products-new_main
     .products-new_main-info
       商品の情報を入力
