@@ -1,4 +1,6 @@
-.header 西田（ヘッダー）
+.header
+  = render "layouts/header"
+
 .mypage
   .mypage__container
     = render 'side-bar'
@@ -16,3 +18,12 @@
         .mypage-default.btn
           = link_to "", class: "btn-default-red" do
             変更する
+
+.app-banner
+  = render "layouts/banner"
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"
