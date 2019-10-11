@@ -1,16 +1,20 @@
 @import "./reset";
 @import "font-awesome";
-@import "products";
-@import "show";
+@import "header";
+@import "footer";
+@import "display_btn";
+@import "users/show";
+@import "users/edit";
+@import "users/preview";
+@import "users/side-bar";
+@import "products/index";
+@import "products/new";
+@import "products/banner";
 // @import "devise/registrations/new";
 // @import "devise/registrations/signup";
 // @import "devise/registrations/signup_header";
 // @import "devise/registrations/signup_footer";
-@import "devise/sessions/sessions";
-@import "userspreview";
-@import "products/index";
-
-@import "devise/new";
+// @import "devise/sessions/sessions";
 
 
 * {

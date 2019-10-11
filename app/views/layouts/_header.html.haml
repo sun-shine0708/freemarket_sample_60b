@@ -1,8 +1,8 @@
-.content
+.header-content
   =link_to root_path do
-    .content__image
+    .header-content__image
       = image_tag "logo.svg", size: "134x36"
-  .content__form
+  .header-content__form
     %input.input-default{type: "search", placeholder: "何かお探しですか？", value: ""}
     .search-box
       =link_to "", class: "icon-search" do
@@ -10,25 +10,25 @@
 .nav
   .nav-left
     .nav-left__cate
-      = fa_icon 'list-ul', class: 'list-btn'
+      = fa_icon 'list-ul', class: 'left-nav-btn'
       カテゴリーから探す
     .nav-left__bland
-      = fa_icon 'tag', class: 'tag-btn'
+      = fa_icon 'tag', class: 'left-nav-btn'
       ブランドから探す
   .nav-right
     .nav-right__like
       =link_to "", class: "pc-header-menu-link" do
-        = fa_icon 'heart-o', class: 'heart-btn'
+        = fa_icon 'heart-o', class: 'right-nav-btn'
         いいね ! 一覧
     .nav-right__info
       =link_to "", class: "pc-header-menu-link" do
-        = fa_icon 'bell-o', class: 'bell-btn'
+        = fa_icon 'bell-o', class: 'right-nav-btn'
         お知らせ
     .nav-right__todo
       =link_to "", class: "pc-header-menu-link" do
-        = fa_icon 'check', class: 'check-btn'
+        = fa_icon 'check', class: 'right-nav-btn'
         やることリスト
     .nav-right__mypage
       =link_to "", class: "pc-header-menu-link" do
-        = fa_icon 'user-circle', class: 'user-circle-btn'
+        = image_tag "member_photo_noimage_thumb.png", class: 'user-circle-btn', size: "32x32"
         マイページ
