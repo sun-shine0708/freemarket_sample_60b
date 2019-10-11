@@ -10,10 +10,11 @@ Rails.application.routes.draw do
     resources :streetaddresses, only: [:new, :create]
     member do
       get 'preview'
+      get 'sms_confirmation'
+      get 'mail_password'
     end
     collection do
       get 'logout'
-      get 'sms_confirmation'
     end
   end
   resources :signups do
