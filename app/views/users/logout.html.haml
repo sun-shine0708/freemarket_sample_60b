@@ -1,2 +1,19 @@
+.header
+  = render "layouts/header"
 .logout
-  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+  .logout__container
+    = render 'side-bar'
+    .logout-content
+      .logout-btn
+        = link_to destroy_user_session_path, method: :delete, class: 'logput-btn-link' do
+          .logout-btn-box
+            ログアウト
+
+.app-banner
+  = render "layouts/banner"
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"
