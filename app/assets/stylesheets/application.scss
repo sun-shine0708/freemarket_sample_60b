@@ -10,11 +10,11 @@
 @import "products/index";
 @import "products/new";
 @import "products/banner";
-// @import "devise/registrations/new";
-// @import "devise/registrations/signup";
+@import "devise/registrations/new";
+@import "devise/registrations/signup";
 // @import "devise/registrations/signup_header";
-// @import "devise/registrations/signup_footer";
-// @import "devise/sessions/sessions";
+@import "devise/registrations/signup_footer";
+@import "devise/sessions/sessions";
 
 
 * {
