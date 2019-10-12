@@ -1,0 +1,33 @@
+.signup-header
+  .logo
+    .signup_head-logo
+      =link_to root_path do
+        = image_tag "logo.svg",  size: "185x49"
+  .signup-bar
+    %ol.signup-lists
+      %li.signup-list.active-title
+        会員情報
+        .list-round-left.list-active-left
+      %li.signup-list.active-title
+        電話番号認証
+        .list-round.list-active-left.list-active
+      %li.signup-list.active-title
+        お届け先住所入力
+        .list-round.list-active-left.list-active
+      %li.signup-list.active-title
+        支払い方法
+        .list-round.list-active-left.list-active
+      %li.signup-list.active-title
+        完了
+        .list-round-right.list-active
+.signup-main
+  .main-contents
+    .main-contents-title 会員登録完了
+    .form-group
+      %div.complete-txt
+        %p ありがとうございます。
+        %p 会員登録が完了しました。
+    .form-group
+      =link_to root_path ,class: 'link-button' do
+        メルカリをはじめる
+= render 'signups/signup_footer'
