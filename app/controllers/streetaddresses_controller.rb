@@ -9,7 +9,7 @@ class StreetaddressesController < ApplicationController
     if @streetaddress.save
       redirect_to new_creditcard_path
     else
-      render '/creditcards/new'
+      redirect_to action: "new"
     end
   end
 
