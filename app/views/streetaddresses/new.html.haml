@@ -23,7 +23,10 @@
 .signup-main
   .main-contents
     .main-contents-title 住所入力
-    = form_for [@user,@streetaddress] do |f|
+    .signup-error-message
+      - if @streetaddress.errors.any?
+        %p 入力項目に誤りがあります
+    = form_for @streetaddress do |f|
       .form-group
         %div
           %label.form-label お名前
