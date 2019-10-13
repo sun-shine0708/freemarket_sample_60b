@@ -21,4 +21,5 @@ Rails.application.routes.draw do
       get 'user2'
     end
   end
+  resources :categories
 end
