@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories
+
   resources :creditcards, only: [:new, :show] do
     collection do
       post 'show', to: 'creditcards#show'
