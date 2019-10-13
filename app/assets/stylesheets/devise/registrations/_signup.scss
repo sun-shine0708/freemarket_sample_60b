@@ -30,6 +30,15 @@
   font-size: 12px;
   vertical-align: top;
 }
+.form-any {
+  background-color: #888;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
 .input-box {
   width: 100%;
   margin-top: 8px;
@@ -158,4 +167,11 @@
 }
 .complete-txt {
   text-align: center;
+}
+.signup-card-list {
+  margin: 8px 0 0;
+}
+.signup-card-list li {
+  display: inline-block;
+  margin: 0 0 0 8px;
 }
