@@ -14,12 +14,12 @@
             必須
         .products-new_main-upload-main
           最大10枚までアップロードできます
-        = f.label :image, class: 'img-drop-box' do
-          .products-new_main-upload-img
+        -# = f.label :image, class: 'img-drop-box' do
+          -# .products-new_main-upload-img
             ドラッグアンドドロップ
-            %br
+            -# %br
             またはクリックしてファイルをアップロード
-          = f.file_field :image, class: 'hidden'
+          -# = f.file_field :image, class: 'hidden'
       .products-new_main-content
         .main-content-group
           .main-content-group-name
@@ -34,7 +34,7 @@
             .products-new-redbtn
               必須
           .main-content-form-name-box
-            = f.text_area :name, class: 'input-formarea',placeholder: '商品の説明(必須1,000文字以内)(色、素材、重さ、低下、注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+            = f.text_area :comment, class: 'input-formarea',placeholder: '商品の説明(必須1,000文字以内)(色、素材、重さ、低下、注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
 
       .products-new_main-detail
         .products-new_main-detail-left
@@ -44,31 +44,31 @@
             カテゴリー
             .products-new-redbtn
               必須
-          .detail-right-cate-top
-            = f.select :name, ['レディース', 'メンズ', 'ベビーキッズ'], {include_blank: '---'},  class: 'select-default'
-          .detail-right-cate-midlle
-            = f.select :name, ['トップス', 'ジャケット/アウター', 'パンツ'], {include_blank: '---'},  class: 'select-default'
-          .detail-right-cate-bottom
-            = f.select :name, ['Tシャツ/カットソー（半袖/袖なし）', 'Tシャツ/カットソー（7分/長袖)', 'シャツ/ブラウス（半袖/袖なし）'], {include_blank: '---'},  class: 'select-default'
-          .products-new_main-detail-right-status
-            サイズ
-            .products-new-redbtn
-              必須
-          .detail-right-status-box
-            = f.select :name, ['XXS以下', 'XS(SS)', 'S'], {include_blank: '---'},  class: 'select-default'
-          .products-new_main-detail-right-status
-            ブランド
-            .products-new-graybtn
-              任意
-          .detail-right-status-box
-            %input.input-name-box{type: "search", placeholder: "例)シャネル", value: ""}
+          -# .detail-right-cate-top
+          -#   = f.select :name, ['レディース', 'メンズ', 'ベビーキッズ'], {include_blank: '---'},  class: 'select-default'
+          -# .detail-right-cate-midlle
+          -#   = f.select :name, ['トップス', 'ジャケット/アウター', 'パンツ'], {include_blank: '---'},  class: 'select-default'
+          -# .detail-right-cate-bottom
+          -#   = f.select :name, ['Tシャツ/カットソー（半袖/袖なし）', 'Tシャツ/カットソー（7分/長袖)', 'シャツ/ブラウス（半袖/袖なし）'], {include_blank: '---'},  class: 'select-default'
+          -# .products-new_main-detail-right-status
+          -#   サイズ
+          -#   .products-new-redbtn
+          -#     必須
+          -# .detail-right-status-box
+          -#   = f.select :name, ['XXS以下', 'XS(SS)', 'S'], {include_blank: '---'},  class: 'select-default'
+          -# .products-new_main-detail-right-status
+          -#   ブランド
+          -#   .products-new-graybtn
+          -#     任意
+          -# .detail-right-status-box
+          -#   %input.input-name-box{type: "search", placeholder: "例)シャネル", value: ""}
 
           .products-new_main-detail-right-status
             商品状態
             .products-new-redbtn
               必須
           .detail-right-status-box
-            = f.select :name, ['新品、未使用', '未使用に近い', '目立った傷や汚れなし'], {include_blank: '---'},  class: 'select-default'
+            = f.select :status, ['新品、未使用', '未使用に近い', '目立った傷や汚れなし'], {include_blank: '---'},  class: 'select-default'
 
       .products-new_main-delivary
         .products-new_main-delivary-left-head
@@ -82,28 +82,28 @@
               .products-new-redbtn
                 必須
             .delivary-right-burden-box
-              = f.select :name, ['送料込み(出品者負担)', '着払い(購入者負担)'], {include_blank: '---'},  class: 'select-default'
+              = f.select :costcharge, ['送料込み(出品者負担)', '着払い(購入者負担)'], {include_blank: '---'},  class: 'select-default'
           .products-new_main-delivary-right-area
             .delivary-right-area-head
               配送の方法
               .products-new-redbtn
                 必須
             .delivary-right-area-box
-              = f.select :name, ['未定', 'らくらくメルカリ便', 'ゆうメール'], {include_blank: '---'},  class: 'select-default'
+              = f.select :delivery_way, ['未定', 'らくらくメルカリ便', 'ゆうメール'], {include_blank: '---'},  class: 'select-default'
           .products-new_main-delivary-right-area
             .delivary-right-area-head
               発送元の地域
               .products-new-redbtn
                 必須
             .delivary-right-area-box
-              = f.select :name, ['北海道', '青森県', '岩手県'], {include_blank: '---'},  class: 'select-default'
+              = f.select :delivery_area, ['北海道', '青森県', '岩手県'], {include_blank: '---'},  class: 'select-default'
           .products-new_main-delivary-right-day
             .delivary-right-day-head
               発送までの日数
               .products-new-redbtn
                 必須
             .delivary-right-day-box
-              = f.select :name, ['1~2日で発送', '2~3日で発送', '4~7日で発送'], {include_blank: '---'},  class: 'select-default'
+              = f.select :delivery_date, ['1~2日で発送', '2~3日で発送', '4~7日で発送'], {include_blank: '---'},  class: 'select-default'
 
       .products-new_main-price
         .products-new_main-price-left-head
@@ -119,7 +119,7 @@
             .main-price-right-head-input
               ¥
               .main-price-right-head-input-tab
-                = f.text_field :name, class: 'input-price', placeholder: '例)300'
+                = f.text_field :price, class: 'input-price', placeholder: '例)300'
           .main-price-right-fee
             販売手数料(10%)
           .main-price-right-profit
@@ -141,5 +141,5 @@
           に同意したことになります。
         .products-new_mainbtn-text-red
           = f.submit "", class: 'exhibit-btn', value: '出品する'
-        .products-new_mainbtn-text-gray
-          = f.submit "", class: 'return-btn', value: 'もどる'
+        -# .products-new_mainbtn-text-gray
+          -#  link_to? = f.submit "", class: 'return-btn', value: 'もどる'

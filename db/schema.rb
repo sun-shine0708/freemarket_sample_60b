@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20191013065514) do
     t.string   "delivery_way",  null: false
     t.string   "delivery_area", null: false
     t.string   "delivery_date", null: false
-    t.integer  "buyer_id",      null: false
+    t.integer  "buyer_id"
     t.integer  "seller_id",     null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
