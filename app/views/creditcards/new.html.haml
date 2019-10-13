@@ -29,6 +29,22 @@
         %span.form-require 必須
         = text_field_tag "number", "", class: "number input-box", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
       .form-group
+        %ul.signup-card-list
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615", size: "49x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3466462615", size: "34x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3466462615", size: "30x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3466462615", size: "32x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3466462615", size: "21x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3466462615", size: "32x20"
+          %li
+            = image_tag "http://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?346646261", size: "32x20"
+      .form-group
         %div
           %label.form-label 有効期限
           %span.form-require 必須
@@ -77,7 +93,6 @@
       .form-group
         = submit_tag "次へ進む", id: "token_submit", class: 'next-button'
 = render 'signups/signup_footer'
-
 
 -# .signup-header
 -#   .logo
