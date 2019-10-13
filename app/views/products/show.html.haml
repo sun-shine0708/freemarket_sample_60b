@@ -1,83 +1,145 @@
-.product-wrapper
-  .header
-    = render "layouts/header"
+= form_for @products do |f|
+  .pruducts-new_content
+    .products-new_head
+      %h1.products-new_head_mercari
+        =link_to root_path class: "products-new_head-link" do
+          = image_tag "logo-products_new.svg", size: "185x49"
+    .products-new_main
+      .products-new_main-info
+        商品の情報を入力
+      .products-new_main-upload
+        .products-new_main-upload-head
+          出品画像
+          .products-new-redbtn
+            必須
+        .products-new_main-upload-main
+          最大10枚までアップロードできます
+        -# = f.label :image, class: 'img-drop-box' do
+          -# .products-new_main-upload-img
+            ドラッグアンドドロップ
+            -# %br
+            またはクリックしてファイルをアップロード
+          -# = f.file_field :image, class: 'hidden'
+      .products-new_main-content
+        .main-content-group
+          .main-content-group-name
+            商品名
+            .products-new-redbtn
+              必須
+          .main-content-group-name-box
+            = f.text_field :name, class: 'input-name-box', placeholder: '商品名(必須40文字まで)'
+        .main-content-form
+          .main-content-form-name
+            商品の説明
+            .products-new-redbtn
+              必須
+          .main-content-form-name-box
+            = f.text_area :comment, class: 'input-formarea',placeholder: '商品の説明(必須1,000文字以内)(色、素材、重さ、低下、注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
 
-  .product-container
-    .product-container__side-bar
-      = image_tag 'mercari_side_banner.jpg', size: "280x238"
+      .products-new_main-detail
+        .products-new_main-detail-left
+          商品の詳細
+        .products-new_main-detail-right
+          .products-new_main-detail-right-cate
+            カテゴリー
+            .products-new-redbtn
+              必須
+          -# .detail-right-cate-top
+          -#   = f.select :name, ['レディース', 'メンズ', 'ベビーキッズ'], {include_blank: '---'},  class: 'select-default'
+          -# .detail-right-cate-midlle
+          -#   = f.select :name, ['トップス', 'ジャケット/アウター', 'パンツ'], {include_blank: '---'},  class: 'select-default'
+          -# .detail-right-cate-bottom
+          -#   = f.select :name, ['Tシャツ/カットソー（半袖/袖なし）', 'Tシャツ/カットソー（7分/長袖)', 'シャツ/ブラウス（半袖/袖なし）'], {include_blank: '---'},  class: 'select-default'
+          -# .products-new_main-detail-right-status
+          -#   サイズ
+          -#   .products-new-redbtn
+          -#     必須
+          -# .detail-right-status-box
+          -#   = f.select :name, ['XXS以下', 'XS(SS)', 'S'], {include_blank: '---'},  class: 'select-default'
+          -# .products-new_main-detail-right-status
+          -#   ブランド
+          -#   .products-new-graybtn
+          -#     任意
+          -# .detail-right-status-box
+          -#   %input.input-name-box{type: "search", placeholder: "例)シャネル", value: ""}
 
-    .product-content
-      .product-item-name
-        m70068440240 この商品は削除されました
-      .product-items-box
-        .product-items-name
-          = link_to "", class: "product-text-link" do
-            %h2 コーチのショルダーバックその他の商品
-        .product-items-list
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
-          .product-item-box
-            .product-item-box-photo
-              = image_tag 'COACH-photo.jpg', size: "220x220"
-            .product-item-box-body
-              .product-item-box-body-name
-                %h3 COACH コーチ ショルダーバッグ
-              .product-item-box-body-price
-                ¥15,000
+          .products-new_main-detail-right-status
+            商品状態
+            .products-new-redbtn
+              必須
+          .detail-right-status-box
+            = f.select :status, ['新品、未使用', '未使用に近い', '目立った傷や汚れなし'], {include_blank: '---'},  class: 'select-default'
 
+      .products-new_main-delivary
+        .products-new_main-delivary-left-head
+          配送について
+          .products-new_main-delivary-left-guide
+            ?
+        .products-new_main-delivary-right
+          .products-new_main-delivary-right-burden
+            .delivary-right-burden-head
+              配送料の負担
+              .products-new-redbtn
+                必須
+            .delivary-right-burden-box
+              = f.select :costcharge, ['送料込み(出品者負担)', '着払い(購入者負担)'], {include_blank: '---'},  class: 'select-default'
+          .products-new_main-delivary-right-area
+            .delivary-right-area-head
+              配送の方法
+              .products-new-redbtn
+                必須
+            .delivary-right-area-box
+              = f.select :delivery_way, ['未定', 'らくらくメルカリ便', 'ゆうメール'], {include_blank: '---'},  class: 'select-default'
+          .products-new_main-delivary-right-area
+            .delivary-right-area-head
+              発送元の地域
+              .products-new-redbtn
+                必須
+            .delivary-right-area-box
+              = f.select :delivery_area, ['北海道', '青森県', '岩手県'], {include_blank: '---'},  class: 'select-default'
+          .products-new_main-delivary-right-day
+            .delivary-right-day-head
+              発送までの日数
+              .products-new-redbtn
+                必須
+            .delivary-right-day-box
+              = f.select :delivery_date, ['1~2日で発送', '2~3日で発送', '4~7日で発送'], {include_blank: '---'},  class: 'select-default'
 
+      .products-new_main-price
+        .products-new_main-price-left-head
+          販売価格(300~9,999,999)
+          .products-new_main-price-left-guide
+            ?
+        .products-new_main-price-right
+          .main-price-right-head
+            .main-price-right-head-label
+              価格
+              .main-price-right-head-lebl-red
+                必須
+            .main-price-right-head-input
+              ¥
+              .main-price-right-head-input-tab
+                = f.text_field :price, class: 'input-price', placeholder: '例)300'
+          .main-price-right-fee
+            販売手数料(10%)
+          .main-price-right-profit
+            販売利益    
 
-
-
-
-
-
-
-
-
-
-
-
-  .app-banner
-    = render "layouts/banner"
-
-  .footer
-    = render "layouts/footer"
+      .products-new_mainbtn
+        .products-new_mainbtn-text
+          %span{style: "color: #0099e8;"}>禁止されている出品
+          、
+          %span{style: "color: #0099e8;"}>行為
+          を必ずご確認ください。
+          %br
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          %span{style: "color: #0099e8;"}>偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+          %br
+          また、出品をもちまして
+          %span{style: "color: #0099e8;"}>加盟店規約
+          に同意したことになります。
+        .products-new_mainbtn-text-red
+          = f.submit "", class: 'exhibit-btn', value: '出品する'
+        -# .products-new_mainbtn-text-gray
+          -#  link_to? = f.submit "", class: 'return-btn', value: 'もどる'
