@@ -10,12 +10,15 @@
 @import "products/index";
 @import "products/new";
 @import "products/banner";
+@import "products/show";
 @import "devise/registrations/new";
 @import "devise/registrations/signup";
 @import "devise/registrations/signup_header";
 @import "devise/registrations/signup_footer";
 @import "devise/sessions/sessions";
-
+@import "users/logout";
+@import "users/sms_confirmation";
+@import "users/mail_password";
 
 * {
     box-sizing: border-box;

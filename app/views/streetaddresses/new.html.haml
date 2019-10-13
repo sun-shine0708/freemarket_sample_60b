@@ -1,6 +1,8 @@
 .signup-header
   .logo
-    %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}
+    .signup_head-logo
+      =link_to root_path do
+        = image_tag "logo.svg",  size: "185x49"
   .signup-bar
     %ol.signup-lists
       %li.signup-list.active-title
@@ -43,7 +45,9 @@
       .form-group
         %label.form-label 都道府県
         %span.form-require 必須
-        = f.select :prefectures, [["北海道","北海道"],["青森県","青森県"],["秋田県","秋田県"],["岩手県","岩手県"]]
+        .select-box2
+          = f.select :prefectures, [["北海道","北海道"],["青森県","青森県"],["秋田県","秋田県"],["岩手県","岩手県"]]
+          = fa_icon 'sort-down',class: 'fa-sort-down2'
       .form-group
         %label.form-label 市区町村
         %span.form-require 必須
