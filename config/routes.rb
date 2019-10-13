@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'user2'
     end
   end
+
   resources :creditcards, only: [:new, :show] do
     collection do
       post 'show', to: 'creditcards#show'
@@ -26,4 +27,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'creditcards#delete'
     end
   end
+
 end
