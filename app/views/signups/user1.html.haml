@@ -23,6 +23,9 @@
 .signup-main
   .main-contents
     .main-contents-title 会員情報入力
+    .signup-error-message
+      - if @user.errors.any?
+        %p 入力項目に誤りがあります
     = form_for @user, url: user2_signups_path, method: :get do |f|
       .form-group
         %label.form-label ニックネーム

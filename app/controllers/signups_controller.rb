@@ -34,7 +34,7 @@ class SignupsController < ApplicationController
     )
     if @user.save
       sign_in User.find(@user.id) unless user_signed_in?
-      redirect_to new_user_streetaddress_path(@user)
+      redirect_to new_streetaddress_path
     else
       render '/signups/user1'
     end
