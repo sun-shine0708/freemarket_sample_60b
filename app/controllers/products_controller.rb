@@ -1,12 +1,29 @@
 class ProductsController < ApplicationController
 
-  
   def index
   end
 
   def new
     @products = Product.new
     @products.images.build
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(tweet_params)
+    end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.destroy
+    end
   end
 
   def show
@@ -16,7 +33,7 @@ class ProductsController < ApplicationController
 
   def buy_confirmation
     @products = Product.new
-  end  
+  end
 
   def create
     @products = Product.new(product_params)
