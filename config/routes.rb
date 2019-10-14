@@ -22,7 +22,15 @@ Rails.application.routes.draw do
       get 'user2'
     end
   end
-  resources :streetaddresses, only: [:new, :create]
+
+
+  resources :categories do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
   resources :creditcards, only: [:new, :show] do
     collection do
       post 'show', to: 'creditcards#show'

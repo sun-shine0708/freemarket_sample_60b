@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+  
   def index
   end
 
@@ -10,6 +12,7 @@ class ProductsController < ApplicationController
   def show
 
   end
+
 
   def buy_confirmation
 
