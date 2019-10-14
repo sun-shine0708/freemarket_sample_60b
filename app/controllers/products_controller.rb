@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def new
     @products = Product.new
+    @products.images.build
   end
 
   def show
@@ -21,6 +22,6 @@ class ProductsController < ApplicationController
 
   private
   def  product_params
-    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
 end
