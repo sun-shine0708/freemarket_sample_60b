@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create] do
+  resources :products, only: [:index, :new, :show, :create, :destroy, :update] do
     member do
       get 'buy_confirmation'
     end
