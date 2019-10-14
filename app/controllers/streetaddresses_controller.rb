@@ -1,7 +1,6 @@
 class StreetaddressesController < ApplicationController
   def new
     @streetaddress = Streetaddress.new
-    @user = User.find(params[:user_id])
   end
 
   def create
@@ -9,7 +8,7 @@ class StreetaddressesController < ApplicationController
     if @streetaddress.save
       redirect_to new_creditcard_path
     else
-      render '/creditcards/new'
+      redirect_to new_streetaddress_path
     end
   end
 

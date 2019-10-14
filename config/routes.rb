@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new, :show]
+  resources :products, only: [:index, :new, :show, :create] do
+    member do
+      get 'buy_confirmation'
+    end
+  end
   resources :users do
-    resources :streetaddresses, only: [:new, :create]
     member do
       get 'preview'
       get 'sms_confirmation'
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :categories do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -34,5 +38,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'creditcards#delete'
     end
   end
+  resources :categories
 
 end
