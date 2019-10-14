@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-  # before_action :set_user, only: [:index]
-  
+
   def index
 
   end
@@ -10,6 +9,24 @@ class ProductsController < ApplicationController
     @products.images.build
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(tweet_params)
+    end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.destroy
+    end
+  end
+
   def show
 
   end
@@ -17,7 +34,7 @@ class ProductsController < ApplicationController
 
   def buy_confirmation
     @products = Product.new
-  end  
+  end
 
   def create
     @products = Product.new(product_params)
