@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :streetaddresses, only: [:new, :create]
   resources :categories do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -38,6 +38,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'creditcards#delete'
     end
   end
-  resources :categories
 
 end
