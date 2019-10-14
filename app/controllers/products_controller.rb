@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
 
   end
 
+  def buy_confirmation
+
+  end  
+
   def create
     @products = Product.new(product_params)
     if @products.save
@@ -25,3 +29,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
 end
+
