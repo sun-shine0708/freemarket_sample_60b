@@ -6,7 +6,6 @@
   &__container{
     width: 1020px;
     margin: 0 auto 0; 
-    display: flex;
     padding-bottom: 40px;
   }
 }
@@ -14,6 +13,7 @@
 .mypage-content{
   width: 700px;
   padding: 0 0 40px;
+  float: right;
   &__user{
     height: 200px;
     padding: 20px;
