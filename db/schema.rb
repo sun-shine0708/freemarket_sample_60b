@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191013070636) do
+ActiveRecord::Schema.define(version: 20191013133500) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -20,12 +20,21 @@ ActiveRecord::Schema.define(version: 20191013070636) do
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
+  create_table "credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credentials_on_user_id", using: :btree
+  end
+
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_id",     null: false
+    t.string   "customer_id", null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "customer_id", null: false
-    t.string   "card_id",     null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id", using: :btree
   end
 
@@ -49,10 +58,10 @@ ActiveRecord::Schema.define(version: 20191013070636) do
   end
 
   create_table "streetaddresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name",      null: false
     t.string   "last_name",       null: false
-    t.string   "first_name_kana", null: false
+    t.string   "first_name",      null: false
     t.string   "last_name_kana",  null: false
+    t.string   "first_name_kana", null: false
     t.string   "post_number",     null: false
     t.string   "prefectures",     null: false
     t.string   "city",            null: false
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(version: 20191013070636) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "credentials", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"

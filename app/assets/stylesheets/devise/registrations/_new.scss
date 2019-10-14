@@ -28,7 +28,7 @@
 
   }
 }
-.sginup-btn {
+.signup-btn {
   max-width: 343px;
   margin: 0 auto;
   color: #fff;
@@ -52,6 +52,9 @@
     background-color: #385185;
     position: relative;
     border: 1px solid transparent;
+    display: block;
+    color: #fff;
+    text-decoration: none;
   }
   &__google {
     height: 50px;
@@ -62,6 +65,8 @@
     border: 1px solid #979797;
     color: #333;
     position: relative;
+    display: block;
+    text-decoration: none;
   }
 }
 .icon {

@@ -1,6 +1,10 @@
 class SignupsController < ApplicationController
   def user1
     @user = User.new
+    if session["devise.omniauth_data"]
+      @user.nickname = session["devise.omniauth_data"]['info']['name']
+      @user.email = session["devise.omniauth_data"]['info']['email']
+    end
   end
   def user2
     session[:nickname] = user_params[:nickname]
@@ -32,7 +36,14 @@ class SignupsController < ApplicationController
       birth_day: session[:birth_day],
       phone_number: user_params[:phone_number]
     )
+    if session["devise.omniauth_data"]
+      @user.credentials.build(
+        uid: session["devise.omniauth_data"]['uid'],
+        provider: session["devise.omniauth_data"]['provider']
+      )
+    end
     if @user.save
+
       sign_in User.find(@user.id) unless user_signed_in?
       redirect_to new_streetaddress_path
     else
