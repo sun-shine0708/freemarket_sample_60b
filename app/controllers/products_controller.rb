@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
 
   def buy_confirmation
-
+    @products = Product.new
   end  
 
   def create
