@@ -73,6 +73,9 @@
   &__cate:hover .header_parent-list{
     display: block;
   }
+  &__cate:hover .header_all-list{
+    display: block;
+  }
   &__bland{
     height: 44px;
     padding: 0 0 0 11px;
@@ -106,10 +109,36 @@
   width: 224px;
   font-weight: 400;
 }
-.header_parent-list:hover{
+.active_parent-list{
   background-color: #ea352d;
 }
-.header_parent-list:hover .header_parent-link{
+
+// .header_parent-link:hover{
+//   color: #fff;
+// }
+
+.header_all-list{
+  display: none;
+  width: 224px;
+  font-weight: 400;
+}
+.header_all-list:hover{
+  background-color: #ea352d;
+}
+.header_all-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 0 16px;
+  line-height: 44px;
+  height: 44px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.header_all-link:hover{
   color: #fff;
 }
 
@@ -126,6 +155,10 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.active_parent-link{
+  color: #fff;
+}
+
 
 .header_children-nav{
   position: absolute;
@@ -143,7 +176,7 @@
   padding: 8px 16px;
 }
 
-.header_children-list:hover{
+.active_children-list{
   background-color: rgb(245, 245, 245);
 }
 .header_children-link{
