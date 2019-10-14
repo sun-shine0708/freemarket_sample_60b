@@ -20,7 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories
+  resources :categories do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 
   resources :creditcards, only: [:new, :show] do
     collection do

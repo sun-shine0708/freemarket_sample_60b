@@ -5,17 +5,19 @@ body{
 
 .product-index_contents {
   font-family: Arial,"游ゴシック体","YuGothic","メイリオ","Meiryo",sans-serif;
-  max-width: 1020px;
-  width: 100%;
+  width: 1020px;;
   margin: 0 auto;
   z-index: 0;
 }
 //イメージスライダー
 .top-banner-slider {
+  position: relative; 
   left: 50%;
   margin-left: -50vw;
-  position: relative;
   top: 0px;
+}
+
+.top-banner-slider-image{
   width: 100vw;
   height: 390px;
 }
@@ -93,6 +95,7 @@ body{
   color: #333;
   padding: 8px 16px;
 }
+
 
 .products-index_categorys{
   padding: 42px 0 100px;

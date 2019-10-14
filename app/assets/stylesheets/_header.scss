@@ -67,14 +67,127 @@
     height: 44px;
     padding: 0 11px 0 0;
     font-size: 14px;
-    line-height: 36px;
+    cursor: pointer;
+    position: relative;
+  }
+  &__cate:hover .header_parent-list{
+    display: block;
   }
   &__bland{
     height: 44px;
     padding: 0 0 0 11px;
     font-size: 14px;
     line-height: 36px;
+    cursor: pointer;
   }
+}
+
+.header_category-list{
+  text-decoration: none;
+  color: #333;
+  line-height: 36px;
+}
+
+.header_category-nav{
+  position: absolute;
+  top: 44px;
+  left: 0;
+  z-index: 1;
+}
+
+.header_parents-nav{
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 224px;
+}
+
+.header_parent-list{
+  display: none;
+  width: 224px;
+  font-weight: 400;
+}
+.header_parent-list:hover{
+  background-color: #ea352d;
+}
+.header_parent-list:hover .header_parent-link{
+  color: #fff;
+}
+
+.header_parent-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 0 16px;
+  line-height: 44px;
+  height: 44px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header_children-nav{
+  position: absolute;
+  top: 0;
+  left: 224px;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 224px;
+}
+
+.header_children-list{
+  width: 224px;
+  font-weight: 400;
+  padding: 8px 16px;
+}
+
+.header_children-list:hover{
+  background-color: rgb(245, 245, 245);
+}
+.header_children-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header_grandchildren-nav{
+  position: absolute;
+  top: 0;
+  left: 448px;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 320px;
+}
+
+.header_grandchildren-list{
+  width: 320px;
+  font-weight: 400;
+  padding: 8px 16px;
+}
+.header_grandchildren-list:hover{
+  background-color: rgb(245, 245, 245);
+}
+.header_grandchildren-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .left-nav-btn {
