@@ -76,6 +76,9 @@
   &__cate:hover .header_all-list{
     display: block;
   }
+  &__cate:hover .header_category-list{
+    color: rgb(0, 149, 238);
+  }
   &__bland{
     height: 44px;
     padding: 0 0 0 11px;
