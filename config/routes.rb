@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: [:index, :new, :show, :create]
   resources :users do
-    resources :streetaddresses, only: [:new, :create]
     member do
       get 'preview'
       get 'sms_confirmation'
@@ -19,9 +18,7 @@ Rails.application.routes.draw do
       get 'user2'
     end
   end
-
-  resources :categories
-
+  resources :streetaddresses, only: [:new, :create]
   resources :creditcards, only: [:new, :show] do
     collection do
       post 'show', to: 'creditcards#show'
@@ -29,5 +26,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'creditcards#delete'
     end
   end
+  resources :categories
 
 end
