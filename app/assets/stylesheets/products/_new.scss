@@ -7,6 +7,7 @@
   width: 700px;
   margin: 0 auto;
   background: #fff;
+  position: relative;
 }
 
 .products-new_head {
@@ -329,4 +330,43 @@
   font-size: 12px;
   vertical-align: top;
   background: #ccc;
+}
+
+.products-footter {
+  position: absolute;
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+  margin: 0 492px;
+}
+
+.buy-confirmation-fotter {
+  position: absolute;
+}
+
+.products-footter-top {
+  display: flex;
+}
+
+.products-footter-top-list {
+  font-size: 12px;
+  margin: 0 0 0 25px;
+}
+
+.products-footter-detail {
+  text-decoration: none;
+  color: #333;
+}
+
+.products-footter-main {
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+}
+
+.products-footter-bottom {
+  margin: 8px 0 0;
+  font-size: 13px;
+  text-align: center;
 }

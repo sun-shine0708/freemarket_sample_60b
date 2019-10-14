@@ -12,14 +12,15 @@
           出品画像
           .products-new-redbtn
             必須
-        .products-new_main-upload-main
-          最大10枚までアップロードできます
-        -# = f.label :image, class: 'img-drop-box' do
-          -# .products-new_main-upload-img
-            ドラッグアンドドロップ
-            -# %br
-            またはクリックしてファイルをアップロード
-          -# = f.file_field :image, class: 'hidden'
+        = f.fields_for :images do |i|
+          .products-new_main-upload-main
+            最大10枚までアップロードできます
+          = i.label :url, class: 'img-drop-box' do
+            .products-new_main-upload-img
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+            = i.file_field :url, class: 'hidden'
       .products-new_main-content
         .main-content-group
           .main-content-group-name
@@ -141,5 +142,21 @@
           に同意したことになります。
         .products-new_mainbtn-text-red
           = f.submit "", class: 'exhibit-btn', value: '出品する'
-        -# .products-new_mainbtn-text-gray
-          -#  link_to? = f.submit "", class: 'return-btn', value: 'もどる'
+        .products-new_mainbtn-text-gray
+          = f.submit "", class: 'return-btn', value: 'もどる'
+
+    .products-footter
+      .products-footter-top
+        .products-footter-top-list
+          = link_to "", class: "products-footter-detail" do
+            プライバシーポリシー
+        .products-footter-top-list
+          = link_to "", class: "products-footter-detail" do
+            メルカリ利用規約
+        .products-footter-top-list
+          = link_to "", class: "products-footter-detail" do
+            特定商取引に関する表記
+      .products-footter-main
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615", size: "80x65" 
+      .products-footter-bottom
+        © 2019 Mercari
