@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+
   end
 
   def new
@@ -48,5 +49,9 @@ class ProductsController < ApplicationController
   def  product_params
     params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
+
+  # def set_user
+  #   @user = User.find(current_user)
+  # end
 end
 

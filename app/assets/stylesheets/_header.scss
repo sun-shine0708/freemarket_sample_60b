@@ -76,6 +76,9 @@
   &__cate:hover .header_all-list{
     display: block;
   }
+  &__cate:hover .header_category-list{
+    color: rgb(0, 149, 238);
+  }
   &__bland{
     height: 44px;
     padding: 0 0 0 11px;
@@ -264,8 +267,14 @@
     font-size: 14px;
     line-height: 36px;
   }
+  &__signup{
+    text-align: center;
+  }
+  &__login{
+    text-align: center;
+    margin-left: 11px;
+  }
 }
-
 
 .pc-header-menu-link {
   text-decoration: none;
@@ -273,4 +282,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.signup-link{
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  line-height: 14px;
+  background-color: rgb(234, 53, 45);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(234, 53, 45);
+  border-image: initial;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+
+.login-link{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 149, 238);
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(0, 149, 238);
+  border-image: initial;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
 }
