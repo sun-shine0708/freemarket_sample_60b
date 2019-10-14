@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def buy_confirmation
-
+    @products = Product.new
   end  
 
   def create
