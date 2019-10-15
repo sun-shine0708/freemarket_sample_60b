@@ -4,11 +4,13 @@
   margin: 0 auto;
   padding: 8px 0 0;
   background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   z-index: 3;
   position: relative;
   font-family: Arial,"游ゴシック体","YuGothic","メイリオ","Meiryo",sans-serif;
+}
+
+#root-header{
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .header-content {
@@ -98,7 +100,6 @@
   position: absolute;
   top: 44px;
   left: 0;
-  z-index: 1;
 }
 
 .header_parents-nav{

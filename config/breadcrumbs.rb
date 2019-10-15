@@ -1,7 +1,23 @@
+# ルート
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
 end
 
+#マイページ
+crumb :"users/show" do
+  link "マイページ", user_path
+end
+
+#カテゴリー一覧
+crumb :"categories/index" do
+  link "カテゴリー一覧", categories_path
+end
+
+#ログアウト
+crumb :"users/logout" do
+  link "ログアウト", logout_user_path
+  parent :"users/show"
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

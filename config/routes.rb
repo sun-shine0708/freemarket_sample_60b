@@ -11,8 +11,6 @@ Rails.application.routes.draw do
       get 'preview'
       get 'sms_confirmation'
       get 'mail_password'
-    end
-    collection do
       get 'logout'
     end
   end
