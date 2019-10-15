@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
-  has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
+
+  @password = Devise.friendly_token.first(8)
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
@@ -20,7 +20,12 @@ class User < ApplicationRecord
           user_id: user.id
           )
       else
-        user = User.new
+        user = User.new(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: @password,
+          password_confirmation: @password
+        )
       end
     end
     return user
@@ -29,6 +34,8 @@ class User < ApplicationRecord
   has_one :streetaddress, dependent: :destroy
   has_one :creditcard, dependent: :destroy
   has_many :credentials, dependent: :destroy
+  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
+  has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
 
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
