@@ -22,8 +22,9 @@
             = link_to categories_path, class: "header_all-link" do
               カテゴリー一覧
     .nav-left__bland
-      = fa_icon 'tag', class: 'left-nav-btn'
-      ブランドから探す
+      = link_to "", class:"header_category-list" do
+        = fa_icon 'tag', class: 'left-nav-btn'
+        ブランドから探す
   .nav-right
     - if user_signed_in?
       .nav-right__like
