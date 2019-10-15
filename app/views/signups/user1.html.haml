@@ -35,6 +35,7 @@
         %label.form-label メールアドレス
         %span.form-require 必須
         = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class:'input-box'
+      - if @user.email == ""
         .form-group
           %label.form-label パスワード
           %span.form-require 必須
@@ -43,6 +44,9 @@
           %label.form-label パスワード (確認)
           %span.form-require 必須
           = f.password_field :password_confirmation, placeholder: '7文字以上', class:'input-box'
+      - else
+        = f.hidden_field :password, placeholder: '7文字以上', class:'input-box'
+        = f.hidden_field :password_confirmation, placeholder: '7文字以上', class:'input-box'
       .form-group
         %label 本人確認
         %p
@@ -89,4 +93,4 @@
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
       .form-group
         = f.submit "次へ進む", class: 'next-button'
-= render 'signup_footer'
+      -# - unless @user.nickname && @user.email
