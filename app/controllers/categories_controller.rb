@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   # before_action :set_parents, [:index, :get_category_children]
   def index
-  
+    @parents = Category.where(ancestry: nil).order("id ASC")
   end
 
   def get_category_children

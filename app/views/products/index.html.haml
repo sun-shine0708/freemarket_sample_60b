@@ -927,21 +927,8 @@
                   .category-box_product-box__title
                     .category-box_product-box__title--name
                       商品名
-  .app-banner
-    .app-banner__ad
-      .app-banner__ad__download
-        .letter-app
-          スマホでかんたんフリマアプリ
-        .letter-download
-          今すぐ無料ダウンロード！
-        .store-btns
-          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png", class: "store-btns_mercari-icon", size: "68x68"
-          = link_to "", class: "" do
-            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "store-btns_appstore"
-          = link_to "", class: "" do
-            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "store-btns_google"
-      .app-banner__ad__image
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png", class: "app-image", size: "300x260"
+.app-banner
+  = render 'layouts/banner'
 
 .footer
   = render "layouts/footer"

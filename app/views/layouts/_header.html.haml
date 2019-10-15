@@ -10,7 +10,7 @@
 .nav
   .nav-left
     .nav-left__cate
-      = link_to "", class:"header_category-list" do
+      = link_to categories_path, class:"header_category-list" do
         = fa_icon 'list-ul', class: 'left-nav-btn'
         カテゴリーから探す
       .header_category-nav
@@ -19,7 +19,7 @@
             %li.header_parent-list{id: "#{parent.id}"}
               = link_to "#{parent.name}", "", class: "header_parent-link"
           %li.header_all-list
-            = link_to "", class: "header_all-link" do
+            = link_to categories_path, class: "header_all-link" do
               カテゴリー一覧
     .nav-left__bland
       = fa_icon 'tag', class: 'left-nav-btn'
