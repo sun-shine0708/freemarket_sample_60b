@@ -1,5 +1,10 @@
+- breadcrumb :"users/show"
+
 .header
   = render "layouts/header"
+
+= render 'layouts/nav'
+
 .mypage
   .mypage__container
     = render 'side-bar'
@@ -9,7 +14,7 @@
           = link_to "", class: "user_link user_link--name" do
             = image_tag "member_photo_noimage_thumb.png", class: "user_link__icon", size: "60x60"
             .user_link__name.bold
-              name
+              = @user.nickname
         .mypage-content__user--rating
           = link_to "", class: "user_link" do
             .user_link__detail
@@ -31,21 +36,7 @@
             やることリスト
         .tab-contents
           = render 'notification-list'
-          .list-display
-            =link_to "", class: "link" do
-              .list-display__btn
-                一覧を見る
-        -# .mypage-tabs
-        -#   = link_to "＃", onclick: "return false;", id: "my-notification-tab", class: "mypage-tabs__tab active-tab" do
-        -#     お知らせ
-        -#   = link_to "＃", onclick: "return false;", id: "my-todo-tab", class: "mypage-tabs__tab" do
-        -#     やることリスト
-        -# .tab-contents
-        -#   = render 'notification-list'
-        -#   .list-display
-        -#     =link_to "", class: "link" do
-        -#       .list-display__btn
-        -#         一覧を見る
+          
 
       .mypage-product-container
         .mypage-product-container__head

@@ -21,7 +21,18 @@
 @import "users/sms_confirmation";
 @import "users/mail_password";
 @import "products/buy_confirmation";
+@import "categories/index";
+@import "nav";
 
 * {
     box-sizing: border-box;
   }
+a{
+  text-decoration: none;
+}
+
+.clearfix{
+  content: '';
+  display: block;
+  clear: both;
+}

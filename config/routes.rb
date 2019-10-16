@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create] do
+  resources :products do
     member do
       get 'buy_confirmation'
     end
@@ -15,15 +15,13 @@ Rails.application.routes.draw do
       get 'preview'
       get 'sms_confirmation'
       get 'mail_password'
-    end
-    collection do
       get 'logout'
     end
   end
   resources :signups do
     collection do
       get 'user1'
-      get 'user2'
+      post 'user2'
     end
   end
 

@@ -4,11 +4,13 @@
   margin: 0 auto;
   padding: 8px 0 0;
   background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   z-index: 3;
   position: relative;
   font-family: Arial,"游ゴシック体","YuGothic","メイリオ","Meiryo",sans-serif;
+}
+
+#root-header{
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .header-content {
@@ -73,6 +75,12 @@
   &__cate:hover .header_parent-list{
     display: block;
   }
+  &__cate:hover .header_all-list{
+    display: block;
+  }
+  &__cate:hover .header_category-list{
+    color: rgb(0, 149, 238);
+  }
   &__bland{
     height: 44px;
     padding: 0 0 0 11px;
@@ -92,7 +100,6 @@
   position: absolute;
   top: 44px;
   left: 0;
-  z-index: 1;
 }
 
 .header_parents-nav{
@@ -106,10 +113,32 @@
   width: 224px;
   font-weight: 400;
 }
-.header_parent-list:hover{
+.active_parent-list{
   background-color: #ea352d;
 }
-.header_parent-list:hover .header_parent-link{
+
+.header_all-list{
+  display: none;
+  width: 224px;
+  font-weight: 400;
+}
+.header_all-list:hover{
+  background-color: #ea352d;
+}
+.header_all-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 0 16px;
+  line-height: 44px;
+  height: 44px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.header_all-link:hover{
   color: #fff;
 }
 
@@ -126,6 +155,10 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.active_parent-link{
+  color: #fff;
+}
+
 
 .header_children-nav{
   position: absolute;
@@ -143,7 +176,7 @@
   padding: 8px 16px;
 }
 
-.header_children-list:hover{
+.active_children-list{
   background-color: rgb(245, 245, 245);
 }
 .header_children-link{
@@ -231,8 +264,14 @@
     font-size: 14px;
     line-height: 36px;
   }
+  &__signup{
+    text-align: center;
+  }
+  &__login{
+    text-align: center;
+    margin-left: 11px;
+  }
 }
-
 
 .pc-header-menu-link {
   text-decoration: none;
@@ -240,4 +279,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.signup-link{
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  line-height: 14px;
+  background-color: rgb(234, 53, 45);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(234, 53, 45);
+  border-image: initial;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+
+.login-link{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 149, 238);
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(0, 149, 238);
+  border-image: initial;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
 }

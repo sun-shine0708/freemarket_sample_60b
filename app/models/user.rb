@@ -1,12 +1,41 @@
 class User < ApplicationRecord
-  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
-  has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
+
+  @password = Devise.friendly_token.first(8)
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    credential = Credential.where(uid: uid, provider: provider).first
+    if credential.present?
+      user = User.where(id: credential.user_id).first
+    else
+      user = User.where(email: auth.info.email).first
+      if user.present?
+        Credential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+      else
+        user = User.new(
+          nickname: auth.info.name,
+          email:    auth.info.email,
+          password: @password,
+          password_confirmation: @password
+        )
+      end
+    end
+    return user
+  end
+
   has_one :streetaddress, dependent: :destroy
   has_one :creditcard, dependent: :destroy
+  has_many :credentials, dependent: :destroy
+  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
+  has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
 
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

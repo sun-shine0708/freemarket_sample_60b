@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -74,3 +75,7 @@ gem 'fog-aws'
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'ancestry'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'gretel'

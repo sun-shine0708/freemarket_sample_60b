@@ -20,13 +20,14 @@
       %li.signup-list
         完了
         .list-round-right
+        
 .signup-main
   .main-contents
     .main-contents-title 会員情報入力
     .signup-error-message
       - if @user.errors.any?
         %p 入力項目に誤りがあります
-    = form_for @user, url: user2_signups_path, method: :get do |f|
+    = form_for @user, url: user2_signups_path, method: :post do |f|
       .form-group
         %label.form-label ニックネーム
         %span.form-require 必須
@@ -35,14 +36,18 @@
         %label.form-label メールアドレス
         %span.form-require 必須
         = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class:'input-box'
-      .form-group
-        %label.form-label パスワード
-        %span.form-require 必須
-        = f.password_field :password, placeholder: '7文字以上', class:'input-box'
-      .form-group
-        %label.form-label パスワード (確認)
-        %span.form-require 必須
-        = f.password_field :password_confirmation, placeholder: '7文字以上', class:'input-box'
+      - if @user.email == ""
+        .form-group
+          %label.form-label パスワード
+          %span.form-require 必須
+          = f.password_field :password, placeholder: '7文字以上', class:'input-box'
+        .form-group
+          %label.form-label パスワード (確認)
+          %span.form-require 必須
+          = f.password_field :password_confirmation, placeholder: '7文字以上', class:'input-box'
+      - else
+        = f.hidden_field :password, placeholder: '7文字以上', class:'input-box'
+        = f.hidden_field :password_confirmation, placeholder: '7文字以上', class:'input-box'
       .form-group
         %label 本人確認
         %p
@@ -89,4 +94,5 @@
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
       .form-group
         = f.submit "次へ進む", class: 'next-button'
-= render 'signup_footer'
+      -# - unless @user.nickname && @user.email
+      = render 'signup_footer'

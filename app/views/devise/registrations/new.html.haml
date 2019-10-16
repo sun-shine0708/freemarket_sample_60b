@@ -7,14 +7,14 @@
       .signup-contents__title
         新規会員登録
       .signup-contents__form
-        .sginup-btn
-          = link_to user1_signups_path, class: "sginup-btn__email" do
+        .signup-btn
+          = link_to user1_signups_path, class: "signup-btn__email" do
             メールアドレスで登録する
             = fa_icon 'envelope', class: 'fas.fa-envelope icon'
-          .sginup-btn__facebook
-            = fa_icon 'facebook-square', class: 'fab.fa-facebook-square icon'
+          = link_to user_facebook_omniauth_authorize_path, class: "signup-btn__facebook" do
             Facebookで登録する
-          .sginup-btn__google
-            = fa_icon 'google', class: 'fab.fa-google icon'
+            = fa_icon 'facebook-square', class: 'fab.fa-facebook-square icon'
+          = link_to user_google_oauth2_omniauth_authorize_path, class: "signup-btn__google" do
             Googleで登録する
+            = fa_icon 'google', class: 'fab.fa-google icon'
   = render 'signups/signup_footer'

@@ -17,8 +17,13 @@ $(document).on('turbolinks:load', function() {
   $(".header_parent-list").on("mouseenter", function() {
     var id = this.id                      //どのリンクにマウスが乗ってるのか取得します
     $(".header_children-list").remove();//一旦出ている子カテゴリ消します！
+    $(".header_children-nav").remove();
     $(".header_grandchildren-nav").remove();
-    
+    $(".active_parent-list").removeClass("active_parent-list")//赤色のcssのためです
+    $('#' + id).addClass("active_parent-list");//赤色のcssのためです
+    $('.active_parent-link').removeClass("active_parent-link");
+    $('.active_parent-list').children().addClass("active_parent-link");
+    // $('.active_parent-list').children().hover().css({"color":"#fff"});
     $.ajax({
       type: 'GET',
       url: '/categories/get_category_children',
@@ -36,8 +41,23 @@ $(document).on('turbolinks:load', function() {
     $(".nav-left__cate").on("mouseleave", function() {
       $(".header_children-nav").remove();
       $(".header_grandchildren-nav").remove();
+      $(".header_children-list").remove();
+      $(".header_grandchildren-list").remove();
+      $(".active_parent-list").removeClass("active_parent-list")
+      $(".active_children-list").removeClass("active_children-list")
+      $(".active_parent-link").removeClass("active_parent-link")
+    });
+    $(".header_all-list").on("mouseenter", function() {
+      $(".header_children-nav").remove();
+      $(".header_grandchildren-nav").remove();
+      $(".header_children-list").remove();
+      $(".header_grandchildren-list").remove();
+      $(".active_parent-list").removeClass("active_parent-list")
+      $(".active_children-list").removeClass("active_children-list")
+      $(".active_parent-link").removeClass("active_parent-link")
     });
   });
+
 
 
   // 孫カテゴリを追加する処理
@@ -58,6 +78,9 @@ $(document).on('turbolinks:load', function() {
   $(".header_category-nav").on("mouseenter", ".header_children-list", function () {
     var id = $(this).data('id');
     $(".header_grandchildren-list").remove();
+    $(".header_grandchildren-nav").remove();
+    $(".active_children-list").removeClass("active_children-list");
+    $($(this)).addClass("active_children-list");
     $.ajax({
       type: 'GET',
       url: '/categories/get_category_grandchildren',
