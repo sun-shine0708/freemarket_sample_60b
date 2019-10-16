@@ -14,21 +14,26 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.user_id == current_user.id
-      product.update(tweet_params)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to root_path(@product), notice: '商品を編集しました'
+    else
+      render :edit
     end
   end
 
   def destroy
-    product = Product.find(params[:id])
-    if product.user_id == current_user.id
-      product.destroy
+    @product = Product.find(params[:id])
+    if @product.seller_id == current_user.id
+      @product.destroy
+      redirect_to root_path, notice: '商品を削除しました'
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    @seller = @product.seller
+    @image = @product.images
   end
 
 

@@ -3,12 +3,12 @@
     = render "layouts/header"
 
   .product-show-detail
-    .product-show-name
-      %h1（新品）大人気アンダーアーマー パーカー ジャケット
+    %h1.product-show-name
+      = @product.name
     %p.product-show-wording
       『（新品）大人気アンダーアーマー パーカー ジャケット』は、264回の取引実績を持つ
       = link_to "", class: "product-show-link" do
-        KJ
+        = @seller.nickname
       さんから出品されました。
       = link_to "", class: "product-show-link" do
         アンダーアーマー
@@ -18,14 +18,15 @@
 
     .product-show-maincontent
       .product-show-image
-        = image_tag 'underarmer.jpg', size: "300x300"
+      - @product.images.each do |image|
+        = image.url
       .product-show-detailtable
         .product-show-tr
           .product-show-th
             出品者
           .product-show-td
             = link_to "", class: "product-show-td-link" do
-              KJ
+              = @seller.nickname
             .product-show-ratings
               .product-show-iconbox
                 = fa_icon 'heart',class: 'product-show-icon1'
@@ -59,47 +60,56 @@
           .product-show-block1
             商品サイズ
           .product-show-block2
-            L
+            = @product.size
         .product-show-tr
           .product-show-block1
             商品の状態
           .product-show-block2
-            新品、未使用
+            =@product.status
         .product-show-tr
           .product-show-block1
             配送料の負担
           .product-show-block2
-            送料込み(出品者負担))
+            = @product.costcharge
         .product-show-tr
           .product-show-block1
             配送の方法
           .product-show-block2
-            未定
+            = @product.delivery_way
         .product-show-tr
           .product-show-block1
             配送元地域
           .product-show-block2
             = link_to "", class: "product-show-citylink" do
-              静岡県
+              = @product.delivery_area
         .product-show-tr
           .product-show-block1
             配送日の目安
           .product-show-block2
-            2~3日で配送
+            = @product.delivery_date
     .product-show-pricebox
       .product-show-price
-        ¥4,600
+        = @product.price
       .product-show-tax
         (税込)
       .product-show-shipping-fee
         送料込み
 
-    .product-show-buybtn
-      = link_to "" ,class: "product-show-buylink" do
-        購入画面に進む
+    - if user_signed_in? && @product.seller_id == current_user.id
+      .product-show-buybtn
+        = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
+
+      .product-show-buybtn
+        = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
+
+    - else
+      .product-show-buybtn
+        = link_to "" ,class: "product-show-buylink" do
+          購入画面に進む
 
     .product-show-description
       %p.product-show-inner
+        = @product.comment
         ※即購入OKです。
         ※購入手続きをされた方を優先とさせていただきます。
         【メーカー】
@@ -175,7 +185,7 @@
     .product-show-items-box
       .product-show-items-name
         = link_to "", class: "product-show-text-link" do
-          %h2 KJさんのその他の商品
+          = @seller.nickname
       .product-show-items-list
         .product-show-item-box
           .product-show-item-box-photo
