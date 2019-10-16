@@ -130,7 +130,22 @@
   display: flex;
 }
 
-.select-default {
+.select-default{
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  margin: 8px 0 0;
+  width: 100%;
+}
+
+#select-default{
   position: relative;
   z-index: 2;
   height: 48px;
@@ -185,6 +200,11 @@
 }
 
 .delivary-right-area-head {
+  display: flex;
+  margin: 40px 0 0;
+}
+
+#delivary-right-area-head{
   display: flex;
   margin: 40px 0 0;
 }
@@ -273,9 +293,17 @@
   font-size: 14px;
 }
 
+.right_bar {
+  float: right;
+}
+
 .main-price-right-profit {
   padding: 24px 0;
   border-top: 1px solid #ccc;
+}
+
+.right_bar_2 {
+  float: right;
 }
 
 .products-new_mainbtn {
@@ -313,6 +341,16 @@
 }
 
 .products-new-redbtn {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+
+#products-new-redbtn{
   margin: 0 0 0 8px;
   padding: 2px 4px;
   border-radius: 2px;

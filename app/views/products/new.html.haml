@@ -45,18 +45,9 @@
             カテゴリー
             .products-new-redbtn
               必須
-          -# .detail-right-cate-top
-          -#   = f.select :name, ['レディース', 'メンズ', 'ベビーキッズ'], {include_blank: '---'},  class: 'select-default'
-          -# .detail-right-cate-midlle
-          -#   = f.select :name, ['トップス', 'ジャケット/アウター', 'パンツ'], {include_blank: '---'},  class: 'select-default'
-          -# .detail-right-cate-bottom
-          -#   = f.select :name, ['Tシャツ/カットソー（半袖/袖なし）', 'Tシャツ/カットソー（7分/長袖)', 'シャツ/ブラウス（半袖/袖なし）'], {include_blank: '---'},  class: 'select-default'
-          -# .products-new_main-detail-right-status
-          -#   サイズ
-          -#   .products-new-redbtn
-          -#     必須
-          -# .detail-right-status-box
-          -#   = f.select :name, ['XXS以下', 'XS(SS)', 'S'], {include_blank: '---'},  class: 'select-default'
+          .detail-right-cate-top
+            = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'select-default', id: 'parent_category'}
+         
           -# .products-new_main-detail-right-status
           -#   ブランド
           -#   .products-new-graybtn
@@ -77,20 +68,14 @@
           .products-new_main-delivary-left-guide
             ?
         .products-new_main-delivary-right
-          .products-new_main-delivary-right-burden
-            .delivary-right-burden-head
-              配送料の負担
-              .products-new-redbtn
-                必須
-            .delivary-right-burden-box
-              = f.select :costcharge, ['送料込み(出品者負担)', '着払い(購入者負担)'], {include_blank: '---'},  class: 'select-default'
-          .products-new_main-delivary-right-area
-            .delivary-right-area-head
-              配送の方法
-              .products-new-redbtn
-                必須
-            .delivary-right-area-box
-              = f.select :delivery_way, ['未定', 'らくらくメルカリ便', 'ゆうメール'], {include_blank: '---'},  class: 'select-default'
+          .products-new_main-delivary-detail
+            .products-new_main-delivary-right-burden
+              .delivary-right-burden-head
+                配送料の負担
+                .products-new-redbtn
+                  必須
+              .delivary-right-burden-box
+                = f.select :costcharge, ['送料込み(出品者負担)', '着払い(購入者負担)'], {include_blank: '---'}, {class: 'select-default', id: 'delivary-right-burden-box'}       
           .products-new_main-delivary-right-area
             .delivary-right-area-head
               発送元の地域
@@ -120,11 +105,17 @@
             .main-price-right-head-input
               ¥
               .main-price-right-head-input-tab
-                = f.text_field :price, class: 'input-price', placeholder: '例)300'
+                %input#price_calc.price_form-box{placeholder: "例) 300", type: "number", class: 'input-price'}/
+                -# = f.text_field :price, class: 'input-price', placeholder: '例)300'
           .main-price-right-fee
             販売手数料(10%)
+            .right_bar
+              ー
           .main-price-right-profit
-            販売利益    
+            = f.number_field :price, style: "display: none", id: "price"
+            販売利益
+            .right_bar_2
+              ー
 
       .products-new_mainbtn
         .products-new_mainbtn-text

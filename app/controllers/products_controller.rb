@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+before_action :set_parent_category, only: [:new, :create]
+  
 
   def index
 
@@ -9,6 +11,15 @@ class ProductsController < ApplicationController
     @products.images.build
   end
 
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def show
   def edit
     @product = Product.find(params[:id])
   end
@@ -43,6 +54,7 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.new(product_params)
+    @products.save!
     if @products.save
       render 'index'
     else
@@ -52,7 +64,14 @@ class ProductsController < ApplicationController
 
   private
   def  product_params
-    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, images_attributes: [:url]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, images_attributes: [:url]).merge(seller_id: current_user.id)
+  end
+
+  def set_parent_category
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   # def set_user
