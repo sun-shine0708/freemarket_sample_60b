@@ -19,7 +19,6 @@ before_action :set_parent_category, only: [:new, :create]
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-  def show
   def edit
     @product = Product.find(params[:id])
   end
