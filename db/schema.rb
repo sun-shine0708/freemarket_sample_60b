@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20191016105606) do
   end
 
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_id",     null: false
+    t.string   "customer_id", null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "customer_id", null: false
-    t.string   "card_id",     null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id", using: :btree
   end
 
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 20191016105606) do
   end
 
   create_table "streetaddresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name",      null: false
     t.string   "last_name",       null: false
-    t.string   "first_name_kana", null: false
+    t.string   "first_name",      null: false
     t.string   "last_name_kana",  null: false
+    t.string   "first_name_kana", null: false
     t.string   "post_number",     null: false
     t.integer  "prefecture",      null: false
     t.string   "city",            null: false
