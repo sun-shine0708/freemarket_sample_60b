@@ -13,11 +13,37 @@ crumb :"categories/index" do
   link "カテゴリー一覧", categories_path
 end
 
+#プロフィール編集
+crumb :"users/edit" do
+  link "プロフィール", edit_user_path
+  parent :"users/show"
+end
+
+#メールパスワード確認
+crumb :"users/mail_password" do
+  link "メール/パスワード", mail_password_user_path
+  parent :"users/show"
+end
+
+#本人情報の確認
+crumb :"users/preview" do
+  link "本人情報の確認", preview_user_path
+  parent :"users/show"
+end
+
+#電話番号の確認
+crumb :"users/sms_confirmation" do
+  link "電話番号の確認", sms_confirmation_user_path
+  parent :"users/show"
+end
+
 #ログアウト
 crumb :"users/logout" do
   link "ログアウト", logout_user_path
   parent :"users/show"
 end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
