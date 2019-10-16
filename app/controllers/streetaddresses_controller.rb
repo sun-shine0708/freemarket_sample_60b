@@ -20,7 +20,7 @@ class StreetaddressesController < ApplicationController
       :last_name_kana,
       :first_name_kana,
       :post_number,
-      :prefectures,
+      :prefecture,
       :city,
       :address,
       :building_name,
