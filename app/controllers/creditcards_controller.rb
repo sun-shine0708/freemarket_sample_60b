@@ -3,6 +3,7 @@ class CreditcardsController < ApplicationController
 
   def new
     card = Creditcard.where(user_id: current_user.id)
+    gon.payjp_key = ENV["PAYJP_KEY"]
     redirect_to action: "show" if card.exists?
   end
   

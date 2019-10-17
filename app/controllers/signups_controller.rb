@@ -16,6 +16,10 @@ class SignupsController < ApplicationController
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
     @user = User.new
+    # if verify_recaptcha(model: @user)
+    # else
+    #   render '/signups/user1'
+    # end
   end
 
   def create
@@ -53,6 +57,7 @@ class SignupsController < ApplicationController
 
   def new
     card = Creditcard.where(user_id: current_user.id)
+    gon.payjp_key = ENV["PAYJP_KEY"]
   end
   
   def pay

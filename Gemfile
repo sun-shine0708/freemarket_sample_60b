@@ -79,3 +79,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'gretel'
+gem 'gon'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'rails-i18n'
