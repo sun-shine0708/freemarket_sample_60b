@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+  
   root 'products#index'
+
   resources :products do
     member do
       get 'buy_confirmation'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
   resources :users do
     member do
       get 'preview'
@@ -18,14 +21,17 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :signups do
+
+  resources :signups, only: [:new, :create] do
     collection do
       get 'user1'
       post 'user2'
+      post 'pay', to: 'signups#pay'
     end
   end
 
   resources :streetaddresses, only: [:new, :create]
+
   resources :categories do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -37,8 +43,7 @@ Rails.application.routes.draw do
     collection do
       post 'show', to: 'creditcards#show'
       post 'pay', to: 'creditcards#pay'
-      post 'delete', to: 'creditcards#delete'
+      delete 'delete', to: 'creditcards#delete'
     end
   end
-
 end

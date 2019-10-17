@@ -6,7 +6,7 @@ class StreetaddressesController < ApplicationController
   def create
     @streetaddress = Streetaddress.new(streetaddress_params)
     if @streetaddress.save
-      redirect_to new_creditcard_path
+      redirect_to new_signup_path
     else
       redirect_to new_streetaddress_path
     end
