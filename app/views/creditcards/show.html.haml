@@ -1,2 +1,45 @@
-%h1 Creditcards#show
-%p Find me in app/views/creditcards/show.html.haml
+- breadcrumb :"users/logout"
+
+.header
+  = render "layouts/header"
+
+= render "layouts/nav"
+.credit
+  .credit__container
+    = render 'users/side-bar'
+    .credit-content
+      %h2.credit-content-title 
+        支払い方法
+      .credit-content-main
+        .creditcard-box
+          .creditcard
+            .creditcard__title
+              クレジットカード一覧
+          - if current_user.creditcard.present?
+            .creditcard
+              .creditcard-details
+                %ul
+                  %li.creditcard-detail
+                    = image_tag "brand/#{@customer_card.brand}.svg"
+                  %li.creditcard-detail
+                    = "**** **** **** " + @customer_card.last4
+                  %li.creditcard-detail
+                    - exp_month = @customer_card.exp_month.to_s
+                    - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                = link_to delete_creditcards_path, method: :delete, class: 'creditcard-remove' do
+                  削除する
+          - else
+            .creditcard-add-box
+              = link_to new_creditcard_path, method: :get, class: 'creditcard-add-link' do
+                .creditcard-add
+                  = fa_icon 'credit-card',class: 'credit-card-icon'
+                  クレジットカードを追加する
+.app-banner
+  = render "layouts/banner"
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"
