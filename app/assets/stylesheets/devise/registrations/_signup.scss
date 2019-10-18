@@ -54,11 +54,11 @@
   display: flex;
 }
 .first-half {
-  width: calc(50% - 6px);
+  width: calc(100% - 6px);
   margin-right: 8px;
 }
 .second-half {
-  width: calc(50% - 6px);
+  width: calc(100% - 6px);
 }
 .select-wrapper {
   display: flex;
@@ -175,12 +175,10 @@
   display: inline-block;
   margin: 0 0 0 8px;
 }
-.signup-error-message {
-  text-align: center;
-}
-.signup-error-message p {
+.signup-error-message li {
   color: #ea352d;
   font-size: 16px;
+  list-style: square;
 }
 .add-m {
   margin-top: 50px;

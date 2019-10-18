@@ -5,7 +5,7 @@ end
 
 #マイページ
 crumb :"users/show" do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user)
 end
 
 #カテゴリー一覧
@@ -17,6 +17,18 @@ end
 crumb :"users/edit" do
   link "プロフィール", edit_user_path
   parent :"users/show"
+end
+
+#支払い方法
+crumb :"creditcards/show" do
+  link "支払い方法", creditcard_path(current_user)
+  parent :"users/show"
+end
+
+#クレジットカード情報入力
+crumb :"creditcards/new" do
+  link "クレジットカード情報入力", new_creditcard_path(current_user)
+  parent :"creditcards/show"
 end
 
 #メールパスワード確認
@@ -39,7 +51,7 @@ end
 
 #ログアウト
 crumb :"users/logout" do
-  link "ログアウト", logout_user_path
+  link "ログアウト", logout_user_path(current_user)
   parent :"users/show"
 end
 
