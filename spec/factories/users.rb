@@ -9,12 +9,11 @@ FactoryBot.define do
     password              { password }
     password_confirmation { password }
     birth_year            { "2016" }
-    comment               {"aaaaaaa"}
     phone_number          {"07098706211"}
     last_name             { Faker::Name.last_name }
     last_name_kana        {"タロウ"}
-    birth_month           {"1"}
-    birth_day             {"1"}
+    birth_month           {"12"}
+    birth_day             {"19"}
   end
 
 end
