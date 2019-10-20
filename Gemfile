@@ -82,3 +82,4 @@ gem 'gretel'
 gem 'gon'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'rails-i18n'
+gem 'ransack'
