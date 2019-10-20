@@ -46,7 +46,7 @@
             .products-new-redbtn
               必須
           .detail-right-cate-top
-            = f.select :root_category, @category_parent_array, {include_blank: '---'}, {class: 'select-default', id: 'parent_category'}
+            = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'select-default', id: 'parent_category'}
          
           -# .products-new_main-detail-right-status
           -#   ブランド

@@ -1,22 +1,12 @@
 class ProductsController < ApplicationController
-# before_action :set_parent_category, only: [:new, :create, :edit]
-  
+before_action :set_parent_category, only: [:new, :create, :edit]
 
   def index
-    # @products = Product.all.order("id DESC")
-    # # category_ids = Product.group(:category_id).order('count_category_id DESC').limit(4).count(:category_id).keys
-    # # @popular = category_ids.map { |id| Category.find(id) }
-
-    # popular_categories = Product.group(:root_category).order('count_root_category DESC').limit(4).count(:root_category).keys
-    # @popular = popular_categories.map{ |parent| Category.where(name: parent) }
-    
 
     @categories = Category.roots
     @products = @categories.map{|root| Product.where(category_id: root.subtree)}
     @sorted_products = @products.sort {|a,b| b.length <=> a.length }
-    # @sorted_products.each do |products|
-    #   puts products[0]&.category.root.name
-    # end
+   
     @popular = []
     @sorted_products.each.with_index(1) do |products, i|
       if (i <= 4)
