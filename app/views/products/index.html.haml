@@ -3,11 +3,13 @@
 
 .product-index_contents
   .product-index_contents__main
-    .top-banner-slider
-      = link_to "", class:"top-banner-slider-link" do
-        = image_tag "top-banner-camp.jpg", class: "top-banner-slider-image"
-      .slider-controller-left
-      .slider-controller-right
+    %ul.top-banner-slider
+      %li
+        = image_tag "top-banner-camp.jpg", class: "top-banner-slider-camp-image"
+      %li
+        = image_tag "top-banner-main.png", class: "top-banner-slider-main-image"
+      %li
+        = image_tag "top-banner-super-exhibition-fes-1354ceda34bd06081a45ee755e911f07.jpg", class: "top-banner-slider-super-image"
     .products-category-nav
       .nav-title
         人気のカテゴリー
