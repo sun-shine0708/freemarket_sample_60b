@@ -39,7 +39,7 @@
                       = link_to product_path(product), class: "category-box_product_link" do
                         .category-box_product-box
                           .category-box_product-box__image
-                            = image_tag "#{product.images[0]}", size: "188x188"
+                            = image_tag "#{product.images[0].url}", size: "188x188"
                             .category-box_product-box__price
                               ¥
                               = product.price
