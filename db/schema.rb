@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20191017102309) do
+ActiveRecord::Schema.define(version: 20191013133500) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -61,10 +60,7 @@ ActiveRecord::Schema.define(version: 20191017102309) do
     t.integer  "seller_id",     null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "category_id"
-    t.string   "root_category"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
-    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", unique: true, using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
@@ -75,7 +71,7 @@ ActiveRecord::Schema.define(version: 20191017102309) do
     t.string   "last_name_kana",  null: false
     t.string   "first_name_kana", null: false
     t.string   "post_number",     null: false
-    t.integer  "prefecture",      null: false
+    t.string   "prefectures",     null: false
     t.string   "city",            null: false
     t.string   "address",         null: false
     t.string   "building_name"
@@ -112,7 +108,6 @@ ActiveRecord::Schema.define(version: 20191017102309) do
   add_foreign_key "credentials", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
-  add_foreign_key "products", "categories"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "streetaddresses", "users"
