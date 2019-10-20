@@ -3,6 +3,37 @@
     = render "layouts/header"
 
   .product-search-main
+    .product-search-left-side
+      = search_form_for @search do |f|
+        .product-search-sort
+          %select.product-search-order
+            %option 並べ替え
+            %option 価格の安い順
+            %option 価格の安い順
+            %option 価格の高い順
+            %option 出品の古い順
+            %option 出品の新しい順
+            %option いいねの多い順
+
+        .product-search-dropdown-content
+          %h3.product-search-visible
+            詳細検索
+          .product-search-formgroup
+            .product-search-plustext
+              = fa_icon 'plus',class: 'product-search-plusicon'
+              .product-search-keywordtext
+                キーワードを追加する
+            .product-search-textform
+              = f.search_field :name_cont, class: 'product-search-namebox', placeholder: '例) 値下げ'
+
+          .product-search-category-formgroup
+            .product-search-categorytext
+              = fa_icon 'list-ul',class: 'product-search-listicon'
+              .product-search-keywordcategory
+                カテゴリーを選択する
+          .product-search-categorybox
+            = f.select :category_name_cont, @category_parent_array, {include_blank: '---'}, {class: 'product-search-select-default', id: 'parent_category'}
+
 
 
   .app-banner

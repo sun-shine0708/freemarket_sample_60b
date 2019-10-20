@@ -1,0 +1,107 @@
+.product-search-wrapper {
+  background: rgb(245, 245, 245);
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.product-search-main {
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-search-left-side {
+  margin-right: 40px;
+  width: 280px;
+}
+
+.product-search-sort {
+  text-align: left;
+}
+
+.product-search-order {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 100%;
+}
+
+.product-search-dropdown-content {
+  margin-top: 40px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.product-search-visible {
+  font-size: 16px;
+}
+
+.product-search-formgroup {
+  margin-top: 24px;
+}
+
+.product-search-plustext {
+  display: flex;
+}
+
+.product-search-plusicon {
+  margin-right: 4px;
+  color: #888;
+  font-size: 16px;
+}
+
+.product-search-keywordtext {
+  font-size: 14px;
+}
+
+.product-search-nameform {
+  margin-top: 8px;
+}
+
+.product-search-namebox {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+}
+
+.product-search-category-formgroup {
+  margin-top: 40px;
+}
+
+.product-search-categorytext {
+  display: flex;
+}
+
+.product-search-listicon {
+  margin-right: 4px;
+  color: #888;
+  font-size: 16px;
+}
+
+.product-search-keywordcategory {
+  font-size: 14px;
+}
+
+.product-search-categorybox {
+  margin-top: 8px;
+}
+
+.product-search-select-default {
+  width: 100%;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+}
+
+
+
+
