@@ -61,9 +61,32 @@ before_action :set_parent_category, only: [:new, :create, :edit, :search]
     @parent = @category.root
   end
 
+  require "payjp"
 
   def buy_confirmation
-    @products = Product.new
+    @product = Product.find(params[:id])
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
+    card = Creditcard.where(user_id: current_user.id).first
+    if card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @customer_card = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def onetimebuy
+    @product = Product.find(params[:id])
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if Payjp::Charge.create(
+      amount: @product.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
+      @product.update(buyer_id: current_user.id)
+      render template: "creditcards/buy"
+    else
+      redirect_to action: "buy_confirmation"
+    end
   end
 
   def search

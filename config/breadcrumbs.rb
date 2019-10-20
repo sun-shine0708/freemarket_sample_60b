@@ -21,7 +21,7 @@ end
 
 #支払い方法
 crumb :"creditcards/show" do
-  link "支払い方法", creditcard_path(current_user)
+  link "支払い方法", creditcards_path(current_user)
   parent :"users/show"
 end
 
