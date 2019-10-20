@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :set_parent_category, only: [:new, :create, :edit]
+# before_action :set_parent_category, only: [:new, :create, :edit]
   
 
   def index
@@ -53,7 +53,7 @@ before_action :set_parent_category, only: [:new, :create, :edit]
 
   def create
     @products = Product.new(product_params)
-    @products.save!
+    # @products.save!
     if @products.save
       render 'index'
     else
