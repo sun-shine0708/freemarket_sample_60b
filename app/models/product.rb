@@ -8,13 +8,14 @@ class Product < ApplicationRecord
   has_many :images,dependent: :destroy
   accepts_nested_attributes_for :images
 
-
-  validates :name,                  presence: true
-  validates :comment,               presence: true
-  validates :price,                 presence: true
+  # validates :images,                length: { maximum: 10 }
+  validates :name,                  presence: true, length: { maximum: 20 }
+  validates :comment,               presence: true, length: { maximum: 10 }
+  validates :price,                 presence: true, length: { maximum: 7 }
   validates :status,                presence: true
   validates :costcharge,            presence: true
   validates :delivery_way,          presence: true
   validates :delivery_area,         presence: true
   validates :delivery_date,         presence: true
+  # validates :category,              presence: true
 end
