@@ -18,6 +18,7 @@
 
 #     context 'log in' do
 #       before do
+#         login user
 #       end
       
 #       context 'can save' do
