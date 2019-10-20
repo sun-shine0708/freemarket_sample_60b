@@ -16,6 +16,10 @@ class SignupsController < ApplicationController
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
     @user = User.new
+    # if verify_recaptcha(model: @user)
+    # else
+    #   render '/signups/user1'
+    # end
   end
 
   def create
@@ -45,6 +49,31 @@ class SignupsController < ApplicationController
       redirect_to new_streetaddress_path
     else
       render '/signups/user1'
+    end
+  end
+
+
+  require "payjp"
+
+  def new
+    card = Creditcard.where(user_id: current_user.id)
+    gon.payjp_key = ENV["PAYJP_KEY"]
+  end
+  
+  def pay
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+      )
+      @creditcard = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @creditcard.save
+      else
+        redirect_to action: "new"
+      end
     end
   end
 

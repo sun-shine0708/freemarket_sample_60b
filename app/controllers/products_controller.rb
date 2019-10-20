@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :set_parent_category, only: [:new, :create]
+# before_action :set_parent_category, only: [:new, :create, :edit]
   
 
   def index
