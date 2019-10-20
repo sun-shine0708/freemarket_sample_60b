@@ -25,6 +25,5 @@ FactoryBot.define do
     #     product.images << FactoryBot.build(:images{ File.open("#{Rails.root}/spec/fixtures/weather_swift.png") })
     #   end
     # end
-    
   end
 end

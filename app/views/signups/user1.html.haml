@@ -24,9 +24,12 @@
 .signup-main
   .main-contents
     .main-contents-title 会員情報入力
-    .signup-error-message
-      - if @user.errors.any?
-        %p 入力項目に誤りがあります
+    .form-group
+      .signup-error-message
+        - if @user.errors.any?
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
     = form_for @user, url: user2_signups_path, method: :post do |f|
       .form-group
         %label.form-label ニックネーム
@@ -89,6 +92,8 @@
       .form-group
         %p.txt
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .form-group
+        = recaptcha_tags
       .form-group
         %p
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
