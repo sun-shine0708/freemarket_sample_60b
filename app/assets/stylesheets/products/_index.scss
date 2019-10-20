@@ -15,10 +15,11 @@ body{
   left: 50%;
   margin-left: -50vw;
   top: 0px;
+  width: 100vw;
 }
 
 .top-banner-slider-image{
-  width: 100vw;
+  width: 100%;
   height: 390px;
 }
 
@@ -145,9 +146,11 @@ body{
 .category-box_product{
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,.18);
-  width: 100%;
+  width: 188px;
+  height: 252px;
   align-items: center;
 }
+
 .category-box_product_link{
   width: 100%;
   cursor: pointer;
@@ -205,4 +208,7 @@ body{
       width: 50%;
     }
   }
+}
+.category-box_product-box:hover{
+  border: 1px solid #0095EE;
 }

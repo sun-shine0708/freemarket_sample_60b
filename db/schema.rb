@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191016080635) do
+ActiveRecord::Schema.define(version: 20191017102309) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20191016080635) do
   end
 
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_id",     null: false
+    t.string   "customer_id", null: false
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "customer_id", null: false
-    t.string   "card_id",     null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id", using: :btree
   end
 
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20191016080635) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "category_id"
+    t.string   "root_category"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", unique: true, using: :btree
@@ -68,10 +69,10 @@ ActiveRecord::Schema.define(version: 20191016080635) do
   end
 
   create_table "streetaddresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name",      null: false
     t.string   "last_name",       null: false
-    t.string   "first_name_kana", null: false
+    t.string   "first_name",      null: false
     t.string   "last_name_kana",  null: false
+    t.string   "first_name_kana", null: false
     t.string   "post_number",     null: false
     t.string   "prefectures",     null: false
     t.string   "city",            null: false

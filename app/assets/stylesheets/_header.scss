@@ -246,23 +246,35 @@
     font-size: 14px;
     line-height: 36px;
   }
+  &__like:hover .pc-header-menu-link{
+    color: #0095EE;;
+  }
   &__info {
     height: 44px;
     padding: 0 14px;
     font-size: 14px;
     line-height: 36px;
     }
+  &__info:hover .pc-header-menu-link{
+    color: #0095EE;;
+  }
   &__todo {
     height: 44px;
     padding: 0 14px;
     font-size: 14px;
     line-height: 36px;
   }
+  &__todo:hover .pc-header-menu-link{
+    color: #0095EE;;
+  }
   &__mypage {
     height: 44px;
     padding: 0 0 0 14px;
     font-size: 14px;
     line-height: 36px;
+  }
+  &__mypage:hover .pc-header-menu-link{
+    color: #0095EE;;
   }
   &__signup{
     text-align: center;
@@ -273,13 +285,15 @@
   }
 }
 
-.pc-header-menu-link {
+.pc-header-menu-link{
   text-decoration: none;
-  color: black;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+
 
 .signup-link{
   display: block;
@@ -309,4 +323,9 @@
   border-radius: 4px;
   padding: 8px 10px;
   transition: all 0.3s ease-out 0s;
+}
+
+.login-link:hover{
+  background-color: rgb(0, 149, 238);
+  color: #fff;
 }
