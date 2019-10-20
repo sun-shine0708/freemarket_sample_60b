@@ -28,15 +28,15 @@
     - if user_signed_in?
       .nav-right__like
         =link_to "", class: "pc-header-menu-link" do
-          = fa_icon 'heart-o', class: 'right-nav-btn'
+          = fa_icon 'heart-o', class: 'right-nav-btn', id:'right-nav-btn-heart'
           いいね ! 一覧
       .nav-right__info
         =link_to "", class: "pc-header-menu-link" do
-          = fa_icon 'bell-o', class: 'right-nav-btn'
+          = fa_icon 'bell-o', class: 'right-nav-btn', id:'right-nav-btn-bell'
           お知らせ
       .nav-right__todo
         =link_to "", class: "pc-header-menu-link" do
-          = fa_icon 'check', class: 'right-nav-btn'
+          = fa_icon 'check', class: 'right-nav-btn', id: 'right-nav-btn-check'
           やることリスト
       .nav-right__mypage
         =link_to "/users/#{current_user.id}", class: "pc-header-menu-link" do
