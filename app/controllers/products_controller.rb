@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :set_parent_category, only: [:new, :create, :edit]
+before_action :set_parent_category, only: [:new, :create, :edit, :search]
 
   def index
 
@@ -87,6 +87,13 @@ before_action :set_parent_category, only: [:new, :create, :edit]
     else
       redirect_to action: "buy_confirmation"
     end
+  end
+
+  def search
+    # 検索オブジェクト作成
+    @search = Product.includes(:category).ransack(params[:q])
+    # 検索結果表示
+    @products = @search.result(distinct: true)
   end
 
   def create
