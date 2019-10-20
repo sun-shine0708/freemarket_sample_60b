@@ -66,6 +66,10 @@ before_action :set_parent_category, only: [:new, :create, :edit]
     @products = Product.new
   end
 
+  def search
+
+  end
+
   def create
     @products = Product.new(product_params)
     if @products.save
