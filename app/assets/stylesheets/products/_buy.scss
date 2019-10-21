@@ -1,0 +1,67 @@
+.buy-complete-box {
+  width: 100%;
+  border-top: 1px solid #f5f5f5;
+  &__top {
+    background-color: #ffefd5;
+  }
+}
+
+.buy-complete-title {
+  color: #ea352d;
+  font-size: 22px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.buy-complete-title span {
+  color: #333;
+  font-size: 14px;
+}
+
+.buy-complete-box-title {
+  padding: 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.buy-complete-item {
+  max-width: 320px;
+  margin: 0 auto;
+  &__address {
+    max-width: 320px;
+    margin: 0 auto;
+    font-size: 14px;
+  }
+}
+
+.buy-complete-img {
+  margin-top: 20px;
+}
+
+.buy-complete-name {
+  text-align: center;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.buy-complete-price {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 30px 0;
+}
+
+.buy-complete-price span {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.buy-complete-address span {
+  font-weight: bold;
+}
+
+.buy-complete-address {
+  padding: 30px 0;
+}

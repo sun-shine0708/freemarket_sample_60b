@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
                           <select class="select-default" id="child_category" name="product[category_id]">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
-                          <select>
+                          </select>
                       </div>`;
     $('.detail-right-cate-top').append(childSelectHtml);
   }
@@ -78,12 +78,11 @@ $(document).on('turbolinks:load', function() {
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    console.log(parentCategory)
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_children',
+        url: '/products/get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
@@ -114,7 +113,7 @@ $(document).on('turbolinks:load', function() {
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -183,4 +182,144 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
+  // editのjs
+
+  function appendEditChidrenBox(insertHTML){
+    var childSelectHtml = '';
+    childSelectHtml = `<select class="select-default" id="child_category-edit-add" name="product[category_id]">
+                          <option value="---" data-category="---">---</option>
+                          ${insertHTML}
+                        </select>`;
+    $('.detail-right-cate-top').append(childSelectHtml);
+  }
+
+
+  // 孫カテゴリーの表示作成
+  function appendEditGrandchidrenBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `<select class="select-default" id="grandchild_category-edit-add" name="product[category_id]">
+                              <option value="---" data-category="---">---</option>
+                              ${insertHTML}
+                            </select>`;
+    $('.detail-right-cate-top').append(grandchildSelectHtml);
+  }
+
+   // 親カテゴリー選択後のイベント
+   $('#parent_category-edit').on('change', function(){
+    var parentCategory = document.getElementById('parent_category-edit').value; //選択された親カテゴリーの名前を取得
+    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: '/products/get_category_children',
+        type: 'GET',
+        data: { parent_id: parentCategory },
+        dataType: 'json'
+      })
+      .done(function(children){
+        $('#child_category-edit').remove(); //親が変更された時、子以下を削除する
+        $('#child_category-edit-add').remove();
+        $('#grandchild_category-edit').remove();
+        $('#grandchild_category-edit-add').remove();
+        $('#size_wrapper').remove();
+        $('#brand_wrapper').remove();
+        var insertHTML = '';
+        children.forEach(function(child){
+          insertHTML += appendOption(child);
+        });
+        appendEditChidrenBox(insertHTML);
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#child_category-edit').remove(); //親が変更された時、子以下を削除する
+      $('#child_category-edit-add').remove();
+      $('#grandchild_category-edit').remove();
+      $('#grandchild_category-edit-add').remove();
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+
+// 初期子カテゴリー選択後のイベント
+  $('#child_category-edit').on('change', function(){
+    var childCategory = document.getElementById('child_category-edit').value; //選択された子カテゴリーの名前を取得
+    console.log(childCategory)
+    if (childCategory != "---"){ //子カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: '/products/get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childCategory },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#grandchild_category-edit').remove();
+          $('#grandchild_category-edit-add').remove();
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendEditGrandchidrenBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#grandchild_category-edit').remove();
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+
+
+  // 子カテゴリー選択後のイベント
+  $('.detail-right-cate-top').on('change', '#child_category-edit-add', function(){
+    var childId = $('#child_category-edit-add option:selected').data('category'); //選択された子カテゴリーのidを取得
+    if (childId != "---"){ //子カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: '/products/get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childId },
+        dataType: 'json'
+      })
+      .done(function(grandchildren){
+        if (grandchildren.length != 0) {
+          $('#grandchild_category-edit').remove();
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendEditGrandchidrenBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#grandchild_category-edit').remove();
+      $('#grandchild_category-edit-add').remove();
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+
+  
+  $(function() {
+    $('.top-banner-slider').slick({
+        prevArrow:'<i class="slider-controller-left"></i>',
+        nextArrow:'<i class="slider-controller-right"></i>',
+        autoplay: true,
+        autoplaySpeed: 4000,
+        speed: 800
+    });
+  
+    $('.top-banner-slider').on(function() {
+      $('.top-banner-slider').slick('goTo', $(this).index());
+    });
+  });
 });
