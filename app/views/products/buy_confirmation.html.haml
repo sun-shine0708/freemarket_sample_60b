@@ -1,69 +1,79 @@
-= form_for @products do |f|
-  .pruducts-new_content
-    .products-new_head
-      %h1.products-new_head_mercari
-        =link_to root_path class: "products-new_head-link" do
-          = image_tag "logo-products_new.svg", size: "185x49"
-    .products-new_main
-      .products-new_main-top
-        購入内容の確認
-      .buy-confirmation
-        .buy-confirmation-item
-          .buy-confirmation-item-upper
-            = image_tag "https://static.mercdn.net/thumb/photos/m64104928186_1.jpg?1571023730", size: "64x64"
-          .buy-confirmation-item-main
-            ノースフェイスTシャツ
-        .buy-confirmation-detail
+.pruducts-new_content
+  .products-new_head
+    %h1.products-new_head_mercari
+      =link_to root_path class: "products-new_head-link" do
+        = image_tag "logo-products_new.svg", size: "185x49"
+  .products-new_main
+    .products-new_main-top
+      購入内容の確認
+    .buy-confirmation
+      .buy-confirmation-item
+        .buy-confirmation-item-upper
+          = image_tag "#{@product.images[0]}", size: "64x64"
+        .buy-confirmation-item-main
+          = @product.name
+      .buy-confirmation-detail
+        .buy-confirmation-detail-price
           .buy-confirmation-detail-price
-            .buy-confirmation-detail-price
-              ¥2,200 
-              .buy-confirmation-detail-price-postage
-                送料込み
-          .buy-confirmation-detail-point
-            ポイントはありません
-          .buy-confirmation-detail-price-cell
-            .detail-price-cell-left
-              支払い金額
-            .detail-price-cell-right
-              ¥2,200
-          .buy-confirmation-detail-text
-            配送先と支払い方法の入力を確認してください
-          .buy-confirmation-detail-btn
-            = f.submit "", class: 'buy-graybtn', value: '購入する'
-      .buy-confirmation-adress
-        .buy-confirmation-adress-content
-          .buy-confirmation-adress-text
-            配送先
-          .buy-confirmation-adress-box
-            〒123-4567
+            = "¥" + "#{@product.price}"
+            .buy-confirmation-detail-price-postage
+              送料込み
+        .buy-confirmation-detail-point
+          ポイントはありません
+        .buy-confirmation-detail-price-cell
+          .detail-price-cell-left
+            支払い金額
+          .detail-price-cell-right
+            = "¥" + "#{@product.price}"
+        .buy-confirmation-detail-text
+          配送先と支払い方法の入力を確認してください
+        .buy-confirmation-detail-btn
+          - if current_user.creditcard.present?
+            = link_to '購入する', buy_product_creditcards_path(@product), method: :post, class: "buy-btn"
+          - else
+            = form_tag(action: :onetimebuy, method: :post) do
+              %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する" ,"data-key": "#{ENV["PAYJP_KEY"]}"}
+    .buy-confirmation-adress
+      .buy-confirmation-adress-content
+        .buy-confirmation-adress-text
+          配送先
+        .buy-confirmation-adress-box
+          = "〒" + @streetaddress.post_number
+          %br
+          = "#{@streetaddress.prefecture}" + "#{@streetaddress.city}" + "#{@streetaddress.address}" + "#{@streetaddress.building_name}"
+          %br
+          = "#{@streetaddress.last_name}" + "#{@streetaddress.first_name}"
+        .buy-confirmation-adress-change
+          = link_to "", class: "buy-confirmation-change-btn" do
+            変更する >
+    .buy-confirmation-pay
+      .buy-confirmation-pay-content
+        .buy-confirmation-pay-text
+          支払い方法
+        .buy-confirmation-pay-box
+          -if current_user.creditcard.present?
+            = "**** **** **** " + @customer_card.last4
             %br
-            大阪府大阪市中央区1-1-1
+            - exp_month = @customer_card.exp_month.to_s
+            - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
             %br
-            メルカリ太郎
-          .buy-confirmation-adress-change
-            = link_to "", class: "buy-confirmation-change-btn" do
-              変更する >
-      .buy-confirmation-pay
-        .buy-confirmation-pay-content
-          .buy-confirmation-pay-text
-            支払い方法
-          .buy-confirmation-pay-box
-            ー
-          .buy-confirmation-pay-change
-            = link_to "", class: "buy-confirmation-change-btn" do
-              変更する >
-    .products-footter
-      .products-footter-top
-        .products-footter-top-list
-          = link_to "", class: "products-footter-detail" do
-            プライバシーポリシー
-        .products-footter-top-list
-          = link_to "", class: "products-footter-detail" do
-            メルカリ利用規約
-        .products-footter-top-list
-          = link_to "", class: "products-footter-detail" do
-            特定商取引に関する表記
-      .products-footter-main
-        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615", size: "80x65" 
-      .products-footter-bottom
-        © 2019 Mercari 
+            = image_tag "brand/#{@customer_card.brand}.svg"
+        .buy-confirmation-pay-change
+          = link_to creditcards_path, class: "buy-confirmation-change-btn" do
+            変更する >
+  .products-footter
+    .products-footter-top
+      .products-footter-top-list
+        = link_to "", class: "products-footter-detail" do
+          プライバシーポリシー
+      .products-footter-top-list
+        = link_to "", class: "products-footter-detail" do
+          メルカリ利用規約
+      .products-footter-top-list
+        = link_to "", class: "products-footter-detail" do
+          特定商取引に関する表記
+    .products-footter-main
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3466462615", size: "80x65" 
+    .products-footter-bottom
+      © 2019 Mercari 

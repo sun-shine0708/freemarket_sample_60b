@@ -19,7 +19,7 @@
     .product-show-maincontent
       .product-show-image
         - @product.images.each do |image|
-          = image_tag "#{image.url}"
+          = image_tag "#{image.url.url}", size: "300x300"
       .product-show-detailtable
         .product-show-tr
           .product-show-th
@@ -107,7 +107,7 @@
 
     - else
       .product-show-buybtn
-        = link_to "" ,class: "product-show-buylink" do
+        = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
           購入画面に進む
 
     .product-show-description
