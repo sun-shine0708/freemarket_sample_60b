@@ -28,6 +28,7 @@ class CreditcardsController < ApplicationController
   def buy
     card = Creditcard.where(user_id: current_user.id).first
     @product = Product.find(params[:product_id])
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new"
     else

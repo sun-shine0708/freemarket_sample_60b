@@ -76,6 +76,7 @@ before_action :set_parent_category, only: [:new, :create, :edit, :search]
 
   def onetimebuy
     @product = Product.find(params[:id])
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if Payjp::Charge.create(
       amount: @product.price,
