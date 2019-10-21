@@ -41,8 +41,7 @@
                           .category-box_product-box__image
                             = image_tag "#{product.images[0].url}", size: "188x188"
                             .category-box_product-box__price
-                              ¥
-                              = product.price
+                              = "¥" + "#{product.price}"
                           .category-box_product-box__title
                             .category-box_product-box__title--name
                               = product.name
