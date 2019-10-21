@@ -90,6 +90,20 @@ body{
 .category-box:not(:first-child){
   margin-top: 60px;
 }
+
+.category-box_product {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: all 1s;
+}
+
+.category-box_product.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
 .category-box_header{
   margin-bottom: 16px;
   position: relative;
