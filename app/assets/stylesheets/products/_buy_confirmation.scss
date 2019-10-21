@@ -70,14 +70,23 @@
   text-align: center;
 }
 
-.buy-graybtn {
+.buy-btn {
+  display: inline-block;
   width: 100%;
   line-height: 48px;
   font-size: 14px;
   margin: 8px 0 0;
-  border: 1px solid #888;
-  background: #888;
+  border: 1px solid  #ea352d;
+  background: #ea352d;
   color: #fff;
+  text-align: center;
+}
+
+#payjp_checkout_box input {
+  width: 100%;
+  line-height: 36px;
+  font-size: 14px;
+  margin: 8px 0 0;
 }
 
 .buy-confirmation-adress {
