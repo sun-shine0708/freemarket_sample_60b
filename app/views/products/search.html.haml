@@ -9,7 +9,6 @@
           %select.product-search-order
             %option 並べ替え
             %option 価格の安い順
-            %option 価格の安い順
             %option 価格の高い順
             %option 出品の古い順
             %option 出品の新しい順
@@ -32,7 +31,7 @@
               .product-search-keywordcategory
                 カテゴリーを選択する
           .product-search-categorybox
-            = f.select :category_name_cont, @category_parent_array, {include_blank: '---'}, {class: 'product-search-select-default', id: 'parent_category'}
+            = f.select :category_name_cont, @category_parent_array, {}, {class: 'product-search-select-default', id: 'parent_category_search'}
 
 
 

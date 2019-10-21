@@ -98,7 +98,8 @@ class ProductsController < ApplicationController
 
   def search
     # 検索オブジェクト作成
-    @search = Product.includes(:category).ransack(params[:q])
+    @search = Product.includes(:category).where(category_id: Category.find(params:id).root.subtree).ransack(params[:q])
+    # @search = Product.includes(:category).ransack(params[:q])
     # 検索結果表示
     @products = @search.result(distinct: true)
   end
