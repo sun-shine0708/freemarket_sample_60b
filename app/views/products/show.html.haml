@@ -18,8 +18,15 @@
 
     .product-show-maincontent
       .product-show-image
-        - @product.images.each do |image|
-          = image_tag "#{image.url.url}", size: "300x300"
+        - if (@product.buyer_id.blank?)
+          - @product.images.each do |image|
+            = image_tag "#{image.url.url}", size: "300x300"
+        - else
+          .product-show_sold-out_badge
+          .product-show_sold-out_badge-text
+            SOLD
+          - @product.images.each do |image|
+            = image_tag "#{image.url.url}", size: "300x300"
       .product-show-detailtable
         .product-show-tr
           .product-show-th
@@ -56,8 +63,8 @@
           .product-show-block1
             ブランド
           .product-show-block2
-            = link_to "", class: "product-show-productlink" do
-              アンダーアーマー
+          -#   = link_to "", class: "product-show-productlink" do
+          -#     アンダーアーマー
         .product-show-tr
           .product-show-block1
             商品サイズ
@@ -91,24 +98,25 @@
             = @product.delivery_date
     .product-show-pricebox
       .product-show-price
-        = @product.price
-        円
+        = "#{@product.price}" + "円"
       .product-show-tax
         (税込)
       .product-show-shipping-fee
         送料込み
+    - if (@product.buyer_id.blank?)
+      - if user_signed_in? && @product.seller_id == current_user.id
+        .product-show-buybtn
+          = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
 
-    - if user_signed_in? && @product.seller_id == current_user.id
-      .product-show-buybtn
-        = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
-
-      .product-show-buybtn
-        = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
-
+        .product-show-buybtn
+          = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
+      - else
+        .product-show-buybtn
+          = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
+            購入画面に進む
     - else
-      .product-show-buybtn
-        = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
-          購入画面に進む
+      .product-show-sold-out-link
+        売り切れました
 
     .product-show-description
       %p.product-show-inner

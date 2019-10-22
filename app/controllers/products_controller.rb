@@ -3,11 +3,9 @@ class ProductsController < ApplicationController
   require "payjp"
 
   def index
-
     @categories = Category.roots
     @products = @categories.map{|root| Product.where(category_id: root.subtree)}
     @sorted_products = @products.sort {|a,b| b.length <=> a.length }
-   
     @popular = []
     @sorted_products.each.with_index(1) do |products, i|
       if (i <= 4)
@@ -23,14 +21,17 @@ class ProductsController < ApplicationController
     @products.images.build
   end
 
+  def create
+    @products = Product.new(product_params)
+    if @products.save
+      redirect_to products_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @product = Product.find(params[:id])
-
-    # @category_parent_array = [{name:'---', id:'---'}]
-    # Category.roots.each do |parent|
-    #   @parent = {name: parent.name, id: parent.id}
-    #   @category_parent_array << @parent
-    # end
     @category_children_array = [{name:'---', id:'---'}]
     (@product.category.root.children).each do |child|
       @children = {name: child.name, id: child.id}
@@ -100,15 +101,6 @@ class ProductsController < ApplicationController
     @search = Product.includes(:category).ransack(params[:q])
     # 検索結果表示
     @products = @search.result(distinct: true)
-  end
-
-  def create
-    @products = Product.new(product_params)
-    if @products.save
-      redirect_to products_path
-    else
-      render 'new'
-    end
   end
 
   def get_category_children

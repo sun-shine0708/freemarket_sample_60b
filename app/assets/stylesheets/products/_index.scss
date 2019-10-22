@@ -208,6 +208,33 @@ body{
     }
   }
 }
-// .category-box_product:hover{
-//   border: 1px solid #0095EE;
-// }
+
+.product_sold-out_badge{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-color: #ea352d transparent transparent transparent;
+  border-style: solid;
+  border-width: 80px 80px 0 0;
+  height: 0;
+  width: 0;
+}
+
+.product_sold-out_badge-text{
+  position: absolute;
+  top: 18px;
+  left: 0;
+  z-index: 3;
+  font-size: 20px;
+  color: #fff;
+  transform: rotate(-45deg);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.product-box-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
