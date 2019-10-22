@@ -35,6 +35,7 @@
 }
 
 .product-show-image {
+  position: relative;
   height: 300px;
   width: 300px;
 }
@@ -138,6 +139,7 @@
 
 .product-show-price {
   font-size: 50px;
+  line-height: 50px;
   margin-right: 16px;
 }
 
@@ -374,4 +376,43 @@
 .product-show-item-box-body-price {
   margin-top: 8px;
   font-size: 17px;
+}
+
+.product-show_sold-out_badge{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-color: #ea352d transparent transparent transparent;
+  border-style: solid;
+  border-width: 120px 120px 0 0;
+  height: 0;
+  width: 0;
+}
+
+.product-show_sold-out_badge-text{
+  position: absolute;
+  top: 24px;
+  left: 0;
+  z-index: 3;
+  font-size: 28px;
+  color: #fff;
+  transform: rotate(-45deg);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.product-show-sold-out-link{
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  cursor: no-drop;
+  line-height: 60px;
+  margin-top: 16px;
+  background: #888888;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  font-weight: 600;
 }
