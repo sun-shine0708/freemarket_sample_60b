@@ -51,7 +51,7 @@
                               .product_sold-out_badge
                               .product_sold-out_badge-text
                                 SOLD
-                              = image_tag "#{product.images[0].url}", size: "188x188", class: "product-box-img"
+                              = image_tag "#{product.images[0].url}", size: "188x188"
                               .category-box_product-box__price
                                 = "¥" + "#{product.price}"
                             .category-box_product-box__title
@@ -510,7 +510,7 @@
               = link_to "", class: "category-box_product_link" do
                 .category-box_product-box
                   .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
+                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
                     .category-box_product-box__price
                       ¥1,000
                   .category-box_product-box__title
