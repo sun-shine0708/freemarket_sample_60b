@@ -2,11 +2,10 @@
   =link_to root_path do
     .header-content__image
       = image_tag "logo.svg", size: "134x36"
-  .header-content__form
-    %input.input-default{type: "search", placeholder: "何かお探しですか？", value: ""}
-    .search-box
-      =link_to "", class: "icon-search" do
-        = fa_icon 'search',class: 'search-btn'
+  = form_tag(search_products_path, method: :get, class: 'search-box') do
+    = text_field_tag :keyword, '', class: 'search-field', placeholder: '何かお探しですか？'
+    = button_tag type: 'submit', class: 'search-icon-box' do
+      = fa_icon 'search', class: 'search-icon'
 .nav
   .nav-left
     .nav-left__cate
