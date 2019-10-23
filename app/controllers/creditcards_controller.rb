@@ -25,43 +25,25 @@ class CreditcardsController < ApplicationController
     end
   end
 
-  # def buy #購入完了画面をここで実装
-  #   if card.blank?
-  #     redirect_to action: "new"
-  #   else
-  #     @product = Product.find(params[:product_id]) #購入する商品情報の取得
-  #     card = Creditcard.where(user_id: current_user.id).first
-  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #     Payjp::Charge.create(
-  #     amount: @product.price,
-  #     customer: card.customer_id,
-  #     currency: 'jpy'
-  #     )
-  #     # 購入後の商品在庫数等の変動処理
-  #     # if @product.update(status: 1, buyer_id: current_user.id)
-  #     #   redirect_to controller: "products", action: 'show'
-  #     # else
-  #     #   redirect_to controller: "products", action: 'show'
-  #     # end
-  #   end
-  # end
-
-  # 商品詳細ページでネスト
-  # def onetimebuy
-  #   Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #   charge = Payjp::Charge.create(
-  #   amount: @product.price,
-  #   card: params['payjp-token'],
-  #   currency: 'jpy'
-  #   )
-  # end
-
-  # 購入ボタンview
-  # - if current_user.creditcard.present?
-  #   = link_to buyアクションへ
-  # - else
-  #   = form_tag(action: :onetimebuy, method: :post) do
-  #     %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する" ,"data-key": "#{ENV["PAYJP_KEY"]}"}
+  def buy
+    card = Creditcard.where(user_id: current_user.id).first
+    @product = Product.find(params[:product_id])
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
+    if card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      if Payjp::Charge.create(
+        amount: @product.price,
+        customer: card.customer_id,
+        currency: 'jpy',
+        )
+        @product.update(buyer_id: current_user.id)
+      else
+        redirect_to buy_confirmation_product_path
+      end
+    end
+  end
 
   def show
     card = Creditcard.where(user_id: current_user.id).first

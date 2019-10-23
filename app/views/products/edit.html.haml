@@ -46,7 +46,12 @@
             .products-new-redbtn
               必須
           .detail-right-cate-top
-            = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'select-default', id: 'parent_category'}
+            = f.select :category_id, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}, @product.category.root.id), {selected: @product.category.root.name}, {class: 'select-default', id: 'parent_category-edit'}
+          
+            = f.select :category_id, options_for_select(@category_children_array.map{|child| [child[:name], child[:id]]}, @product.category.parent.id), {selected: @product.category.parent.name}, {class: 'select-default', id: 'child_category-edit'}
+
+            = f.select :category_id, options_for_select(@category_grandchildren_array.map{|grandchild| [grandchild[:name], grandchild[:id]]}, @product.category.id), {selected: @product.category.name}, {class: 'select-default', id: 'grandchild_category-edit'}
+
          
           -# .products-new_main-detail-right-status
           -#   ブランド
@@ -132,9 +137,9 @@
           %span{style: "color: #0099e8;"}>加盟店規約
           に同意したことになります。
         .products-new_mainbtn-text-red
-          = f.submit "", class: 'exhibit-btn', value: '出品する'
+          = f.submit "", class: 'exhibit-btn', value: '変更する'
         .products-new_mainbtn-text-gray
-          = f.submit "", class: 'return-btn', value: 'もどる'
+          = f.submit "", class: 'return-btn', value: 'キャンセル'
 
     .products-footter
       .products-footter-top

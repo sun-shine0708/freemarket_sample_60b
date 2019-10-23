@@ -1,0 +1,36 @@
+.pruducts-new_content
+  .products-new_head
+    %h1.products-new_head_mercari
+      =link_to root_path class: "products-new_head-link" do
+        = image_tag "logo-products_new.svg", size: "185x49"
+  .products-new_main
+    .buy-complete-box__top
+      .buy-complete-title
+        = fa_icon 'clock-o'
+        発送をお待ちください
+        %br
+        %span 出品者からの発送通知をお待ちください
+    .buy-complete-box-title
+      購入完了しました
+    .buy-complete-box
+      .buy-complete-item
+        .buy-complete-img
+          = image_tag "#{@product.images[0].url}", size: "320x320"
+        .buy-complete-name
+          = @product.name
+    .buy-complete-box
+      .buy-complete-item
+        .buy-complete-price
+          = "¥" + "#{@product.price}"
+          %span 送料込み
+    .buy-complete-box
+      .buy-complete-item__address
+        .buy-complete-address
+          %span 配送先
+          %br
+          = "〒" + @streetaddress.post_number
+          %br
+          = "#{@streetaddress.prefecture}" + "#{@streetaddress.city}" + "#{@streetaddress.address}" + "#{@streetaddress.building_name}"
+          %br
+          = "#{@streetaddress.last_name}" + "#{@streetaddress.first_name}"
+  = render 'signups/signup_footer'
