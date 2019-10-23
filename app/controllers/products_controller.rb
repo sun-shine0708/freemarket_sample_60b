@@ -19,8 +19,8 @@ before_action :set_parent_category, only: [:new, :create, :edit]
   end
 
   def new
-    @products = Product.new
-    @products.images.build
+    @product = Product.new
+    @product.images.build
   end
 
   def get_category_children
@@ -67,12 +67,21 @@ before_action :set_parent_category, only: [:new, :create, :edit]
   end
 
   def create
-    @products = Product.new(product_params)
-    if @products.save
-      redirect_to products_path
-    else
-      render 'new'
+    @product = Product.new(product_params)
+    if @product.save
+      params[:images]['url'].each do |image|
+      @product.images.create(url: image, product_id: @product.id)
     end
+    redirect_to root_path
+  else
+    @product.images.build
+    render action: 'new'
+  end
+  #   if @products.save
+  #     redirect_to products_path
+  #   else
+  #     render 'new'
+  #   end
   end
 
   private
