@@ -1,9 +1,9 @@
 FactoryBot.define do
-  factory :user do
+  factory :user, class: User do
     password = Faker::Internet.password(7)
     first_name            { Faker::Name.first_name }
     first_name_kana       {"ヤマダ"}
-    nickname              {"toro"}
+    nickname              {"taro"}
     email                 { Faker::Internet.email }
     password              { password }
     password_confirmation { password }
@@ -15,10 +15,24 @@ FactoryBot.define do
     birth_month           {"12"}
     birth_day             {"19"}
   end
+
+  factory :another_user, class: User do
+    password = Faker::Internet.password(7)
+    first_name            { Faker::Name.first_name }
+    first_name_kana       {"タナカ"}
+    nickname              {"hana"}
+    email                 { Faker::Internet.email }
+    password              { password }
+    password_confirmation { password }
+    birth_year            { "2000" }
+    comment               {"bbbbbb"}
+    phone_number          {"08097766211"}
+    last_name             { Faker::Name.last_name }
+    last_name_kana        {"ハナ"}
+    birth_month           {"1"}
+    birth_day             {"13"}
+  end
 end
-
-
-
 
 
 # FactoryBot.define do

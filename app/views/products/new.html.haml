@@ -1,26 +1,33 @@
-= form_for @products do |f|
+= form_for @product do |f|
   .pruducts-new_content
     .products-new_head
       %h1.products-new_head_mercari
         =link_to root_path class: "products-new_head-link" do
-          = image_tag "logo-products_new.svg", size: "185x49"
+          = image_tag "logo-products_new.svg"
     .products-new_main
-      .products-new_main-info
-        商品の情報を入力
-      .products-new_main-upload
-        .products-new_main-upload-head
+      %h2.sell-form__header
+        商品情報を入力
+      .sell-form-container
+        %label.sell-form-container__label
           出品画像
-          .products-new-redbtn
-            必須
-        = f.fields_for :images do |i|
-          .products-new_main-upload-main
-            最大10枚までアップロードできます
-          = i.label :url, class: 'img-drop-box' do
-            .products-new_main-upload-img
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-            = i.file_field :url, class: 'hidden'
+        %span.sell-form-container__btn
+          必須
+        .sell-form-container__require
+          最大10枚までアップロードできます
+        = f.fields_for :images do |image|
+          .dropzone-container
+            #preview
+            .dropzone-area
+              = image.label :url, class: "dropzone-box", for: "upload-image" do
+                .input_area
+                  = image.file_field :url, multiple: true, name: 'images[url][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  %p ドラッグ&ドロップまたはクリックしてファイルをアップロード
+          .dropzone-container2
+            #preview2
+            .dropzone-area2
+              = image.label :images, class: "dropzone-box", for: "upload-image" do
+                %p ドラッグ&ドロップまたはクリックしてファイルをアップロード
+
       .products-new_main-content
         .main-content-group
           .main-content-group-name
@@ -82,7 +89,7 @@
               .products-new-redbtn
                 必須
             .delivary-right-area-box
-              = f.select :delivery_area, ['北海道', '青森県', '岩手県'], {include_blank: '---'},  class: 'select-default'
+              = f.select :delivery_area, Streetaddress.prefectures.keys,{include_blank: '---'}, {class: 'select-default'}
           .products-new_main-delivary-right-day
             .delivary-right-day-head
               発送までの日数
@@ -105,14 +112,15 @@
             .main-price-right-head-input
               ¥
               .main-price-right-head-input-tab
-                %input#price_calc.price_form-box{placeholder: "例) 300", type: "number", class: 'input-price'}
+                = f.number_field :price, placeholder: "例) 300",class: 'input-price',id:'price_calc'
                 -# = f.text_field :price, class: 'input-price', placeholder: '例)300'
           .main-price-right-fee
             販売手数料(10%)
             .right_bar
               ー
           .main-price-right-profit
-            = f.number_field :price, style: "display: none", id: "price"
+            #price
+            -# = f.number_field :price, style: "display: none", id: "price"
             販売利益
             .right_bar_2
               ー

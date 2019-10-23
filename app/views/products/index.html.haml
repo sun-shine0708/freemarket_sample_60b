@@ -33,18 +33,30 @@
                   = fa_icon "chevron-right", class: "preview-link-right"
             .category-box_items
               .category-box_grid
-                - popular.each.with_index(1) do|product, i|
+                - popular.reverse_each.with_index(1) do|product, i|
                   -if (i <= 10)
                     .category-box_product
                       = link_to product_path(product), class: "category-box_product_link" do
                         .category-box_product-box
-                          .category-box_product-box__image
-                            = image_tag "#{product.images[0].url}", size: "188x188"
-                            .category-box_product-box__price
-                              = "¥" + "#{product.price}"
-                          .category-box_product-box__title
-                            .category-box_product-box__title--name
-                              = product.name
+                          - if (product.buyer_id.blank?)
+                            .category-box_product-box__image
+                              = image_tag "#{product.images[0].url}", size: "188x188", class: "product-box-img"
+                              .category-box_product-box__price
+                                = "¥" + "#{product.price}"
+                            .category-box_product-box__title
+                              .category-box_product-box__title--name
+                                = product.name
+                          - else
+                            .category-box_product-box__image
+                              .product_sold-out_badge
+                              .product_sold-out_badge-text
+                                SOLD
+                              = image_tag "#{product.images[0].url}", size: "188x188"
+                              .category-box_product-box__price
+                                = "¥" + "#{product.price}"
+                            .category-box_product-box__title
+                              .category-box_product-box__title--name
+                                = product.name
 
     .products-category-nav
       .nav-title
@@ -498,7 +510,7 @@
               = link_to "", class: "category-box_product_link" do
                 .category-box_product-box
                   .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
+                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
                     .category-box_product-box__price
                       ¥1,000
                   .category-box_product-box__title

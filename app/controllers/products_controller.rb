@@ -3,11 +3,9 @@ class ProductsController < ApplicationController
   require "payjp"
 
   def index
-
     @categories = Category.roots
     @products = @categories.map{|root| Product.where(category_id: root.subtree)}
     @sorted_products = @products.sort {|a,b| b.length <=> a.length }
-   
     @popular = []
     @sorted_products.each.with_index(1) do |products, i|
       if (i <= 4)
@@ -19,18 +17,22 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @products = Product.new
-    @products.images.build
+    @product = Product.new
+    @product.images.build
   end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      params[:images]['url'].each do |image|
+      @product.images.create(url: image, product_id: @product.id)
+      end
+    end
+  end
+
 
   def edit
     @product = Product.find(params[:id])
-
-    # @category_parent_array = [{name:'---', id:'---'}]
-    # Category.roots.each do |parent|
-    #   @parent = {name: parent.name, id: parent.id}
-    #   @category_parent_array << @parent
-    # end
     @category_children_array = [{name:'---', id:'---'}]
     (@product.category.root.children).each do |child|
       @children = {name: child.name, id: child.id}
@@ -79,7 +81,7 @@ class ProductsController < ApplicationController
       @customer_card = customer.cards.retrieve(card.card_id)
     end
   end
-
+        
   def onetimebuy
     @product = Product.find(params[:id])
     @streetaddress = Streetaddress.find_by(user_id: current_user.id)
@@ -93,7 +95,18 @@ class ProductsController < ApplicationController
       render template: "creditcards/buy"
     else
       redirect_to action: "buy_confirmation"
+
     end
+    redirect_to root_path
+  # else
+  #   @product.images.build
+  #   render action: 'new'
+  # end
+  # #   if @products.save
+  # #     redirect_to products_path
+  # #   else
+  # #     render 'new'
+  # #   end
   end
 
   def search

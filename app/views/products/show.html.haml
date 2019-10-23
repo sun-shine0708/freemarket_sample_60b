@@ -18,8 +18,15 @@
 
     .product-show-maincontent
       .product-show-image
-        - @product.images.each do |image|
-          = image_tag "#{image.url.url}", size: "300x300"
+        - if (@product.buyer_id.blank?)
+          - @product.images.each do |image|
+            = image_tag "#{image.url.url}", size: "300x300"
+        - else
+          .product-show_sold-out_badge
+          .product-show_sold-out_badge-text
+            SOLD
+          - @product.images.each do |image|
+            = image_tag "#{image.url.url}", size: "300x300"
       .product-show-detailtable
         .product-show-tr
           .product-show-th
@@ -56,8 +63,8 @@
           .product-show-block1
             ブランド
           .product-show-block2
-            = link_to "", class: "product-show-productlink" do
-              アンダーアーマー
+          -#   = link_to "", class: "product-show-productlink" do
+          -#     アンダーアーマー
         .product-show-tr
           .product-show-block1
             商品サイズ
@@ -91,61 +98,62 @@
             = @product.delivery_date
     .product-show-pricebox
       .product-show-price
-        = @product.price
-        円
+        = "#{@product.price}" + "円"
       .product-show-tax
         (税込)
       .product-show-shipping-fee
         送料込み
+    - if (@product.buyer_id.blank?)
+      - if user_signed_in? && @product.seller_id == current_user.id
+        .product-show-buybtn
+          = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
 
-    - if user_signed_in? && @product.seller_id == current_user.id
-      .product-show-buybtn
-        = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
-
-      .product-show-buybtn
-        = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
-
+        .product-show-buybtn
+          = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
+      - else
+        .product-show-buybtn
+          = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
+            購入画面に進む
     - else
-      .product-show-buybtn
-        = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
-          購入画面に進む
+      .product-show-sold-out-link
+        売り切れました
 
     .product-show-description
       %p.product-show-inner
         = @product.comment
-        ※即購入OKです。
-        ※購入手続きをされた方を優先とさせていただきます。
-        【メーカー】
-        UNDER ARMOUR
-        %br
-        【商品】
-        ★アンダーアーマー 新品 メンズ オールシーズンギア 抗菌防臭 パーカー ジャケット ★
-        %br
-        通年での着用を目的としたオールシーズンギアは、ジャージやスウェットなどの肌寒い程度の体温調整に適したウエアです。
-        トップス1枚では寒いけど、寒さ対策の防寒ウエアにはまだまだ…そんな季節の変わりめに大活躍します。
-        %br
-        素材：ポリエステル
-        %br
-        【この商品のサイズはメンズ Ｌ サイズ】
-        サイズは以下のUNDER ARMOURサイズをご参照ください。
-        MD（M）身長167～173cm、胸囲89～95cm、ウエスト75～81cm
-        LG（L）身長172～178cm、胸囲93～99cm、ウエスト79～85cm
-        XL 身長177～183cm、胸囲97～103cm、ウエスト83～89cm
-        %br
-        【状態】
-        新品
-        %br
-        【定価】
-        7700円
-        %br
-        送料無料
-        発送は極力小さく簡易包装になります。
-        %br
-        他サイトでも出品してますので売り切れの際はご了承ください
-        %br
-        他にも多数出品中です。
-        プロフィールよりご覧ください。
-        続々出品しておりますのでフォローよろしくお願いします。
+        -# ※即購入OKです。
+        -# ※購入手続きをされた方を優先とさせていただきます。
+        -# 【メーカー】
+        -# UNDER ARMOUR
+        -# %br
+        -# 【商品】
+        -# ★アンダーアーマー 新品 メンズ オールシーズンギア 抗菌防臭 パーカー ジャケット ★
+        -# %br
+        -# 通年での着用を目的としたオールシーズンギアは、ジャージやスウェットなどの肌寒い程度の体温調整に適したウエアです。
+        -# トップス1枚では寒いけど、寒さ対策の防寒ウエアにはまだまだ…そんな季節の変わりめに大活躍します。
+        -# %br
+        -# 素材：ポリエステル
+        -# %br
+        -# 【この商品のサイズはメンズ Ｌ サイズ】
+        -# サイズは以下のUNDER ARMOURサイズをご参照ください。
+        -# MD（M）身長167～173cm、胸囲89～95cm、ウエスト75～81cm
+        -# LG（L）身長172～178cm、胸囲93～99cm、ウエスト79～85cm
+        -# XL 身長177～183cm、胸囲97～103cm、ウエスト83～89cm
+        -# %br
+        -# 【状態】
+        -# 新品
+        -# %br
+        -# 【定価】
+        -# 7700円
+        -# %br
+        -# 送料無料
+        -# 発送は極力小さく簡易包装になります。
+        -# %br
+        -# 他サイトでも出品してますので売り切れの際はご了承ください
+        -# %br
+        -# 他にも多数出品中です。
+        -# プロフィールよりご覧ください。
+        -# 続々出品しておりますのでフォローよろしくお願いします。
 
     .product-show-itembutton
       .product-show-itembutton-left

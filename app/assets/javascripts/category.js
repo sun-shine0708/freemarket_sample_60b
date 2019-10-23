@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
   }
   function buildChildHTML(child){
     var html =`<li class="header_children-list" data-id= "${child.id}">
-                <a class="header_children-link" href="">${child.name}</a>
+                <a class="header_children-link" href="/categories/${child.id}">${child.name}</a>
               </li>`;
     return html;
   }
@@ -70,7 +70,7 @@ $(document).on('turbolinks:load', function() {
 
   function buildGrandChildHTML(grandchild){
     var html =`<li class="header_grandchildren-list" data-id="${grandchild.id}">
-                <a class="header_grandchildren-link" href="">${grandchild.name}</a>
+                <a class="header_grandchildren-link" href="/categories/${grandchild.id}">${grandchild.name}</a>
               </li>`;
     return html;
   }
