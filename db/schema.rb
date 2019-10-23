@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191016105606) do
+ActiveRecord::Schema.define(version: 20191023120505) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20191016105606) do
     t.integer  "category_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["name"], name: "index_products_on_name", unique: true, using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
