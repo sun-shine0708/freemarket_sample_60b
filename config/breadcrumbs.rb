@@ -8,11 +8,6 @@ crumb :"users/show" do
   link "マイページ", user_path(current_user)
 end
 
-#カテゴリー一覧
-crumb :"categories/index" do
-  link "カテゴリー一覧", categories_path
-end
-
 #プロフィール編集
 crumb :"users/edit" do
   link "プロフィール", edit_user_path
@@ -55,6 +50,38 @@ crumb :"users/logout" do
   parent :"users/show"
 end
 
+#カテゴリー一覧
+crumb :"categories/index" do
+  link "カテゴリー一覧", categories_path
+end
+
+#親カテゴリーのshow
+crumb :"categories/show" do |category|
+    link "#{category.name}", category_path(category)
+    parent :"categories/index"
+end
+
+#子カテゴリーのshow
+crumb :"categories/root" do |category|
+  link "#{category.root.name}", category_path(category.root)
+  parent :"categories/index"
+end
+
+crumb :"categories/child" do |category|
+  link "#{category.name}", category_path(category)
+  parent :"categories/root", category
+end
+
+#孫カテゴリーのshow
+crumb :"categories/parent" do |category|
+  link "#{category.parent.name}", category_path(category.parent)
+  parent :"categories/root", category
+end
+
+crumb :"categories/grandchild" do |category|
+  link "#{category.name}", category_path(category)
+  parent :"categories/parent", category
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

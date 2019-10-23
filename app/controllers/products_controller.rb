@@ -27,9 +27,11 @@ class ProductsController < ApplicationController
       params[:images]['url'].each do |image|
       @product.images.create(url: image, product_id: @product.id)
       end
+      redirect_to root_path
+    else
+      redirect_to new_product_path
     end
   end
-
 
   def edit
     @product = Product.find(params[:id])
@@ -43,6 +45,10 @@ class ProductsController < ApplicationController
       @grandchildren = {name:grandchild.name, id:grandchild.id}
       @category_grandchildren_array << @grandchildren
     end
+    # @product.images.each do |image|
+    
+    # end
+
   end
 
   def update
@@ -111,12 +117,11 @@ class ProductsController < ApplicationController
 
   def search
     # 検索オブジェクト作成
-    @search = Product.includes(:category).where(category_id: Category.find(params:id).root.subtree).ransack(params[:q])
-    # @search = Product.includes(:category).ransack(params[:q])
+    # @search = Product.includes(:category).where(category_id: Category.find(params:id).root.subtree).ransack(params[:q])
+    @search = Product.includes(:category).ransack(params[:q])
     # 検索結果表示
     @products = @search.result(distinct: true)
-    @namesearch = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
-    # binding.pry
+    @namesearchs = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
   end
 
   def get_category_children
