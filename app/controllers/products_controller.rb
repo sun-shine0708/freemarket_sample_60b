@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @products = Product.new
-    @products.images.build
+    @product = Product.new
+    @product.images.build
   end
 
   def create
@@ -81,6 +81,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      params[:images]['url'].each do |image|
+      @product.images.create(url: image, product_id: @product.id)
+        
   def onetimebuy
     @product = Product.find(params[:id])
     @streetaddress = Streetaddress.find_by(user_id: current_user.id)
@@ -94,7 +100,18 @@ class ProductsController < ApplicationController
       render template: "creditcards/buy"
     else
       redirect_to action: "buy_confirmation"
+
     end
+    redirect_to root_path
+  else
+    @product.images.build
+    render action: 'new'
+  end
+  #   if @products.save
+  #     redirect_to products_path
+  #   else
+  #     render 'new'
+  #   end
   end
 
   def search
