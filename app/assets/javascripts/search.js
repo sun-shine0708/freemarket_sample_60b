@@ -22,6 +22,7 @@ $(document).on('turbolinks:load', function() {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div id= 'grandchildren_wrapper'>
                                 <select class="select-default" id="grandchild_category" name="product[category_id]">
+                                  <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>
                             </div>`;
@@ -86,4 +87,12 @@ $(document).on('turbolinks:load', function() {
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
+  // $('.status-all').click(function(){ //全選択・全解除をクリックしたとき
+  //   var items = $(this).closest('.status-all').next().find('check_box');
+  //   if($(this).is(':checked')) { //全選択・全解除がcheckedだったら
+  //       $(items).prop('checked', true); //アイテムを全部checkedにする
+  //   } else { //全選択・全解除がcheckedじゃなかったら
+  //       $(items).prop('checked', false); //アイテムを全部checkedはずす
+  //   }
+  // });
 });
