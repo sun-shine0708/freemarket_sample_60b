@@ -45,9 +45,10 @@ class ProductsController < ApplicationController
       @grandchildren = {name:grandchild.name, id:grandchild.id}
       @category_grandchildren_array << @grandchildren
     end
-    # @image.each do |image|
-
+    # @product.images.each do |image|
+    
     # end
+
   end
 
   def update
@@ -121,15 +122,6 @@ class ProductsController < ApplicationController
     # 検索結果表示
     @products = @search.result(distinct: true)
     @namesearchs = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
-  end
-
-  def create
-    @products = Product.new(product_params)
-    if @products.save
-      redirect_to products_path
-    else
-      render 'new'
-    end
   end
 
   def get_category_children
