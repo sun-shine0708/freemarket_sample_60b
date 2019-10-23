@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :category,optional: true
 
   # belongs_to :brand
-  has_many :images,dependent: :destroy
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
   validates :name,                  presence: true, length: { maximum: 40 }
@@ -18,5 +18,5 @@ class Product < ApplicationRecord
   validates :delivery_way,          presence: true
   validates :delivery_area,         presence: true
   validates :delivery_date,         presence: true
-  validates :category,              presence: true
+  validates :category_id,              presence: true
 end

@@ -23,11 +23,15 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
-      params[:images]['url'].each do |image|
-      @product.images.create(url: image, product_id: @product.id)
+    if (@product.images.length!= 0)
+      if @product.save
+        params[:images]['url'].each do |image|
+        @product.images.create(url: image, product_id: @product.id)
+        end
+        redirect_to root_path
+      else
+        redirect_to new_product_path
       end
-      redirect_to root_path
     else
       redirect_to new_product_path
     end
@@ -103,16 +107,6 @@ class ProductsController < ApplicationController
       redirect_to action: "buy_confirmation"
 
     end
-    redirect_to root_path
-  # else
-  #   @product.images.build
-  #   render action: 'new'
-  # end
-  # #   if @products.save
-  # #     redirect_to products_path
-  # #   else
-  # #     render 'new'
-  # #   end
   end
 
   def search
