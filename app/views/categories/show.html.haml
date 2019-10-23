@@ -1,5 +1,14 @@
-.header#root-header
+- if (@category.ancestry == nil)
+  - breadcrumb :"categories/show", @category
+- elsif (@category.parent.ancestry == nil)
+  - breadcrumb :"categories/child", @category
+- else
+  - breadcrumb :"categories/grandchild", @category
+
+.header
   = render 'layouts/header'
+
+= render 'layouts/nav'
 
 .show-category_contents
   .show-category_categorys
