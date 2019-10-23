@@ -8,18 +8,6 @@ describe Product do
       expect(product).to be_valid
     end
 
-    # imageが空では出品できないこと
-
-
-
-    # imageが10枚内であれば出品できること
-
-
-
-    # imageが11枚以上であれば出品できないこと
-
-
-
     # nameが空では出品できないこと
     it "is invalid without a name" do
       product = build(:product, name: nil)
@@ -59,10 +47,6 @@ describe Product do
       product.valid?
       expect(product.errors[:comment][0]).to include("は10文字以内で入力してください")
     end
-
-    # categoryが空では出品できないこと
-
-
 
     # statusが空では出品できないこと
     it "is invalid without a status" do
