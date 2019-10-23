@@ -104,15 +104,21 @@
       .product-show-shipping-fee
         送料込み
     - if (@product.buyer_id.blank?)
-      - if user_signed_in? && @product.seller_id == current_user.id
-        .product-show-buybtn
-          = link_to '編集' ,edit_product_path(@product.id),class: "product-show-buylink"
-
-        .product-show-buybtn
-          = link_to '削除', "/products/#{@product.id}", method: :delete,class: "product-show-buylink"
-      - else
-        .product-show-buybtn
+      - if user_signed_in?
+        - if @product.seller_id == current_user.id
+          = link_to edit_product_path(@product.id),class: "product-show-buylink" do
+            .product-show-buybtn
+              編集
+          = link_to "/products/#{@product.id}", method: :delete,class: "product-show-buylink" do
+            .product-show-buybtn
+              削除
+        - else
           = link_to buy_confirmation_product_path ,class: "product-show-buylink" do
+            .product-show-buybtn
+              購入画面に進む
+      - else
+        = link_to new_user_session_path ,class: "product-show-buylink" do
+          .product-show-buybtn
             購入画面に進む
     - else
       .product-show-sold-out-link
