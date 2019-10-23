@@ -326,7 +326,7 @@ $(document).on('change', 'input[type= "file"].upload-image',function(event) {
   //     dropzone.find('i').replaceWith('<p>ドラッグ&ドロップまたはクリックしてファイルをアップロード</p>')
   //   }
   // })
-});
+  
   // editのjs
 
   function appendEditChidrenBox(insertHTML){

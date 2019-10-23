@@ -22,13 +22,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @products = Product.new(product_params)
-    if @products.save
-      redirect_to products_path
-    else
-      render 'new'
+    @product = Product.new(product_params)
+    if @product.save
+      params[:images]['url'].each do |image|
+      @product.images.create(url: image, product_id: @product.id)
+      end
     end
   end
+
 
   def edit
     @product = Product.find(params[:id])
@@ -80,12 +81,6 @@ class ProductsController < ApplicationController
       @customer_card = customer.cards.retrieve(card.card_id)
     end
   end
-
-  def create
-    @product = Product.new(product_params)
-    if @product.save
-      params[:images]['url'].each do |image|
-      @product.images.create(url: image, product_id: @product.id)
         
   def onetimebuy
     @product = Product.find(params[:id])
@@ -103,15 +98,15 @@ class ProductsController < ApplicationController
 
     end
     redirect_to root_path
-  else
-    @product.images.build
-    render action: 'new'
-  end
-  #   if @products.save
-  #     redirect_to products_path
-  #   else
-  #     render 'new'
-  #   end
+  # else
+  #   @product.images.build
+  #   render action: 'new'
+  # end
+  # #   if @products.save
+  # #     redirect_to products_path
+  # #   else
+  # #     render 'new'
+  # #   end
   end
 
   def search
