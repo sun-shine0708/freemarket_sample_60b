@@ -103,6 +103,8 @@ class ProductsController < ApplicationController
     # @search = Product.includes(:category).ransack(params[:q])
     # 検索結果表示
     @products = @search.result(distinct: true)
+    @namesearch = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
+    # binding.pry
   end
 
   def get_category_children
