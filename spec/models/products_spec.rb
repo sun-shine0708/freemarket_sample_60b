@@ -24,7 +24,7 @@ describe Product do
     it "is invalid without a name" do
       product = build(:product, name: nil)
       product.valid?
-      expect(product.errors[:name]).to include("can't be blank")
+      expect(product.errors[:name]).to include("を入力してください")
     end
 
     # nameが10文字以内であれば出品できること
@@ -37,14 +37,14 @@ describe Product do
     it "is invalid with a name that has more than 21 characters " do
       product = build(:product, name: "aaaaaaaaaaaaaaaaaaaaa")
       product.valid?
-      expect(product.errors[:name][0]).to include("is too long")
+      expect(product.errors[:name][0]).to include("は20文字以内で入力してください")
     end
 
     # commentが空では出品できないことこと
     it "is invalid without a comment" do
       product = build(:product, comment: nil)
       product.valid?
-      expect(product.errors[:comment]).to include("can't be blank")
+      expect(product.errors[:comment]).to include("を入力してください")
     end
 
     # commentが10文字以内であれば出品できること
@@ -57,7 +57,7 @@ describe Product do
     it "is invalid with a comment that has more than 11 characters " do
       product = build(:product, comment: "aaaaaaaaaaa")
       product.valid?
-      expect(product.errors[:comment][0]).to include("is too long")
+      expect(product.errors[:comment][0]).to include("は10文字以内で入力してください")
     end
 
     # categoryが空では出品できないこと
@@ -68,42 +68,42 @@ describe Product do
     it "is invalid without a status" do
       product = build(:product, status: nil)
       product.valid?
-      expect(product.errors[:status]).to include("can't be blank")
+      expect(product.errors[:status]).to include("を入力してください")
     end
 
     # costchargeが空では出品できないこと
     it "is invalid without a costcharge" do
       product = build(:product, costcharge: nil)
       product.valid?
-      expect(product.errors[:costcharge]).to include("can't be blank")
+      expect(product.errors[:costcharge]).to include("を入力してください")
     end
 
     # delivery_wayが空では出品できないこと
     it "is invalid without a delivery_way" do
       product = build(:product, delivery_way: nil)
       product.valid?
-      expect(product.errors[:delivery_way]).to include("can't be blank")
+      expect(product.errors[:delivery_way]).to include("を入力してください")
     end
     
     # delivery_areaが空では出品できないこと
     it "is invalid without a delivery_area" do
       product = build(:product, delivery_area: nil)
       product.valid?
-      expect(product.errors[:delivery_area]).to include("can't be blank")
+      expect(product.errors[:delivery_area]).to include("を入力してください")
     end
 
     # delivery_dateが空では出品できないこと
     it "is invalid without a delivery_date" do
       product = build(:product, delivery_date: nil)
       product.valid?
-      expect(product.errors[:delivery_date]).to include("can't be blank")
+      expect(product.errors[:delivery_date]).to include("を入力してください")
     end
 
     # priceが空では出品できないこと
     it "is invalid without a price" do
       product = build(:product, price: nil)
       product.valid?
-      expect(product.errors[:price]).to include("can't be blank")
+      expect(product.errors[:price]).to include("を入力してください")
     end
 
     # priceが9,999,999円以内(7桁)であれば出品できること
