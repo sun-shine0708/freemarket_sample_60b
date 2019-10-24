@@ -49,10 +49,6 @@ class ProductsController < ApplicationController
       @grandchildren = {name:grandchild.name, id:grandchild.id}
       @category_grandchildren_array << @grandchildren
     end
-    # @product.images.each do |image|
-    
-    # end
-
   end
 
   def update

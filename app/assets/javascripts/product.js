@@ -238,7 +238,7 @@ $(document).on('change', 'input[type= "file"].upload-image',function(event) {
       dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
     }
   } else {
-      $('#preview').empty();
+      // $('#preview').empty();
       $.each(images, function(index, image) {
         image.attr('data-image', index);
         preview.append(image);
@@ -326,7 +326,7 @@ $(document).on('change', 'input[type= "file"].upload-image',function(event) {
   //     dropzone.find('i').replaceWith('<p>ドラッグ&ドロップまたはクリックしてファイルをアップロード</p>')
   //   }
   // })
-  
+
   // editのjs
 
   function appendEditChidrenBox(insertHTML){
