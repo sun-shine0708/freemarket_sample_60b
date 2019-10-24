@@ -8,6 +8,8 @@ class Product < ApplicationRecord
 
   # belongs_to :brand
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
   accepts_nested_attributes_for :images
 
   validates :name,                  presence: true, length: { maximum: 40 }

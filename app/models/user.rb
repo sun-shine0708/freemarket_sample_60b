@@ -36,6 +36,8 @@ class User < ApplicationRecord
   has_many :credentials, dependent: :destroy
   has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
   has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
+  has_many :likes, dependent: :destroy
+  has_many :like_products, through: :likes, source: :product
 
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
