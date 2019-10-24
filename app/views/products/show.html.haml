@@ -163,10 +163,11 @@
 
     .product-show-itembutton
       .product-show-itembutton-left
-        = link_to "" ,class: "product-show-goodlink" do
-          = fa_icon 'heart-o',class: 'product-show-goodicon'
-          .product-show-goodtext
-            いいね!2
+        = render partial: "likes/like", locals: { product: @product } 
+        -# = link_to "" ,class: "product-show-goodlink" do
+        -#   = fa_icon 'heart-o',class: 'product-show-goodicon'
+        -#   .product-show-goodtext
+        -#     いいね!2
 
         = link_to "" ,class: "product-show-reportlink" do
           = fa_icon 'flag',class: 'product-show-reporticon'
