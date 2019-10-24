@@ -9,10 +9,17 @@ crumb :"users/show" do
 end
 
 #プロフィール編集
-crumb :"users/edit" do
-  link "プロフィール", edit_user_path
+crumb :"users/profile" do
+  link "プロフィール", profile_user_path
   parent :"users/show"
 end
+
+#発送元・お届け先住所変更
+crumb :"users/address" do
+  link "発送元・お届け先住所変更", address_user_path
+  parent :"users/show"
+end
+
 
 #支払い方法
 crumb :"creditcards/show" do

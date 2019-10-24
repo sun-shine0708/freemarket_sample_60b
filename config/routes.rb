@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'products#index'
 
-  resources :users do
+  resources :users, only: [:show] do
     member do
+      get 'profile'
+      get 'address'
+      get 'mail_password'
       get 'preview'
       get 'sms_confirmation'
-      get 'mail_password'
       get 'logout'
     end
   end

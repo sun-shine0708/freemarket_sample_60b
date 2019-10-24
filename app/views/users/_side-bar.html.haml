@@ -122,14 +122,14 @@
     設定
   .maypage-nav-list
     .mypage-nav
-      = link_to edit_user_path(current_user), class: "mypage-nav__link" do
+      = link_to profile_user_path(current_user), class: "mypage-nav__link" do
         .mypage-nav__link__content
           .mypage-nav__link__content__title
             プロフィール
           .mypage-nav__link__content__icon
             = fa_icon 'chevron-right', class: "nav-right-icon"
     .mypage-nav
-      = link_to "", class: "mypage-nav__link" do
+      = link_to address_user_path(current_user), class: "mypage-nav__link" do
         .mypage-nav__link__content
           .mypage-nav__link__content__title
             発送元・お届け先住所変更
