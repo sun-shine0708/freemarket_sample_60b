@@ -55,11 +55,20 @@
               .product-search-pricekeyword
                 価格
           .product-search-pricebox
-            = f.select :name_eq, ['300 ~ 1000', '1000 ~ 5000', '5000 ~ 10000','10000 ~ 30000','30000 ~ 50000','50000 ~'], {include_blank: '選択してください' }, class: 'product-search-price-default'
+            -# = f.select :name_eq, ['300 ~ 1000', '1000 ~ 5000', '5000 ~ 10000','10000 ~ 30000','30000 ~ 50000','50000 ~'], {include_blank: '選択してください' }, class: 'product-search-price-default'
+            %select.product-search-price-default
+              %option 選択してください
+              %option 300 ~ 1000
+              %option 1000 ~ 5000
+              %option 5000 ~ 10000
+              %option 10000 ~ 30000
+              %option 30000 ~ 50000
+              %option 50000 ~
+
           .product-search-minmaxbox
-            = f.search_field :price_cont, class: 'product-search-minbox', placeholder: '¥Min'
+            = f.number_field :price_gteq, class: 'product-search-minbox', placeholder: '¥Min'
             %span ~
-            = f.search_field :price_cont, class: 'product-search-maxbox', placeholder: '¥Max'
+            = f.number_field :price_lt, class: 'product-search-maxbox', placeholder: '¥Max'
 
           .product-search-statusgroup
             .product-search-statustext
@@ -69,7 +78,7 @@
             .product-search-status
               .status-group1
                 .status-checkbox1
-                  = f.check_box :status_true , {}, checked_value = "true", unchecked_value = ""
+                  = f.check_box :status_eq , {}, checked_value = "true", unchecked_value = ""
                   すべて
                 .status-checkbox2
                   = f.check_box :status_true , {},checked_value = "true", unchecked_value = ""
