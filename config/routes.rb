@@ -56,11 +56,4 @@ Rails.application.routes.draw do
 
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
-
-  # resources :likes, except: [:index, :new, :create, :edit, :show, :update, :destroy] do
-  #   member do
-  #     post 'like'
-  #     delete 'unlike'
-  #   end
-  # end
 end

@@ -164,11 +164,6 @@
     .product-show-itembutton
       .product-show-itembutton-left
         = render partial: "likes/like", locals: { product: @product } 
-        -# = link_to "" ,class: "product-show-goodlink" do
-        -#   = fa_icon 'heart-o',class: 'product-show-goodicon'
-        -#   .product-show-goodtext
-        -#     いいね!2
-
         = link_to "" ,class: "product-show-reportlink" do
           = fa_icon 'flag',class: 'product-show-reporticon'
           .product-show-reporttext
@@ -203,7 +198,7 @@
     .product-show-items-box
       .product-show-items-name
         = link_to "", class: "product-show-text-link" do
-          = @seller.nickname
+          = @seller.nickname + "さんのその他の出品"
       .product-show-items-list
         .product-show-item-box
           .product-show-item-box-photo
@@ -259,7 +254,7 @@
     .product-show-items-box
       .product-show-items-name
         = link_to "", class: "product-show-text-link" do
-          %h2 アンダーアーマーのその他商品
+          %h2 アンダーアーマーその他の商品
       .product-show-items-list
         .product-show-item-box
           .product-show-item-box-photo
