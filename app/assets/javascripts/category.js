@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
 
     // 子カテゴリーを追加するための処理です。

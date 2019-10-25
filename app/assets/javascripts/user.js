@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   
   function addNotificationHTML(){
     var html = `<div id=my-notification-content>

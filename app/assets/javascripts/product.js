@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html =`<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -308,20 +308,5 @@ $(document).on('turbolinks:load', function() {
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
     }
-  });
-
-  
-  $(function() {
-    $('.top-banner-slider').slick({
-        prevArrow:'<i class="slider-controller-left"></i>',
-        nextArrow:'<i class="slider-controller-right"></i>',
-        autoplay: true,
-        autoplaySpeed: 4000,
-        speed: 800
-    });
-  
-    $('.top-banner-slider').on(function() {
-      $('.top-banner-slider').slick('goTo', $(this).index());
-    });
   });
 });
