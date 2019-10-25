@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   
   function showElementAnimation() {
 
@@ -16,5 +16,4 @@ $(document).on('turbolinks:load', function() {
   }
   showElementAnimation();
   window.addEventListener('scroll', showElementAnimation);
-
 });

@@ -1,5 +1,5 @@
 // 画像複数枚保存イベント
-$(document).on('turbolinks:load', function(){
+$(function(){
   var dropzone = $('.dropzone-area');
   var dropzone2 = $('.dropzone-area2');
   var images = [];
