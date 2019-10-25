@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_parent_category, only: [:new, :create, :edit, :search]
+  before_action :set_parent_category, only: [:new, :create, :edit, :update, :search]
+  before_action :set_child_category, only: [ :edit, :update]
+  before_action :set_grandchild_category, only: [ :edit, :update]
   require "payjp"
 
   def index
@@ -19,6 +21,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+    gon.count = 0
   end
 
   def create
@@ -39,24 +42,39 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @category_children_array = [{name:'---', id:'---'}]
-    (@product.category.root.children).each do |child|
-      @children = {name: child.name, id: child.id}
-      @category_children_array << @children
-    end
-    @category_grandchildren_array = [{name:'---', id:'---'}]
-    (@product.category.parent.children).each do |grandchild|
-      @grandchildren = {name:grandchild.name, id:grandchild.id}
-      @category_grandchildren_array << @grandchildren
-    end
+    gon.count = @product.images.length
+
+
   end
 
   def update
     @product = Product.find(params[:id])
+    image_del_list = delete_imgs if delete_imgs
     if @product.update(product_params)
-      redirect_to root_path(@product), notice: '商品を編集しました'
+      if (params[:images] != nil)
+        params[:images]['url'].each do |image|
+          @product.images.create(url: image, product_id: @product.id)
+        end
+        if image_del_list
+          image_del_list.each do |image_id|
+            Image.find(image_id).destroy
+          end
+        end
+        redirect_to root_path
+      else
+        if image_del_list
+          image_del_list.each do |image_id|
+            Image.find(image_id).destroy
+          end
+        end
+        if @product.images.length == 0
+          redirect_to edit_product_path
+        else
+          redirect_to root_path
+        end
+      end
     else
-      render :edit
+      redirect_to edit_product_path
     end
   end
   
@@ -125,7 +143,15 @@ class ProductsController < ApplicationController
 
   private
   def  product_params
-    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :root_category, images_attributes: [:url]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, images_attributes: [:url]).merge(seller_id: current_user.id)
+  end
+
+  def delete_imgs
+    if params.has_key?(:delete_ids)
+      return params.require(:delete_ids)
+    else
+      return nil
+    end
   end
 
   def set_parent_category
@@ -135,5 +161,21 @@ class ProductsController < ApplicationController
       @category_parent_array << @parent
     end
   end
-end
 
+  def set_child_category
+    @product = Product.find(params[:id])
+    @category_children_array = [{name:'---', id:'---'}]
+      (@product.category.root.children).each do |child|
+        @children = {name: child.name, id: child.id}
+        @category_children_array << @children
+      end
+  end
+
+  def set_grandchild_category
+    @category_grandchildren_array = [{name:'---', id:'---'}]
+    (@product.category.parent.children).each do |grandchild|
+      @grandchildren = {name:grandchild.name, id:grandchild.id}
+      @category_grandchildren_array << @grandchildren
+    end
+  end
+end
