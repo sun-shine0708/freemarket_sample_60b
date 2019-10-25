@@ -14,17 +14,17 @@
           必須
         .sell-form-container__require
           最大10枚までアップロードできます
-        = f.fields_for :images do |image|
+        = f.fields_for :image do |image|
           .dropzone-container
             #preview
               - @product.images.each do |image|
-                .img_view
+                .img_view{data: {id: "#{image.id}"}}
                   .img_view_upper
                     = image_tag "#{image.url}", class: "product-new-img"
                   .btn_wrapper
                     .btn_edit
                       編集
-                    .btn_edit_delete
+                    .btn_delete
                       削除
             .dropzone-area
               = image.label :url, class: "dropzone-box", for: "upload-image" do
@@ -36,25 +36,8 @@
             .dropzone-area2
               = image.label :images, class: "dropzone-box", for: "upload-image" do
                 %p ドラッグ&ドロップまたはクリックしてファイルをアップロード
-
-      -# .products-new_main-info
-      -#   商品の情報を入力
-      -# .products-new_main-upload
-      -#   .products-new_main-upload-head
-      -#     出品画像
-      -#     .products-new-redbtn
-      -#       必須
-      -#   = f.fields_for :images do |i|
-      -#     .products-new_main-upload-main
-      -#       最大10枚までアップロードできます
-      -#     = i.label :url, class: 'img-drop-box' do
-      -#       .products-new_main-upload-img
-      -#         ドラッグアンドドロップ
-      -#         %br
-      -#         またはクリックしてファイルをアップロード
-      -#       = i.file_field :url, class: 'hidden'
-
-
+          .dropzone-container3
+          
       .products-new_main-content
         .main-content-group
           .main-content-group-name
