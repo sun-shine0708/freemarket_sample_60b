@@ -43,8 +43,9 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     gon.count = @product.images.length
-
-
+    if @product.buyer_id != nil || @product.seller_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -97,12 +98,16 @@ class ProductsController < ApplicationController
 
   def buy_confirmation
     @product = Product.find(params[:id])
-    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
-    card = Creditcard.where(user_id: current_user.id).first
-    if card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @customer_card = customer.cards.retrieve(card.card_id)
+    if @product.buyer_id == nil && @product.seller_id != current_user.id
+      @streetaddress = Streetaddress.find_by(user_id: current_user.id)
+      card = Creditcard.where(user_id: current_user.id).first
+      if card.present?
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        @customer_card = customer.cards.retrieve(card.card_id)
+      end
+    else
+      redirect_to root_path
     end
   end
         
