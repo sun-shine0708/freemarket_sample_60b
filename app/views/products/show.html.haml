@@ -19,14 +19,31 @@
     .product-show-maincontent
       .product-show-image
         - if (@product.buyer_id.blank?)
-          - @product.images.each do |image|
-            = image_tag "#{image.url.url}", size: "300x300"
+          .product-show-image__main
+            = image_tag "#{@images[0].url}",class: "details__photo__main__image",id: "mainphoto", size: "300x300"
+          .product-show-image__under
+            - @images.each do |image|
+              = image_tag "#{image.url}",class: "details__photo__under__image", size: "60x60"
         - else
-          .product-show_sold-out_badge
-          .product-show_sold-out_badge-text
-            SOLD
-          - @product.images.each do |image|
-            = image_tag "#{image.url.url}", size: "300x300"
+          .product-show-image__main
+            = image_tag "#{@images[0].url}",class: "details__photo__main__image",id: "mainphoto", size: "300x300"
+            .product-show_sold-out_badge
+            .product-show_sold-out_badge-text
+              SOLD
+          .product-show-image__under
+            - @images.each do |image|
+              = image_tag "#{image.url}",class: "details__photo__under__image", size: "60x60"
+          
+        -# - if (@product.buyer_id.blank?)
+        -#   - @product.images.each do |image|
+        -#     = image_tag "#{image.url.url}", size: "300x300"
+        -# - else
+        -#   .product-show_sold-out_badge
+        -#   .product-show_sold-out_badge-text
+        -#     SOLD
+        -# - @product.images.each do |image|
+        -#   = image_tag "#{image.url.url}", size: "300x300"
+
       .product-show-detailtable
         .product-show-tr
           .product-show-th

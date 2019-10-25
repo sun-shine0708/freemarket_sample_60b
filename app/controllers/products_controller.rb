@@ -81,7 +81,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @seller = @product.seller
-    @image = @product.images
+    @images = @product.images.order("id DESC")
     @category = @product.category
     @child = @category.parent
     @parent = @category.root
