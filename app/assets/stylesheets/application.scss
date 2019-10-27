@@ -27,8 +27,10 @@
 @import "devise/sessions/sessions";
 @import "categories/index";
 @import "categories/show";
+@import "brands/index";
+@import "brands/show";
 @import "nav";
-@import "slick-theme"; 
+@import "slick-theme";
 
 * {
     box-sizing: border-box;

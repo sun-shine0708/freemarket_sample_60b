@@ -11519,100 +11519,100 @@ BrandCategory.create(name: "外国自動車本体")
 
 
 #レディース、メンズ、キッズ
-for brand in 1..6564 do 
-  for brand_category in [1, 2, 3] do 
-  SetBrand.create({brand_id: brand,brand_category_id:brand_category})
+for brand in 1..6564 do
+  for brand_category in [1, 2, 3] do
+    SetBrand.create({brand_id: brand,brand_category_id:brand_category})
   end
 end
 
 #インテリア
-for brand in 6565..6706 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 6565..6706 do
+  for brand_category in [4] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #キッチン
-for brand in 6707..7038 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 6707..7038 do
+  for brand_category in [5] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #時計
-for brand in 7039..7422 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 7039..7422 do
+  for brand_category in [6] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #コスメ・香水・美容
-for brand in 7423..8840 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 7423..8840 do
+  for brand_category in [7] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #テレビゲーム
-for brand in 8841..8869 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 8841..8869 do
+  for brand_category in [8] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #スポーツ・レジャー
-for brand in 8870..9302 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 8870..9302 do
+  for brand_category in [9] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #スマートフォン・携帯電話
-for brand in 9303..9342 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9303..9342 do
+  for brand_category in [10] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #バイク
-for brand in 9343..9353 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9343..9353 do
+  for brand_category in [11] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #楽器
-for brand in 9354..9368 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9354..9368 do
+  for brand_category in [12] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #自動車パーツ
-for brand in 9369..9413 do 
-  for brand_category in [4] do 
+for brand in 9369..9413 do
+  for brand_category in [13] do
   SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #食品
-for brand in 9414..9447 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9414..9447 do
+  for brand_category in [14] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #国内自動車本体
-for brand in 9448..9463 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9448..9463 do
+  for brand_category in [15] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 
 #外国自動車本体
-for brand in 9464..9593 do 
-  for brand_category in [4] do 
-  SetBrand.create({brand_id:brand,brand_category_id:brand_category})
+for brand in 9464..9593 do
+  for brand_category in [16] do
+    SetBrand.create({brand_id:brand,brand_category_id:brand_category})
   end
 end
 

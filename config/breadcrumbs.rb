@@ -90,6 +90,17 @@ crumb :"categories/grandchild" do |category|
   parent :"categories/parent", category
 end
 
+
+#ブランド一覧
+crumb :"brands/index" do
+  link "ブランド一覧", brands_path
+end
+
+#ブランドshow
+crumb :"brands/show" do |brand|
+  link "#{brand.name}", brand_path(brand)
+  parent :"brands/index"
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
