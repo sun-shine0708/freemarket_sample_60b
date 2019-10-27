@@ -1,0 +1,34 @@
+- breadcrumb :"users/profile"
+
+.header
+  = render "layouts/header"
+
+= render "layouts/nav"
+
+.user-edit
+  .user-edit__container
+    = render 'side-bar'
+    .user-edit-content
+      .user-edit-content__head
+        プロフィール
+      = form_for @user, url: user_path, method: :patch do |f|
+        .user-edit-content__user
+          = image_tag "user-bg.jpg", size: "700x156" 
+          .user-edit-content__user--form
+            .profile-set
+              = image_tag "member_photo_noimage_thumb.png", class: "profile-icon", size: "60x60"
+              .profile-input-name
+                = f.text_field :nickname, value: @user.nickname, placeholder: '例）AYA☆セール中', class:'input-defalt'
+        .user-edit-content__profile
+          .mypage-textarea
+            = f.text_area :comment, value: @user.comment, placeholder: '例）こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発想方法などにご質問がありましたらお気軽にどうぞ♪', class:'input-textarea'
+          = f.submit "変更する", class: 'mypage-default btn btn-default-red'
+
+.app-banner
+  = render "layouts/banner"
+
+.footer
+  = render "layouts/footer"
+
+.display-btn
+  = render "layouts/display_btn"

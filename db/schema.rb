@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20191026125819) do
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",          null: false
     t.string   "comment",       null: false
@@ -75,6 +82,7 @@ ActiveRecord::Schema.define(version: 20191026125819) do
     t.integer  "size_id"
     t.integer  "brand_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.integer  "likes_count"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree

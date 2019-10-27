@@ -4,20 +4,22 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def edit
+  # マイページ/設定
+  def profile
+    @user = User.find(params[:id])
+  end
 
+  def address
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
   end
 
   def mail_password
-
+    @user = User.find(params[:id])
   end
 
   def preview
-
-  end
-
-  def destroy
-    
+    @user = User.find(params[:id])
+    @streetaddress = Streetaddress.find_by(user_id: current_user.id)
   end
 
   def sms_confirmation
