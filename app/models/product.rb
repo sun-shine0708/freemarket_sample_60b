@@ -20,4 +20,8 @@ class Product < ApplicationRecord
   validates :delivery_area,         presence: true
   validates :delivery_date,         presence: true
   validates :category_id,              presence: true
+
+  enum status: {'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや傷や汚れがあり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}
+
+  enum costcharge: {'着払い(購入者負担)':1,'送料込み(出品者負担)':2}
 end
