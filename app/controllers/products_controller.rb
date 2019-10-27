@@ -110,12 +110,20 @@ class ProductsController < ApplicationController
   end
 
   def search
-    # 検索オブジェクト作成
-    # @search = Product.includes(:category).where(category_id: Category.find(params:id).root.subtree).ransack(params[:q])
-    @search = Product.includes(:category).ransack(params[:q])
-    # 検索結果表示
-    @products = @search.result(distinct: true)
-    @namesearchs = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
+    # @search = Product.includes(:category).where(category_id: Category.find(params:id).subtree)
+
+    if params[:q].present?
+    # 検索フォームからアクセスした時の処理
+      @search = Product.ransack(search_params)
+      binding.pry
+      @products = @search.result(distinct: true)
+    else
+    # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc' }
+      @search = Product.ransack()
+      @products = Product.all
+      @namesearchs = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
+    end
   end
 
   def get_category_children
@@ -130,6 +138,20 @@ class ProductsController < ApplicationController
   private
   def  product_params
     params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :root_category, images_attributes: [:url]).merge(seller_id: current_user.id)
+  end
+
+  def search_params
+    # status = params[:q][status_eq: []].reject(&:empty?)
+    params.require(:q).permit(
+      :sorts,
+      :name_cont,
+      :price_gteq,
+      :price_lteq,
+      :costcharge_eq,
+      :seller_id_cont,
+      :buyer_id_cont,
+      status_eq: []
+    )
   end
 
   def set_parent_category
