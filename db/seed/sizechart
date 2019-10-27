@@ -1,0 +1,230 @@
+#大人服
+for size in 1..10 do 
+  for category in 3..20 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 22..41 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 43..54 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 56..60 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 62..65 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 78..79 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 173..175 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 178..180 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 201..211 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 213..235 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 237..245 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 269..272 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 327..328 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 337..338 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 1041..1042 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 1053..1054 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#子ども靴
+for size in [11] do 
+  for category in 415..420 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1040] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1051] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in 14..19 do 
+  for category in 415..420 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1040] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1051] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in [41] do 
+  for category in 415..420 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1040] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1051] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#女性靴
+for size in [12] do 
+  for category in 67..76 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1039] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1050] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in 20..33 do 
+  for category in 67..76 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1039] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1050] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in [42] do 
+  for category in 67..76 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1039] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1050] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+
+#男性靴
+for size in [13] do 
+  for category in 247..254 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1038] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1049] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in 27..40 do 
+  for category in 247..254 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1038] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1049] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+for size in [43] do 
+  for category in 247..254 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1038] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1049] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#ベビー服
+for size in 44..48 do 
+  for category in 343..353 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 355..362 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 364..371 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#キッズ服
+for size in 49..55 do 
+  for category in 373..390 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 392..405 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in 407..414 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1043] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+  for category in [1055] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#レンズ
+for size in 56..68 do 
+  for category in 917..918 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#スノボ板
+for size in 69..75 do 
+  for category in [1036] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#スキー板
+for size in 76..82 do 
+  for category in [1048] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#タイヤ
+for size in 83..95 do 
+  for category in 1199..1202 do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end
+
+#オートバイ車体
+for size in 96..101 do 
+  for category in [1231] do 
+    SizeCategory.create({size_id:size,category_id:category})
+  end
+end

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191024085045) do
+ActiveRecord::Schema.define(version: 20191026125819) do
+
+  create_table "brand_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -57,7 +69,6 @@ ActiveRecord::Schema.define(version: 20191024085045) do
     t.string   "name",          null: false
     t.string   "comment",       null: false
     t.integer  "price",         null: false
-    t.string   "size"
     t.string   "status",        null: false
     t.string   "costcharge",    null: false
     t.string   "delivery_way",  null: false
@@ -68,10 +79,38 @@ ActiveRecord::Schema.define(version: 20191024085045) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "category_id"
+    t.integer  "size_id"
+    t.integer  "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.integer  "likes_count"
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
+    t.index ["size_id"], name: "index_products_on_size_id", using: :btree
+  end
+
+  create_table "set_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "brand_id",          null: false
+    t.integer  "brand_category_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["brand_category_id"], name: "index_set_brands_on_brand_category_id", using: :btree
+    t.index ["brand_id"], name: "index_set_brands_on_brand_id", using: :btree
+  end
+
+  create_table "size_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "size_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_size_categories_on_category_id", using: :btree
+    t.index ["size_id"], name: "index_size_categories_on_size_id", using: :btree
+  end
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "streetaddresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -117,8 +156,13 @@ ActiveRecord::Schema.define(version: 20191024085045) do
   add_foreign_key "credentials", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "sizes"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
+  add_foreign_key "set_brands", "brand_categories"
+  add_foreign_key "set_brands", "brands"
+  add_foreign_key "size_categories", "sizes"
   add_foreign_key "streetaddresses", "users"
 end
