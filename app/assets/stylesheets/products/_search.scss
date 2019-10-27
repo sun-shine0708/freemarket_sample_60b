@@ -263,26 +263,10 @@
   font-size: 14px;
 }
 
-.status-group1 {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.status-group2 {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.status-group3 {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.status-group4 {
-  margin-top: 16px;
+.product-search-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
 }
 
 .product-search-deliveryfeegroup {
@@ -303,14 +287,10 @@
   font-size: 14px;
 }
 
-.deliveryfee-group1 {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.deliveryfee-group2 {
-  margin-top: 16px;
+.product-search-deliveryfee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
 }
 
 .product-search-salegroup {
@@ -329,6 +309,12 @@
 
 .product-search-salekeyword {
   font-size: 14px;
+}
+
+.product-search-salefee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
 }
 
 .sale-group1 {
