@@ -56,6 +56,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :brands , only: [:index, :show]
+
+  resources :brand_categories , only: [:show]
+
+
   post   '/like/:product_id' => 'likes#like',   as: 'like'
   delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
 end

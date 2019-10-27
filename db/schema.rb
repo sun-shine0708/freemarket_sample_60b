@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20191026125819) do
     t.integer  "category_id"
     t.integer  "size_id"
     t.integer  "brand_id"
-    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.integer  "likes_count"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree

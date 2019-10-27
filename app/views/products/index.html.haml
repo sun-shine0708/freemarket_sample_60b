@@ -28,7 +28,7 @@
               .category-box_title
                 = popular[0]&.category.root.name + "新着アイテム"
               .category-box_preview
-                = link_to "", class: "preview-link" do
+                = link_to category_path(popular[0]&.category.root), class: "preview-link" do
                   もっと見る
                   = fa_icon "chevron-right", class: "preview-link-right"
             .category-box_items
@@ -63,459 +63,48 @@
         人気のブランド
       .category-nav
         .category-nav_caregorys
-          .category-nav_caregorys-list
-            = link_to "", class: "category-menu-link" do
-              シャネル
-          .category-nav_caregorys-list
-            = link_to "", class: "category-menu-link" do
-              ルイヴィトン
-          .category-nav_caregorys-list
-            = link_to "", class: "category-menu-link" do
-              シュプリーム
-          .category-nav_caregorys-list
-            = link_to "", class: "category-menu-link" do
-              ナイキ
+          - @brands.each do |brand|
+            .category-nav_caregorys-list
+              = link_to "", class: "category-menu-link" do
+                = brand.name
+          
     .products-index_categorys
-      .category-box
-        .category-box_header
-          .category-box_title
-            シャネル新着アイテム
-          .category-box_preview
-            = link_to "", class: "preview-link" do
-              もっと見る
-              = fa_icon "chevron-right", class: "preview-link-right"
-        .category-box_items
-          .category-box_grid
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-      .category-box
-        .category-box_header
-          .category-box_title
-            ルイヴィトン新着アイテム
-          .category-box_preview
-            = link_to "", class: "preview-link" do
-              もっと見る
-              = fa_icon "chevron-right", class: "preview-link-right"
-        .category-box_items
-          .category-box_grid
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-      .category-box
-        .category-box_header
-          .category-box_title
-            シュプリーム新着アイテム
-          .category-box_preview
-            = link_to "", class: "preview-link" do
-              もっと見る
-              = fa_icon "chevron-right", class: "preview-link-right"
-        .category-box_items
-          .category-box_grid
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-      .category-box
-        .category-box_header
-          .category-box_title
-            ナイキ新着アイテム
-          .category-box_preview
-            = link_to "", class: "preview-link" do
-              もっと見る
-              = fa_icon "chevron-right", class: "preview-link-right"
-        .category-box_items
-          .category-box_grid
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", class: "", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
-            .category-box_product
-              = link_to "", class: "category-box_product_link" do
-                .category-box_product-box
-                  .category-box_product-box__image
-                    = image_tag "https://image.shutterstock.com/image-vector/mens-womans-clothes-on-hangers-260nw-753919063.jpg", size: "188x188"
-                    .category-box_product-box__price
-                      ¥1,000
-                  .category-box_product-box__title
-                    .category-box_product-box__title--name
-                      商品名
+      - @brands.each do |brand|
+        .category-box
+          .category-box_header
+            .category-box_title
+              = "#{brand.name}" + "新着アイテム"
+            .category-box_preview
+              = link_to brand_path(brand), class: "preview-link" do
+                もっと見る
+                = fa_icon "chevron-right", class: "preview-link-right"
+          - brand.products.each.with_index(1) do |product, i|
+            -if (i <= 10)
+              .category-box_items
+                .category-box_grid
+                  .category-box_product
+                    = link_to product_path(product), class: "category-box_product_link" do
+                      .category-box_product-box
+                        - if (product.buyer_id.blank?)
+                          .category-box_product-box__image
+                            = image_tag "#{product.images.last.url}", size: "188x188", class: "product-box-img"
+                            .category-box_product-box__price
+                              = "¥" + "#{product.price}"
+                          .category-box_product-box__title
+                            .category-box_product-box__title--name
+                              = product.name
+                        - else
+                          .category-box_product-box__image
+                            .product_sold-out_badge
+                            .product_sold-out_badge-text
+                              SOLD
+                            = image_tag "#{product.images.last.url}", size: "188x188"
+                            .category-box_product-box__price
+                              = "¥" + "#{product.price}"
+                          .category-box_product-box__title
+                            .category-box_product-box__title--name
+                              = product.name
+           
 .app-banner
   = render 'layouts/banner'
 

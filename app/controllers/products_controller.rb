@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
         break
       end
     end
+
   end
 
   def new

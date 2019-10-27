@@ -97,12 +97,22 @@
   &__cate:hover .header_category-list{
     color: rgb(0, 149, 238);
   }
-  &__bland{
+  &__brand{
     height: 44px;
     padding: 0 0 0 11px;
     font-size: 14px;
     line-height: 36px;
     cursor: pointer;
+    position: relative;
+  }
+  &__brand:hover .header_brand-list{
+    display: block;
+  }
+  &__brand:hover .header_all-list{
+    display: block;
+  }
+  &__brand:hover .header_popular-brand-list{
+    color: rgb(0, 149, 238);
   }
 }
 
@@ -137,6 +147,7 @@
   display: none;
   width: 224px;
   font-weight: 400;
+  height: 44px;
 }
 .header_all-list:hover{
   background-color: #ea352d;
@@ -238,6 +249,50 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+
+
+.header_popular-brand-list{
+  text-decoration: none;
+  color: #333;
+  line-height: 36px;
+}
+.header_brands-nav{
+  position: absolute;
+  top: 44px;
+  left: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 224px;
+}
+
+.header_brand-list{
+  display: none;
+  width: 224px;
+  font-weight: 400;
+  height: 44px;
+}
+
+.header_brand-link:hover{
+  background-color: #ea352d;
+  color: #fff;
+}
+
+.header_brand-link{
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 0 16px;
+  line-height: 44px;
+  height: 44px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
 
 .left-nav-btn {
   color: rgb(234, 53, 45);
