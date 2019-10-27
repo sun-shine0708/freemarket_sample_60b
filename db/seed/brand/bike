@@ -1,0 +1,13 @@
+#バイク
+Brand.create(name: "アライ"),
+Brand.create(name: "オージーケーカブト"),
+Brand.create(name: "カワサキ"),
+Brand.create(name: "ショウエイ"),
+Brand.create(name: "シンプソン"),
+Brand.create(name: "スズキ"),
+Brand.create(name: "ハーレーダビッドソン"),
+Brand.create(name: "ビー・エム・ダブリュー"),
+Brand.create(name: "ホンダ"),
+Brand.create(name: "ヤマハ"),
+Brand.create(name: "ユピテル"),
+Brand.create(name: "今すぐ無料ダウンロード！"),
