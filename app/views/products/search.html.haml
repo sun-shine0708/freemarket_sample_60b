@@ -4,7 +4,7 @@
 
   .product-search-main
     .product-search-left-side
-      = search_form_for @search, url:search_products_path ,html: { method: :post } do |f|
+      = search_form_for(@q, url: search_products_path) do |f|
         .product-search-sort
           = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()',class:'product-search-order'} )
 
@@ -24,14 +24,21 @@
               .product-search-categorykeyword
                 カテゴリーを選択する
           .product-search-categorybox
-            = f.select :category_name_eq, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}), {}, {class: 'product-search-select-default', id: 'parent_category_search'}
+            = f.select :category_name_not_eq, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}), {}, {class: 'product-search-select-default', id: 'parent_category_search'}
+            .product-search-category-child
+            .product-search-category-grid
+            -# %select{class: 'product-search-select-default', id: 'parent_category_search'}
+            -#   %option ---
+            -#   -@parents.each do |p|
+            -#     %option{value:"#{p.id}"}
+            -#       =p.name
           .product-search-brand-formgroup
             .product-search-blandtext
               = fa_icon 'tags',class: 'product-search-blandicon'
               .product-search-blandkeyword
                 ブランド名から探す
             .product-search-blandform
-              = f.search_field :name_eq, class: 'product-search-blandbox', placeholder: '例) シャネル'
+              = f.search_field :brand_name_eq,class: 'product-search-blandbox', placeholder: '例) シャネル'
 
           .product-search-size-formgroup
             .product-search-sizetext
@@ -39,7 +46,7 @@
               .product-search-sizekeyword
                 サイズを指定する
           .product-search-sizebox
-            = f.select :name_eq, ['すべて', '洋服のサイズ', 'メンズ靴のサイズ','レディース靴のサイズ','スカートのサイズ','キッズ服のサイズ','ベビー・キッズ靴のサイズ','ベビー服のサイズ','テレビのサイズ','カメラレンズのサイズ','オートバイのサイズ','ヘルメットのサイズ','タイヤのサイズ','スキーのサイズ','スノーボードのサイズ'],{},class: 'product-search-size-default'
+            -# = f.select :name_eq, ['すべて', '洋服のサイズ', 'メンズ靴のサイズ','レディース靴のサイズ','スカートのサイズ','キッズ服のサイズ','ベビー・キッズ靴のサイズ','ベビー服のサイズ','テレビのサイズ','カメラレンズのサイズ','オートバイのサイズ','ヘルメットのサイズ','タイヤのサイズ','スキーのサイズ','スノーボードのサイズ'],{},class: 'product-search-size-default'
 
           .product-search-price-formgroup
             .product-search-pricetext
@@ -59,23 +66,23 @@
                 商品の状態
             .product-search-status-grid
               .status-checkbox-block
-                -# =  f.collection_check_boxes :status_in,["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れがあり","傷や汚れあり","全体的に状態が悪い"], :status,{}
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "新品、未使用", unchecked_value = ""
+                -# = f.check_box :status_eq, {Product.statuses.values, name: 'q[status_eq][]'}, checked_value = "true", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 1, unchecked_value = false
                 新品、未使用
               .status-checkbox-block
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "未使用に近い", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 2, unchecked_value = false
                 未使用に近い
               .status-checkbox-block
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "目立った傷や汚れなし", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 3, unchecked_value = false
                 目立った傷や汚れなし
               .status-checkbox-block
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "やや傷や汚れがあり", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 4, unchecked_value = false
                 やや傷や汚れがあり
               .status-checkbox-block
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "傷や汚れあり", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 5, unchecked_value = false
                 傷や汚れあり
               .status-checkbox-block
-                = f.check_box :status_eq ,{name: 'q[status_eq][]'},checked_value = "全体的に状態が悪い", unchecked_value = ""
+                = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 6, unchecked_value = false
                 全体的に状態が悪い
 
                 -# = f.hidden_field :status_eq
@@ -86,10 +93,10 @@
                 配送料の負担
             .product-search-deliveryfee-grid
               .deliveryfee-checkbox-block
-                = f.check_box :costcharge_eq , {},checked_value = "着払い(購入者負担)", unchecked_value = ""
+                = f.check_box :costcharge_in , {name: 'q[costcharge_in][]'},checked_value = "1", unchecked_value = false
                 着払い(購入者負担)
               .deliveryfee-checkbox-block
-                = f.check_box :costcharge_eq , {},checked_value = "送料込み(出品者負担)", unchecked_value = ""
+                = f.check_box :costcharge_in , {name: 'q[costcharge_in][]'},checked_value = "2", unchecked_value = false
                 送料込み(出品者負担)
 
           .product-search-salegroup
@@ -99,10 +106,10 @@
                 販売状況
             .product-search-salefee-grid
               .sale-checkbox-block
-                = f.check_box :seller_id_cont , {},checked_value = "#{@search.seller_id}", unchecked_value = ""
+                = f.check_box :seller_id_cont , {},checked_value = "#{@q.seller_id}", unchecked_value = ""
                 販売中
               .sale-checkbox-block
-                = f.check_box :buyer_id_cont , {},checked_value = "#{@search.buyer_id}", unchecked_value = ""
+                = f.check_box :buyer_id_cont , {},checked_value = "#{@q.buyer_id}", unchecked_value = ""
                 売り切れ
 
           .product-search-extendbtn

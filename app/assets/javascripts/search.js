@@ -8,26 +8,31 @@ $(function() {
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div id= 'children_wrapper'>
-                          <select class="select-default" id="child_category" name="product[category_id]">
-                            <option value="---" data-category="---">---</option>
+                          <select class="select-default" id="child_category" name="child">
                             ${insertHTML}
                           <select>
                       </div>`;
-    $('.product-search-categorybox').append(childSelectHtml);
+    $('.product-search-category-child').append(childSelectHtml);
   }
 
 
   // 孫カテゴリーの表示作成
-  function appendGrandchidrenBox(insertHTML){
+  function appendGrandchidrenBox(grandchild){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div id= 'grandchildren_wrapper'>
-                                <select class="select-default" id="grandchild_category" name="product[category_id]">
-                                  <option value="---" data-category="---">---</option>
-                                  ${insertHTML}
-                                </select>
+    grandchildSelectHtml = `<div class= 'category-checkbox-block'>
+                                <input type="checkbox" name="grandchild[]" value="${grandchild.id}" id = "q[costcharge_in]">
+                                ${grandchild.name}
                             </div>`;
-    $('.product-search-categorybox').append(grandchildSelectHtml);
+    $('.product-search-category-grid').append(grandchildSelectHtml);
   }
+
+  // <input type="checkbox" name="riyu" value="1" checked="checked">面白い
+  // var html = `<div class="search-box__body__form__category__gchild__checkbox">
+  //                                     <input id="category_id_in_${child.id}" name="gchild[]" type="checkbox" value="${child.id}">
+  //                                     <label for="category_id_in_${child.id}">
+  //                                     ${child.name}
+  //                                   </label>
+  //                                   </div>`
 
 
   // 親カテゴリー選択後のイベント
@@ -43,19 +48,20 @@ $(function() {
       })
       .done(function(children){
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
-        $('#grandchildren_wrapper').remove();
+        $('.category-checkbox-block').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
         appendChidrenBox(insertHTML);
+        $('#child_category').prepend(`<option value="${parentCategory}" data-category="---" selected>すベて</option>`)
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
       $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
-      $('#grandchildren_wrapper').remove();
+      $('.category-checkbox-block').remove();
     }
   });
 
@@ -72,27 +78,19 @@ $(function() {
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
-          var insertHTML = '';
+          $('.category-checkbox-block').remove(); //子が変更された時、孫以下を削除するする
+          // var insertHTML = '';
           grandchildren.forEach(function(grandchild){
-            insertHTML += appendOption(grandchild);
+            // insertHTML += appendOption(grandchild);
+            appendGrandchidrenBox(grandchild);
           });
-          appendGrandchidrenBox(insertHTML);
         }
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      $('.category-checkbox-block').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
-  // $('.status-all').click(function(){ //全選択・全解除をクリックしたとき
-  //   var items = $(this).closest('.status-all').next().find('check_box');
-  //   if($(this).is(':checked')) { //全選択・全解除がcheckedだったら
-  //       $(items).prop('checked', true); //アイテムを全部checkedにする
-  //   } else { //全選択・全解除がcheckedじゃなかったら
-  //       $(items).prop('checked', false); //アイテムを全部checkedはずす
-  //   }
-  // });
 });
