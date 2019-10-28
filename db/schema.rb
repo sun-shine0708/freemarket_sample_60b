@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026125819) do
+ActiveRecord::Schema.define(version: 20191027055041) do
 
   create_table "brand_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20191026125819) do
     t.string   "name",          null: false
     t.string   "comment",       null: false
     t.integer  "price",         null: false
-    t.string   "status",        null: false
-    t.string   "costcharge",    null: false
+    t.integer  "status",        null: false
+    t.integer  "costcharge",    null: false
     t.string   "delivery_way",  null: false
     t.string   "delivery_area", null: false
     t.string   "delivery_date", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20191026125819) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "category_id"
+    t.integer  "likes_count"
     t.integer  "size_id"
     t.integer  "brand_id"
     t.integer  "likes_count"

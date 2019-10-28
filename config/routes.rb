@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       get 'get_brand', defaults: { format: 'json' }
       get 'search'
+      match 'search' => 'products#search', via: [:get, :post]
     end
     resources :creditcards, except: [:index, :new, :create, :edit, :show, :update, :destroy] do
       collection do
