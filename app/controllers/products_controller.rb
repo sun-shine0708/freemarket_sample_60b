@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.save!
     if (params[:images] !=nil)
       if @product.save
         params[:images]['url'].each do |image|
@@ -159,12 +160,12 @@ class ProductsController < ApplicationController
   end
 
   def get_brand
-
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
   private
   def  product_params
-    params.require(:product).permit(:transaction_id, :name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, images_attributes: [:url]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:transaction_id, :name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, :brand_id, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
 
   def delete_imgs
