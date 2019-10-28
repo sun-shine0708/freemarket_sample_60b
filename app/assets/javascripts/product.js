@@ -10,6 +10,15 @@ $(function() {
     var html =`<option value="${size.id}" data-category="${size.id}">${size.name}</option>`;
     return html;
 }
+
+// ブランドリストを作成
+function appendbrands(brand){
+  var html =`<li class="product-brand-suggest-list" data-id="${brand.id}" data-name="${brand.name}">
+              ${brand.name}
+            </li>`;
+  return html;
+}
+
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
@@ -52,8 +61,52 @@ $(function() {
                           </select>
                         </div>
                       </div>`;
-    $('.detail-right-cate-top').append(SizeSelectHtml);
+    $('.products-new_main-right-details').append(SizeSelectHtml);
   }
+
+  // ブランドformの追加
+  function appendBrandBox(){
+    var BrandFormHtml = '';
+      BrandFormHtml = `<div id= 'brand_wrapper'>
+                        <div class='products-new_main-detail-right-status'>
+                          ブランド
+                          <div class='products-new-graybtn'>
+                            任意
+                          </div>
+                        </div>
+                        <div class='detail-right-brand-box'>
+                          <input class="select-default" id="product-brand-form" placeholder= "例)シャネル" type= "text">
+                          <div class="product-brand-suggest-box">
+                          </div>
+                        </div>
+                      </div>`;
+    $('.products-new_main-right-details').append(BrandFormHtml);
+  }
+
+  // ブランドインクリ
+  function BrandListBox(insertHTML){
+    var BrandListHtml = '';
+      BrandListHtml = `<ul id= 'product-brand-suggest'>
+                        ${insertHTML}
+                      </ul>`;
+    $('.product-brand-suggest-box').append(BrandListHtml);
+  }
+
+
+  function appendSelectBrand(name){
+    var BrandSelectHtml = '';
+      BrandSelectHtml = `<input class="select-default" id="product-brand-form" value= "${name}" type= "text">
+                      <div class="product-brand-suggest-box">
+                      </div>`;
+    $('.detail-right-brand-box').append(BrandSelectHtml);
+  }
+
+  function appendHiddenBrand(id){
+    var BrandHiddenHtml = '';
+      BrandHiddenHtml = `<input name='product[brand_id]' type='hidden' value='${id}' id='hidden-brand'>`;
+    $('.detail-right-brand-box').append(BrandHiddenHtml);
+  }
+
 
   function appendDeliveryWayBox(){
     html = `<div id= 'products-new_main-delivary-right-area'>
@@ -187,10 +240,12 @@ $(function() {
             insertHTML += appendsizes(size);
           });
           appendSizeBox(insertHTML);
+          appendBrandBox()
         }
         else {
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
+          appendBrandBox()
         }
 
       })
@@ -203,6 +258,43 @@ $(function() {
     }
   });
 
+  // ブランド入力後のイベント
+  $('.products-new_main-right-details').on('keyup', '#product-brand-form', function(e){
+    e.preventDefault();
+    var input = $("#product-brand-form").val();
+    if (!input){
+      $('.product-brand-suggest-box').empty();
+      return
+    }
+    $.ajax({
+      url: '/products/get_brand',
+      type: 'GET',
+      data: { keyword: input },
+      dataType: 'json'
+    })
+    .done(function(brands){
+      $('.product-brand-suggest-box').empty();
+      $('#hidden-brand').remove();
+      if (brands.length !== 0) {
+        var insertHTML = '';
+        brands.forEach(function(brand){
+          insertHTML += appendbrands(brand);
+        });
+        BrandListBox(insertHTML);
+      }
+    })
+    .fail(function(){
+      alert('カテゴリー取得に失敗しました');
+    })
+  });
+
+  $('.products-new_main-right-details').on('click', '.product-brand-suggest-list', function(){
+    var brandName = $(this).data('name');
+    var brandId = $(this).data('id');
+    $(".detail-right-brand-box").empty();
+    appendSelectBrand(brandName)
+    appendHiddenBrand(brandId)
+  });
 
 
   
@@ -246,6 +338,14 @@ $(function() {
       }
     })
   })
+
+
+
+
+
+
+
+
 
   // editのjs
 
