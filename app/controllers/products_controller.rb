@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_parent_category, only: [:new, :create, :edit, :update, :search]
   before_action :set_child_category, only: [ :edit, :update]
   before_action :set_grandchild_category, only: [ :edit, :update]
+  before_action :set_sizes, only: [ :edit, :update]
   require "payjp"
 
   def index
@@ -157,6 +158,7 @@ class ProductsController < ApplicationController
 
   def get_size
     @sizes = Category.find("#{params[:grandchild_id]}").sizes
+
   end
 
   def get_brand
@@ -212,6 +214,14 @@ class ProductsController < ApplicationController
     (@product.category.parent.children).each do |grandchild|
       @grandchildren = {name:grandchild.name, id:grandchild.id}
       @category_grandchildren_array << @grandchildren
+    end
+  end
+
+  def set_sizes
+    @sizes_array = [{name:'---', id:'---'}]
+    (@product.category.sizes).each do |size|
+      @size = {name: size.name, id: size.id}
+      @sizes_array << @size
     end
   end
 end

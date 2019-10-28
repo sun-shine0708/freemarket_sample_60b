@@ -58,24 +58,39 @@
         .products-new_main-detail-left
           商品の詳細
         .products-new_main-detail-right
-          .products-new_main-detail-right-cate
-            カテゴリー
-            .products-new-redbtn
-              必須
-          .detail-right-cate-top
-            = f.select :category_id, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}, @product.category.root.id), {selected: @product.category.root.name}, {class: 'select-default', id: 'parent_category-edit'}
-          
-            = f.select :category_id, options_for_select(@category_children_array.map{|child| [child[:name], child[:id]]}, @product.category.parent.id), {selected: @product.category.parent.name}, {class: 'select-default', id: 'child_category-edit'}
+          .products-new_main-right-details
+            .products-new_main-detail-right-cate
+              カテゴリー
+              .products-new-redbtn
+                必須
+            .detail-right-cate-top
+              = f.select :category_id, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}, @product.category.root.id), {selected: @product.category.root.name}, {class: 'select-default', id: 'parent_category-edit'}
+            
+              = f.select :category_id, options_for_select(@category_children_array.map{|child| [child[:name], child[:id]]}, @product.category.parent.id), {selected: @product.category.parent.name}, {class: 'select-default', id: 'child_category-edit'}
 
-            = f.select :category_id, options_for_select(@category_grandchildren_array.map{|grandchild| [grandchild[:name], grandchild[:id]]}, @product.category.id), {selected: @product.category.name}, {class: 'select-default', id: 'grandchild_category-edit'}
+              = f.select :category_id, options_for_select(@category_grandchildren_array.map{|grandchild| [grandchild[:name], grandchild[:id]]}, @product.category.id), {selected: @product.category.name}, {class: 'select-default', id: 'grandchild_category-edit'}
+            -if @product.size.present?
+              #size_wrapper-edit
+                .products-new_main-detail-right-status
+                  サイズ
+                  .products-new-redbtn
+                    必須
+                .detail-right-cate-top
+                  = f.select :size_id, options_for_select(@sizes_array.map{|size| [size[:name], size[:id]]}, @product.size.id), {selected: @product.size.name},{class: "select-default", id: "product-size-edit"}
 
-         
-          -# .products-new_main-detail-right-status
-          -#   ブランド
-          -#   .products-new-graybtn
-          -#     任意
-          -# .detail-right-status-box
-          -#   %input.input-name-box{type: "search", placeholder: "例)シャネル", value: ""}
+            #brand_wrapper-edit
+              .products-new_main-detail-right-status
+                ブランド
+                .products-new-graybtn
+                  任意
+              .detail-right-brand-box
+                - if @product.brand.present?
+                  %input.select-default#product-brand-form-edit{placeholder: "例)シャネル", type: "text", value: "#{@product.brand.name}"}
+                  .product-brand-suggest-box
+                  = f.hidden_field :brand_id, {value:'#{@product.brand.id}', id: 'hidden-brand-edit'}
+                - else
+                  %input.select-default#product-brand-form-edit{placeholder: "例)シャネル", type: "text"}
+                  .product-brand-suggest-box
 
           .products-new_main-detail-right-status
             商品状態
