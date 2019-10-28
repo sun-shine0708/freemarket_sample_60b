@@ -154,10 +154,17 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def get_size
+    @sizes = Category.find("#{params[:grandchild_id]}").sizes
+  end
+
+  def get_brand
+
+  end
 
   private
   def  product_params
-    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, images_attributes: [:url]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
 
   def delete_imgs

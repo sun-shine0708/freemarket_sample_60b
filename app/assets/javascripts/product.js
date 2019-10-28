@@ -4,6 +4,12 @@ $(function() {
     var html =`<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
+
+ // サイズセレクトボックスのオプションを作成
+  function appendsizes(size){
+    var html =`<option value="${size.id}" data-category="${size.id}">${size.name}</option>`;
+    return html;
+}
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
@@ -27,6 +33,26 @@ $(function() {
                                 </select>
                             </div>`;
     $('.detail-right-cate-top').append(grandchildSelectHtml);
+  }
+
+  // サイズの表示作成
+  function appendSizeBox(insertHTML){
+    var SizeSelectHtml = '';
+    SizeSelectHtml = `<div id= 'size_wrapper'>
+                        <div class='products-new_main-detail-right-status'>
+                          サイズ
+                          <div class='products-new-redbtn'>
+                            必須
+                          </div>
+                        </div>
+                        <div class='detail-right-cate-top'>
+                          <select class="select-default" id="product-size" name="product[size_id]">
+                            <option value="" data-category="---">---</option>
+                            ${insertHTML}
+                          </select>
+                        </div>
+                      </div>`;
+    $('.detail-right-cate-top').append(SizeSelectHtml);
   }
 
   function appendDeliveryWayBox(){
@@ -141,6 +167,43 @@ $(function() {
       $('#brand_wrapper').remove();
     }
   });
+
+  // 孫カテゴリー選択後のイベント(サイズ選択)
+  $('.detail-right-cate-top').on('change', '#grandchild_category', function(){
+    var grandchildId = $('#grandchild_category option:selected').data('category'); //選択された孫カテゴリーのidを取得
+    if (grandchildId != "---"){ //子カテゴリーが初期値でないことを確認
+      $.ajax({
+        url: '/products/get_size',
+        type: 'GET',
+        data: { grandchild_id: grandchildId },
+        dataType: 'json'
+      })
+      .done(function(sizes){
+        if (sizes.length != 0) {
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          sizes.forEach(function(size){
+            insertHTML += appendsizes(size);
+          });
+          appendSizeBox(insertHTML);
+        }
+        else {
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+        }
+
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }else{
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
+  });
+
+
 
   
   $('.delivary-right-burden-box').on('change', function(){
