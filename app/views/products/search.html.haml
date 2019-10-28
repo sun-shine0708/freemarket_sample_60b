@@ -106,10 +106,10 @@
                 販売状況
             .product-search-salefee-grid
               .sale-checkbox-block
-                = f.check_box :seller_id_cont , {},checked_value = "#{@q.seller_id}", unchecked_value = ""
+                = f.check_box :transaction_id_in , {name: 'q[transaction_id_in][]'},checked_value = "1", unchecked_value = false
                 販売中
               .sale-checkbox-block
-                = f.check_box :buyer_id_cont , {},checked_value = "#{@q.buyer_id}", unchecked_value = ""
+                = f.check_box :transaction_id_in , {name: 'q[transaction_id_in][]'},checked_value = "2", unchecked_value = false
                 売り切れ
 
           .product-search-extendbtn
