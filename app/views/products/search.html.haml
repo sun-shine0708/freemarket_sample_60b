@@ -128,7 +128,7 @@
             .product-search-box_grid
               - @namesearchs.each do |namesearch|
                 .product-search-box_product
-                  = link_to "product_path(namesearch)", class: "category-box_product_link" do
+                  = link_to product_path(namesearch.id), class: "category-box_product_link" do
                     .category-box_product-box
                       - if (namesearch.buyer_id.blank?)
                         .category-box_product-box__image
@@ -161,7 +161,7 @@
             .product-search-box_grid
               - @products.each do |product|
                 .product-search-box_product
-                  = link_to product_path(product), class: "category-box_product_link" do
+                  = link_to product_path(product.id), class: "category-box_product_link" do
                     .category-box_product-box
                       - if (product.buyer_id.blank?)
                         .category-box_product-box__image
