@@ -57,27 +57,6 @@
             .detail-right-cate-top
               = f.select :category_id, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}), {}, {class: 'select-default', id: 'parent_category'}
 
-          -# .products-new_main-detail-right-status
-          -#   サイズ
-          -#   .products-new-redbtn
-          -#     必須
-          -# .detail-right-cate-top
-          -#   = f.select :size_id, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}), {}, {class: 'select-default', id: 'parent_category'}
-         
-          -# .products-new_main-detail-right-status
-          -#   ブランド
-          -#   .products-new-graybtn
-          -#     任意
-          -# .detail-right-brand-box
-          -#   =f.text_field :brand_id, class: "input-name-box", placeholder: "例)シャネル", value: ""
-          -#   %div.product-brand-suggest-box
-          -#     %ul#product-brand-suggest
-          -#       %li
-          -#         シャネル
-          -#       %li
-          -#         シャネル
-          -#       %li
-          -#         シャネル
 
           .products-new_main-detail-right-status
             商品状態
