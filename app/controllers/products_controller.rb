@@ -133,13 +133,12 @@ class ProductsController < ApplicationController
 
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
-      @search = Product.ransack(search_params)
-      binding.pry
-      @products = @search.result(distinct: true)
+      @q = Product.includes(:brand).ransack(search_params)
+      @products = @q.result
     else
     # 検索フォーム以外からアクセスした時の処理
       params[:q] = { sorts: 'id desc' }
-      @search = Product.ransack()
+      @q = Product.ransack()
       @products = Product.all
       @namesearchs = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
     end
@@ -169,16 +168,26 @@ class ProductsController < ApplicationController
 
   def search_params
     # status = params[:q][status_eq: []].reject(&:empty?)
+    @parents = Category.all.where(ancestry: nil)
+    if params[:grandchild].present?
+      category_ids = params[:grandchild]
+    elsif params[:child].present?
+      @category = Category.find(params[:child])
+      category_ids = @category.descendant_ids
+    end
+
     params.require(:q).permit(
       :sorts,
       :name_cont,
+      :category_name_not_eq,
+      :brand_name_eq,
       :price_gteq,
       :price_lteq,
-      :costcharge_eq,
+      { status_in: [] },
+      { costcharge_in: [] },
       :seller_id_cont,
-      :buyer_id_cont,
-      status_eq: []
-    )
+      :buyer_id_cont
+    ).merge(category_id_in: category_ids)
   end
 
   def set_parent_category
