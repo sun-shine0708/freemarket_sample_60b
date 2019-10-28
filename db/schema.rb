@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191027055041) do
+ActiveRecord::Schema.define(version: 20191028074232) do
 
   create_table "brand_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -66,23 +66,23 @@ ActiveRecord::Schema.define(version: 20191027055041) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.string   "comment",       null: false
-    t.integer  "price",         null: false
-    t.integer  "status",        null: false
-    t.integer  "costcharge",    null: false
-    t.string   "delivery_way",  null: false
-    t.string   "delivery_area", null: false
-    t.string   "delivery_date", null: false
+    t.string   "name",           null: false
+    t.string   "comment",        null: false
+    t.integer  "price",          null: false
+    t.integer  "status",         null: false
+    t.integer  "costcharge",     null: false
+    t.string   "delivery_way",   null: false
+    t.string   "delivery_area",  null: false
+    t.string   "delivery_date",  null: false
     t.integer  "buyer_id"
-    t.integer  "seller_id",     null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "seller_id",      null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "category_id"
     t.integer  "likes_count"
     t.integer  "size_id"
     t.integer  "brand_id"
-    t.integer  "likes_count"
+    t.integer  "transaction_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree

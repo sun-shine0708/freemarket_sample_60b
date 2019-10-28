@@ -38,7 +38,7 @@ class CreditcardsController < ApplicationController
         customer: card.customer_id,
         currency: 'jpy',
         )
-        @product.update(buyer_id: current_user.id)
+        @product.update(buyer_id: current_user.id,transaction_id: 2)
       else
         redirect_to buy_confirmation_product_path
       end

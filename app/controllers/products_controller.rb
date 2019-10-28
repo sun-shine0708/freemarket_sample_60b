@@ -122,7 +122,8 @@ class ProductsController < ApplicationController
       card: params['payjp-token'],
       currency: 'jpy'
       )
-      @product.update(buyer_id: current_user.id)
+      @product.update(buyer_id: current_user.id, transaction_id: 2)
+      binding.pry
       render template: "creditcards/buy"
     else
       redirect_to action: "buy_confirmation"
@@ -164,7 +165,7 @@ class ProductsController < ApplicationController
 
   private
   def  product_params
-    params.require(:product).permit(:name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, :brand_id, images_attributes: [:url]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:transaction_id, :name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, :brand_id, images_attributes: [:url]).merge(seller_id: current_user.id)
   end
 
   def delete_imgs
@@ -194,8 +195,7 @@ class ProductsController < ApplicationController
       :price_lteq,
       { status_in: [] },
       { costcharge_in: [] },
-      :seller_id_cont,
-      :buyer_id_cont
+      { transaction_id_in: [] }
     ).merge(category_id_in: category_ids)
   end
 
