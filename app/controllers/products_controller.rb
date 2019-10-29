@@ -49,6 +49,8 @@ class ProductsController < ApplicationController
     if @product.buyer_id != nil || @product.seller_id != current_user.id
       redirect_to root_path
     end
+    @profit = (@product.price * 0.9).round
+    @fee = @product.price - @profit
   end
 
   def update
@@ -89,6 +91,7 @@ class ProductsController < ApplicationController
     @category = @product.category
     @child = @category.parent
     @parent = @category.root
+    @brand = @product.brand
   end
 
   def destroy

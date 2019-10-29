@@ -5,16 +5,6 @@
   .product-show-detail
     %h1.product-show-name
       = @product.name
-    -# %p.product-show-wording
-    -#   『（新品）大人気アンダーアーマー パーカー ジャケット』は、264回の取引実績を持つ
-    -#   = link_to "", class: "product-show-link" do
-    -#     = @seller.nickname
-    -#   さんから出品されました。
-    -#   = link_to "", class: "product-show-link" do
-    -#     アンダーアーマー
-    -#   = link_to "", class: "product-show-link" do
-    -#     その他/メンズ
-    -#   の商品で、静岡県から2~3日で発送されます。
 
     .product-show-maincontent
       .product-show-image
@@ -57,27 +47,29 @@
             カテゴリー
           .product-show-td
             .product-show-linkbox
-              = link_to "", class: "product-show-categorylink" do
+              = link_to category_path(@parent), class: "product-show-categorylink" do
                 = @parent.name
             .product-show-linkbox
-              = link_to "", class: "product-show-categorylink" do
+              = link_to category_path(@child), class: "product-show-categorylink" do
                 >
                 = @child.name
             .product-show-linkbox
-              = link_to "", class: "product-show-categorylink" do
+              = link_to category_path(@category), class: "product-show-categorylink" do
                 >
                 = @category.name
-        .product-show-tr
-          .product-show-block1
-            ブランド
-          .product-show-block2
-          -#   = link_to "", class: "product-show-productlink" do
-          -#     アンダーアーマー
-        .product-show-tr
-          .product-show-block1
-            商品サイズ
-          .product-show-block2
-            = @product.size_id
+        - if @brand.present?
+          .product-show-tr
+            .product-show-block1
+              ブランド
+            .product-show-block2
+              = link_to brand_path(@brand), class: "product-show-productlink" do
+                = @brand.name
+        - if @product.size.present?
+          .product-show-tr
+            .product-show-block1
+              商品サイズ
+            .product-show-block2
+              = @product.size.name
         .product-show-tr
           .product-show-block1
             商品の状態
@@ -135,39 +127,7 @@
     .product-show-description
       %p.product-show-inner
         = @product.comment
-        -# ※即購入OKです。
-        -# ※購入手続きをされた方を優先とさせていただきます。
-        -# 【メーカー】
-        -# UNDER ARMOUR
-        -# %br
-        -# 【商品】
-        -# ★アンダーアーマー 新品 メンズ オールシーズンギア 抗菌防臭 パーカー ジャケット ★
-        -# %br
-        -# 通年での着用を目的としたオールシーズンギアは、ジャージやスウェットなどの肌寒い程度の体温調整に適したウエアです。
-        -# トップス1枚では寒いけど、寒さ対策の防寒ウエアにはまだまだ…そんな季節の変わりめに大活躍します。
-        -# %br
-        -# 素材：ポリエステル
-        -# %br
-        -# 【この商品のサイズはメンズ Ｌ サイズ】
-        -# サイズは以下のUNDER ARMOURサイズをご参照ください。
-        -# MD（M）身長167～173cm、胸囲89～95cm、ウエスト75～81cm
-        -# LG（L）身長172～178cm、胸囲93～99cm、ウエスト79～85cm
-        -# XL 身長177～183cm、胸囲97～103cm、ウエスト83～89cm
-        -# %br
-        -# 【状態】
-        -# 新品
-        -# %br
-        -# 【定価】
-        -# 7700円
-        -# %br
-        -# 送料無料
-        -# 発送は極力小さく簡易包装になります。
-        -# %br
-        -# 他サイトでも出品してますので売り切れの際はご了承ください
-        -# %br
-        -# 他にも多数出品中です。
-        -# プロフィールよりご覧ください。
-        -# 続々出品しておりますのでフォローよろしくお願いします。
+       
 
     .product-show-itembutton
       .product-show-itembutton-left
@@ -208,111 +168,62 @@
         = link_to "", class: "product-show-text-link" do
           = @seller.nickname + "さんのその他の出品"
       .product-show-items-list
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-          .product-show-items-list
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-
-  .product-show-boxposition2
-    .product-show-items-box
-      .product-show-items-name
-        = link_to "", class: "product-show-text-link" do
-          %h2 アンダーアーマーその他の商品
-      .product-show-items-list
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-          .product-show-items-list
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
-        .product-show-item-box
-          .product-show-item-box-photo
-            = image_tag 'COACH-photo.jpg', size: "220x220"
-          .product-show-item-box-body
-            .product-show-item-box-body-name
-              %h3 COACH コーチ ショルダーバッグ
-            .product-show-item-box-body-price
-              ¥15,000
+        - @seller.seller_products.each.with_index(1) do |product, i|
+          - if (i <= 6)
+            .product-show-item-box
+              - if (product.buyer_id.blank?)
+                = link_to product_path(product), class: "show_product_link" do
+                  .product-show-item-box-photo
+                    = image_tag "#{product.images.last.url}", size: "220x220"
+                  .product-show-item-box-body
+                    .product-show-item-box-body-name
+                      = product.name
+                    .product-show-item-box-body-price
+                      = '¥' + "#{product.price}"
+              - else
+                = link_to product_path(product), class: "show_product_link" do
+                  .product-show-item-box-photo
+                    .product_sold-out_badge
+                    .product_sold-out_badge-text
+                      SOLD
+                    = image_tag "#{product.images.last.url}", size: "220x220"
+                  .product-show-item-box-body
+                    .product-show-item-box-body-name
+                      = product.name
+                    .product-show-item-box-body-price
+                      = '¥' + "#{product.price}"
+  - if @brand.present?
+    .product-show-boxposition2
+      .product-show-items-box
+        .product-show-items-name
+          = link_to brand_path(@brand), class: "product-show-text-link" do
+            = @brand.name + "のその他の商品"
+        .product-show-items-list
+          - @brand.products.each.with_index(1) do |product, i|
+            - if (i <= 6)
+              .product-show-item-box
+                - if (product.buyer_id.blank?)
+                  = link_to product_path(product), class: "show_product_link" do
+                    .product-show-item-box-photo
+                      = image_tag "#{product.images.last.url}", size: "220x220"
+                    .product-show-item-box-body
+                      .product-show-item-box-body-name
+                        = product.name
+                      .product-show-item-box-body-price
+                        = '¥' + "#{product.price}"
+                - else
+                  = link_to product_path(product), class: "show_product_link" do
+                    .product-show-item-box-photo
+                      .product_sold-out_badge
+                      .product_sold-out_badge-text
+                        SOLD
+                      = image_tag "#{product.images.last.url}", size: "220x220"
+                    .product-show-item-box-body
+                      .product-show-item-box-body-name
+                        = product.name
+                      .product-show-item-box-body-price
+                        = '¥' + "#{product.price}"
+            
 
   .app-banner
     = render "layouts/banner"

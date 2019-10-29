@@ -148,13 +148,13 @@
           .main-price-right-fee
             販売手数料(10%)
             .right_bar
-              ー
+              = "¥" + "#{@fee}"
           .main-price-right-profit
             #price
             -# = f.number_field :price, style: "display: none", id: "price"
             販売利益
             .right_bar_2
-              ー
+              = "¥" + "#{@profit}"
 
       .products-new_mainbtn
         .products-new_mainbtn-text
