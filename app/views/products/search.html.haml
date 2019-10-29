@@ -47,12 +47,13 @@
                 サイズを指定する
           .product-search-sizebox
             -# = f.select :name_eq, ['すべて', '洋服のサイズ', 'メンズ靴のサイズ','レディース靴のサイズ','スカートのサイズ','キッズ服のサイズ','ベビー・キッズ靴のサイズ','ベビー服のサイズ','テレビのサイズ','カメラレンズのサイズ','オートバイのサイズ','ヘルメットのサイズ','タイヤのサイズ','スキーのサイズ','スノーボードのサイズ'],{},class: 'product-search-size-default'
-            %select.product-search-size-default
+            %select#product-search-size-default
               %option{value:""}
                 すべて
               - @searchsizes.each do |searchsize|
                 %option{value:searchsize.id}
                   = searchsize.name
+            .product-search-size-grid
 
           .product-search-price-formgroup
             .product-search-pricetext
