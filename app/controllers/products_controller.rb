@@ -169,6 +169,10 @@ class ProductsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def get_searchsize
+    @searchsizes = Searchsize.find("#{params[:searchsize_id]}").sizes
+  end
+
   private
   def  product_params
     params.require(:product).permit(:transaction_id, :name, :comment, :price, :status, :costcharge, :delivery_way, :delivery_area, :delivery_date, :category_id, :size_id, :brand_id, images_attributes: [:url]).merge(seller_id: current_user.id)
@@ -201,6 +205,7 @@ class ProductsController < ApplicationController
       :price_lteq,
       { status_in: [] },
       { costcharge_in: [] },
+      { size_id_in: [] },
       { transaction_id_in: [] }
     ).merge(category_id_in: category_ids)
   end
