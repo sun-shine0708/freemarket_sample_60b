@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191028074232) do
+ActiveRecord::Schema.define(version: 20191028111615) do
 
   create_table "brand_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -90,6 +90,21 @@ ActiveRecord::Schema.define(version: 20191028074232) do
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
   end
 
+  create_table "searchsize_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "size_id"
+    t.integer  "searchsize_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["searchsize_id"], name: "index_searchsize_sizes_on_searchsize_id", using: :btree
+    t.index ["size_id"], name: "index_searchsize_sizes_on_size_id", using: :btree
+  end
+
+  create_table "searchsizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "set_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id",          null: false
     t.integer  "brand_category_id", null: false
@@ -162,6 +177,8 @@ ActiveRecord::Schema.define(version: 20191028074232) do
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
+  add_foreign_key "searchsize_sizes", "searchsizes"
+  add_foreign_key "searchsize_sizes", "sizes"
   add_foreign_key "set_brands", "brand_categories"
   add_foreign_key "set_brands", "brands"
   add_foreign_key "size_categories", "sizes"

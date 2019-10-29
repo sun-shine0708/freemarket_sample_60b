@@ -26,13 +26,16 @@ $(function() {
     $('.product-search-category-grid').append(grandchildSelectHtml);
   }
 
-  // <input type="checkbox" name="riyu" value="1" checked="checked">面白い
-  // var html = `<div class="search-box__body__form__category__gchild__checkbox">
-  //                                     <input id="category_id_in_${child.id}" name="gchild[]" type="checkbox" value="${child.id}">
-  //                                     <label for="category_id_in_${child.id}">
-  //                                     ${child.name}
-  //                                   </label>
-  //                                   </div>`
+  // 商品サイズの表示作成
+  function appendSearchsizeBox(searchsize){
+    console.log(searchsize)
+    var searchsizeCheckboxHtml = '';
+    searchsizeCheckboxHtml = `<div id= 'searchsize_wrapper'>
+                                <input type="checkbox" name="q[size_id_in][]" value="${searchsize.id}" id = "q[size_id_in]">
+                                ${searchsize.name}
+                            </div>`;
+    $('.product-search-size-grid').append(searchsizeCheckboxHtml);
+  }
 
 
   // 親カテゴリー選択後のイベント
@@ -91,6 +94,34 @@ $(function() {
       })
     }else{
       $('.category-checkbox-block').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+    }
+  });
+
+  $('#product-search-size-default').on('change',function() {
+    var sizechoose = document.getElementById('product-search-size-default').value;
+    if (sizechoose != ""){
+      $.ajax({
+        url: '/products/get_searchsize',
+        type: 'GET',
+        data: { searchsize_id: sizechoose },
+        dataType: 'json'
+      })
+      .done(function(searchsizes){
+        if (searchsizes.length != 0) {
+          $('#searchsize_wrapper').remove();
+          searchsizes.forEach(function(searchsize){
+            appendSearchsizeBox(searchsize);
+          });
+        }
+        else {
+          $('#searchsize_wrapper').remove();
+        }
+      })
+      .fail(function(){
+        alert('サイズの取得に失敗しました');
+      })
+    }else {
+      $('#searchsize_wrapper').remove();
     }
   });
 });

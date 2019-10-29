@@ -137,10 +137,11 @@ class ProductsController < ApplicationController
 
   def search
     # @search = Product.includes(:category).where(category_id: Category.find(params:id).subtree)
+    @searchsizes = Searchsize.all
 
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
-      @q = Product.includes(:brand).ransack(search_params)
+      @q = Product.includes(:brand,:size).ransack(search_params)
       @products = @q.result
     else
     # 検索フォーム以外からアクセスした時の処理
@@ -166,6 +167,10 @@ class ProductsController < ApplicationController
 
   def get_brand
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
+  def get_searchsize
+    @searchsizes = Searchsize.find("#{params[:searchsize_id]}").sizes
   end
 
   private
@@ -200,6 +205,7 @@ class ProductsController < ApplicationController
       :price_lteq,
       { status_in: [] },
       { costcharge_in: [] },
+      { size_id_in: [] },
       { transaction_id_in: [] }
     ).merge(category_id_in: category_ids)
   end

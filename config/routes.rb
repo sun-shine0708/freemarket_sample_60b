@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'get_brand', defaults: { format: 'json' }
+      get 'get_searchsize', defaults: { format: 'json' }
       get 'search'
       match 'search' => 'products#search', via: [:get, :post]
     end
