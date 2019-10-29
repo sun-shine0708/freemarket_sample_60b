@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_child_category, only: [ :edit, :update]
   before_action :set_grandchild_category, only: [ :edit, :update]
   before_action :set_sizes, only: [ :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   require "payjp"
 
   def index
@@ -28,8 +29,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save!
-    if (params[:images] !=nil)
+    if (params[:images] != nil)
       if @product.save
         params[:images]['url'].each do |image|
         @product.images.create(url: image, product_id: @product.id)
