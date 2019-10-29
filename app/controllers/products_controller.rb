@@ -28,7 +28,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save!
     if (params[:images] !=nil)
       if @product.save
         params[:images]['url'].each do |image|
