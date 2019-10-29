@@ -47,6 +47,12 @@
                 サイズを指定する
           .product-search-sizebox
             -# = f.select :name_eq, ['すべて', '洋服のサイズ', 'メンズ靴のサイズ','レディース靴のサイズ','スカートのサイズ','キッズ服のサイズ','ベビー・キッズ靴のサイズ','ベビー服のサイズ','テレビのサイズ','カメラレンズのサイズ','オートバイのサイズ','ヘルメットのサイズ','タイヤのサイズ','スキーのサイズ','スノーボードのサイズ'],{},class: 'product-search-size-default'
+            %select.product-search-size-default
+              %option{value:""}
+                すべて
+              - @searchsizes.each do |searchsize|
+                %option{value:searchsize.id}
+                  = searchsize.name
 
           .product-search-price-formgroup
             .product-search-pricetext
@@ -66,7 +72,6 @@
                 商品の状態
             .product-search-status-grid
               .status-checkbox-block
-                -# = f.check_box :status_eq, {Product.statuses.values, name: 'q[status_eq][]'}, checked_value = "true", unchecked_value = ""
                 = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 1, unchecked_value = false
                 新品、未使用
               .status-checkbox-block
