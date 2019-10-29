@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
       redirect_to edit_product_path
     end
   end
-  
+
   def show
     @product = Product.find(params[:id])
     @seller = @product.seller
@@ -116,7 +116,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-        
+
   def onetimebuy
     @product = Product.find(params[:id])
     @streetaddress = Streetaddress.find_by(user_id: current_user.id)
@@ -200,7 +200,7 @@ class ProductsController < ApplicationController
       :sorts,
       :name_cont,
       :category_name_not_eq,
-      :brand_name_eq,
+      :brand_name_cont,
       :price_gteq,
       :price_lteq,
       { status_in: [] },

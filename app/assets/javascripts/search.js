@@ -28,12 +28,11 @@ $(function() {
 
   // 商品サイズの表示作成
   function appendSearchsizeBox(searchsize){
-    console.log(searchsize)
     var searchsizeCheckboxHtml = '';
-    searchsizeCheckboxHtml = `<div id= 'searchsize_wrapper'>
+    searchsizeCheckboxHtml = `<div class= 'searchsize_wrapper'>
                                 <input type="checkbox" name="q[size_id_in][]" value="${searchsize.id}" id = "q[size_id_in]">
                                 ${searchsize.name}
-                            </div>`;
+                              </div>`;
     $('.product-search-size-grid').append(searchsizeCheckboxHtml);
   }
 
@@ -41,7 +40,6 @@ $(function() {
   // 親カテゴリー選択後のイベント
   $('#parent_category_search').on('change', function(){
     var parentCategory = document.getElementById('parent_category_search').value; //選択された親カテゴリーの名前を取得
-    console.log()
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
         url: 'get_category_children',
@@ -97,6 +95,7 @@ $(function() {
     }
   });
 
+  // 商品サイズのイベント
   $('#product-search-size-default').on('change',function() {
     var sizechoose = document.getElementById('product-search-size-default').value;
     if (sizechoose != ""){
@@ -108,20 +107,20 @@ $(function() {
       })
       .done(function(searchsizes){
         if (searchsizes.length != 0) {
-          $('#searchsize_wrapper').remove();
+          $('.searchsize_wrapper').remove();
           searchsizes.forEach(function(searchsize){
             appendSearchsizeBox(searchsize);
           });
         }
         else {
-          $('#searchsize_wrapper').remove();
+          $('.searchsize_wrapper').remove();
         }
       })
       .fail(function(){
         alert('サイズの取得に失敗しました');
       })
     }else {
-      $('#searchsize_wrapper').remove();
+      $('.searchsize_wrapper').remove();
     }
   });
 });
