@@ -11616,3 +11616,126 @@ for brand in 9464..9593 do
   end
 end
 
+Searchsize.create(name: "洋服のサイズ")
+Searchsize.create(name: "メンズ靴のサイズ")
+Searchsize.create(name: "レディース靴のサイズ")
+Searchsize.create(name: "スカートのサイズ")
+Searchsize.create(name: "キッズ服のサイズ")
+Searchsize.create(name: "ベビー・キッズ靴のサイズ")
+Searchsize.create(name: "ベビー服のサイズ")
+Searchsize.create(name: "タイヤのサイズ")
+Searchsize.create(name: "オートバイのサイズ")
+Searchsize.create(name: "ヘルメットのサイズ")
+Searchsize.create(name: "テレビのサイズ")
+Searchsize.create(name: "スノーボードのサイズ")
+Searchsize.create(name: "スキーのサイズ")
+Searchsize.create(name: "カメラレンズのサイズ")
+
+
+for searchsize in [1] do
+  for size in 1..10 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [2] do
+  for size in [13] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in 27..40 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in [43] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [3] do
+  for size in [12] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in 20..33 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in [42] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [4] do
+  for size in 44..48 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [5] do
+  for size in 49..55 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [6] do
+  for size in [11] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in 14..19 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+
+  for size in [41] do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [7] do
+  for size in 44..48 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [8] do
+  for size in 83..95 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [9] do
+  for size in 96..101 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [10] do
+  for size in 102..109 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [11] do
+  for size in 110..120 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [12] do
+  for size in 69..75 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [13] do
+  for size in 76..82 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end
+
+for searchsize in [14] do
+  for size in 56..68 do
+    SearchsizeSize.create({searchsize_id:searchsize,size_id:size})
+  end
+end

@@ -134,10 +134,11 @@ class ProductsController < ApplicationController
 
   def search
     # @search = Product.includes(:category).where(category_id: Category.find(params:id).subtree)
+    @searchsizes = Searchsize.all
 
     if params[:q].present?
     # 検索フォームからアクセスした時の処理
-      @q = Product.includes(:brand).ransack(search_params)
+      @q = Product.includes(:brand,:size).ransack(search_params)
       @products = @q.result
     else
     # 検索フォーム以外からアクセスした時の処理
