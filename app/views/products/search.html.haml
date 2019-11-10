@@ -27,11 +27,6 @@
             = f.select :category_name_not_eq, options_for_select(@category_parent_array.map{|parent| [parent[:name], parent[:id]]}), {}, {class: 'product-search-select-default', id: 'parent_category_search'}
             .product-search-category-child
             .product-search-category-grid
-            -# %select{class: 'product-search-select-default', id: 'parent_category_search'}
-            -#   %option ---
-            -#   -@parents.each do |p|
-            -#     %option{value:"#{p.id}"}
-            -#       =p.name
           .product-search-brand-formgroup
             .product-search-blandtext
               = fa_icon 'tags',class: 'product-search-blandicon'
@@ -46,7 +41,6 @@
               .product-search-sizekeyword
                 サイズを指定する
           .product-search-sizebox
-            -# = f.select :name_eq, ['すべて', '洋服のサイズ', 'メンズ靴のサイズ','レディース靴のサイズ','スカートのサイズ','キッズ服のサイズ','ベビー・キッズ靴のサイズ','ベビー服のサイズ','テレビのサイズ','カメラレンズのサイズ','オートバイのサイズ','ヘルメットのサイズ','タイヤのサイズ','スキーのサイズ','スノーボードのサイズ'],{},class: 'product-search-size-default'
             %select#product-search-size-default
               %option{value:""}
                 すべて
@@ -91,7 +85,6 @@
                 = f.check_box :status_in ,{name: 'q[status_in][]'},checked_value = 6, unchecked_value = false
                 全体的に状態が悪い
 
-                -# = f.hidden_field :status_eq
           .product-search-deliveryfeegroup
             .product-search-deliveryfeetext
               = fa_icon 'truck',class: 'product-search-deliveryfeeicon'
@@ -197,6 +190,3 @@
     = render "layouts/footer"
   .display-btn
     = render "layouts/display_btn"
-
--# - if params[:controller] == 'products' && params[:q]
--# - elsif params[:controller] == 'products' && params[:keyword]

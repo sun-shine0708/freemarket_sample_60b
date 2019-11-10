@@ -136,7 +136,6 @@ class ProductsController < ApplicationController
   end
 
   def search
-    # @search = Product.includes(:category).where(category_id: Category.find(params:id).subtree)
     @searchsizes = Searchsize.all
 
     if params[:q].present?
@@ -187,8 +186,6 @@ class ProductsController < ApplicationController
   end
 
   def search_params
-    # status = params[:q][status_eq: []].reject(&:empty?)
-    @parents = Category.all.where(ancestry: nil)
     if params[:grandchild].present?
       category_ids = params[:grandchild]
     elsif params[:child].present?

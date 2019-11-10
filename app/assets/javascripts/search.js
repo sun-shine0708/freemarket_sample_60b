@@ -79,10 +79,8 @@ $(function() {
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('.category-checkbox-block').remove(); //子が変更された時、孫以下を削除するする
-          // var insertHTML = '';
+          $('.category-checkbox-block').remove(); //子が変更された時、孫以下を削除する
           grandchildren.forEach(function(grandchild){
-            // insertHTML += appendOption(grandchild);
             appendGrandchidrenBox(grandchild);
           });
         }
