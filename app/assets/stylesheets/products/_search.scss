@@ -405,6 +405,22 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,.18);
   width: 160px;
-  // height: 218px;
   align-items: center;
+}
+
+.category-box_product-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__titlename{
+    height: 40px;
+    width: 100%;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.4em;
+    display: flex;
+    align-items: center;
+    width: 160px;
+  }
 }

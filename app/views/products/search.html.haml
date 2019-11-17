@@ -134,7 +134,7 @@
                           = image_tag "#{namesearch.images[0].url}", size: "160x160", class: "product-box-img"
                           .category-box_product-box__price
                             = "¥" + "#{namesearch.price}"
-                        .category-box_product-box__title
+                        .category-box_product-box__titlename
                           .category-box_product-box__title--name
                             = namesearch.name
                       - else
@@ -167,7 +167,7 @@
                           = image_tag "#{product.images[0].url}", size: "160x160", class: "product-box-img"
                           .category-box_product-box__price
                             = "¥" + "#{product.price}"
-                        .category-box_product-box__title
+                        .category-box_product-box__titlename
                           .category-box_product-box__title--name
                             = product.name
                       - else
