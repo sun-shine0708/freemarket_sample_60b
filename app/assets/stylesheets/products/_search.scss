@@ -422,5 +422,20 @@
     display: flex;
     align-items: center;
     width: 160px;
+    &--name{
+      height: 2.8em;
+      overflow: hidden;
+      position: relative;
+      word-wrap: break-word;
+    }
+    &--name:after{
+      background: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 72%);
+      bottom: 0;
+      content: "";
+      height: 50%;
+      position: absolute;
+      right: 0;
+      width: 50%;
+    }
   }
 }
