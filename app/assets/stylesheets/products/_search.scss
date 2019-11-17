@@ -407,3 +407,35 @@
   width: 160px;
   align-items: center;
 }
+
+.category-box_product-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__titlename{
+    height: 40px;
+    width: 100%;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.4em;
+    display: flex;
+    align-items: center;
+    width: 160px;
+    &--name{
+      height: 2.8em;
+      overflow: hidden;
+      position: relative;
+      word-wrap: break-word;
+    }
+    &--name:after{
+      background: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 72%);
+      bottom: 0;
+      content: "";
+      height: 50%;
+      position: absolute;
+      right: 0;
+      width: 50%;
+    }
+  }
+}
